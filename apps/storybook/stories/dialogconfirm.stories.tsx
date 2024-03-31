@@ -37,7 +37,7 @@ export default meta
 type Story = StoryObj<typeof DialogConfirm>
 
 export const Pending = {
-  storyName: 'Pending',
+  name: 'Pending',
   args: {},
   render: () => {
     return (
@@ -91,7 +91,7 @@ export const Pending = {
 } satisfies Story
 
 export const Success = {
-  storyName: 'Success',
+  name: 'Success',
   args: { chainId: 1, status: 'success' },
   render: () => {
     return (
@@ -146,7 +146,7 @@ export const Success = {
 
 // biome-ignore lint/suspicious/noShadowRestrictedNames: This is a storybook
 export const Error = {
-  storyName: 'Error',
+  name: 'Error',
   args: { chainId: 1, status: 'error' },
   render: () => {
     return (

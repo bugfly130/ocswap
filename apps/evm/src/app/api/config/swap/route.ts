@@ -11,6 +11,6 @@ const schema = z.object({
 export const revalidate = 60
 
 export async function GET() {
-  const data = await get('swap')
+  const data = { maintenance: true } //await get('swap')
   return NextResponse.json(schema.safeParse(data))
 }

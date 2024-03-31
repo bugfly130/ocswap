@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "storybook build --docs",
+    "build": "storybook build --help",
     "build-storybook": "storybook build --docs",
     "chromatic": "chromatic --exit-zero-on-changes",
     "clean": "rm -rf .turbo && rm -rf node_modules",
