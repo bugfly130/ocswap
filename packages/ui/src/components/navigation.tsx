@@ -125,12 +125,11 @@ const PARTNER_NAVIGATION_LINKS: {
 ]
 
 const navigationContainerVariants = cva(
-  'px-4 sticky flex items-center flex-grow gap-4 top-0 z-50 min-h-[56px] max-h-[56px] h-[56px]',
+  'px-4 sticky flex items-center flex-grow gap-4 top-0 z-50 min-h-[96px] max-h-[96px] h-[96px]',
   {
     variants: {
       variant: {
-        default:
-          'bg-gray-100 dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800',
+        default: 'border-b border-gray-200 dark:border-slate-800',
         transparent: '',
       },
     },
@@ -151,10 +150,11 @@ const NavigationContainer: React.FC<NavContainerProps> = ({
 }) => {
   return (
     <div className={navigationContainerVariants({ variant })}>
-      <SushiIcon width={24} height={24} />
-      <div className="flex items-center justify-between flex-grow gap-4">
-        {children}
-      </div>
+      <SushiIcon width={38} height={38} />
+      <h3 className="text-2xl font-semibold tracking-tight text-white">
+        OCSWAP
+      </h3>
+      <div className="flex w-full">{children}</div>
     </div>
   )
 }
@@ -228,7 +228,7 @@ const Navigation: React.FC<NavProps> = ({
               </NavigationMenuLink>
             )}
           </NavigationMenuItem>
-          <NavigationMenuItem className="hidden lg:block">
+          {/* <NavigationMenuItem className="hidden lg:block">
             {legacyBehavior ? (
               <NavigationMenuLink
                 asChild
@@ -319,7 +319,7 @@ const Navigation: React.FC<NavProps> = ({
                 Buy Crypto
               </NavigationMenuLink>
             </OnramperButton>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
         </NavigationMenuList>
       </NavigationMenu>
       <div className="flex items-center gap-2">

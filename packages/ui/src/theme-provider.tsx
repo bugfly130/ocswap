@@ -4,7 +4,7 @@ import { ThemeProvider as NextThemeProvider } from 'next-themes'
 import { FC, ReactNode } from 'react'
 
 import { OnramperProvider } from './components/onramper'
-import { ToastContainer } from './components/toast'
+// import { ToastContainer } from './components/toast'
 
 interface ThemeProviderProps {
   children: ReactNode | ReactNode[]
@@ -22,8 +22,8 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
       forcedTheme={forcedTheme}
     >
       <OnramperProvider>
-        <ToastContainer />
-        <div id="network-check-portal" />
+        {/* <ToastContainer /> */}
+        {/* <div id="network-check-portal" /> */}
         {children}
         <div id="popover-portal" />
         <div id="footer-portal" />

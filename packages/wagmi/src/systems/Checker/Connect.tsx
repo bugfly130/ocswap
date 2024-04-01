@@ -18,7 +18,17 @@ const Connect: FC<ButtonProps> = ({
 
   if (isConnecting || isReconnecting) {
     return (
-      <Button fullWidth={fullWidth} size={size} disabled {...props}>
+      <Button
+        style={{
+          padding: '12px 16px',
+          background:
+            'linear-gradient(94.04deg, #1991F5 2.32%, #19A6B8 105.98%)',
+        }}
+        fullWidth={fullWidth}
+        size={size}
+        disabled
+        {...props}
+      >
         <Dots>Checking Wallet</Dots>
       </Button>
     )
@@ -26,7 +36,16 @@ const Connect: FC<ButtonProps> = ({
 
   if (isDisconnected)
     return (
-      <ConnectButton fullWidth={fullWidth} size={size} {...props}>
+      <ConnectButton
+        style={{
+          padding: '12px 16px',
+          background:
+            'linear-gradient(94.04deg, #1991F5 2.32%, #19A6B8 105.98%)',
+        }}
+        fullWidth={fullWidth}
+        size={size}
+        {...props}
+      >
         Connect Wallet
       </ConnectButton>
     )
