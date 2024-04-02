@@ -209,7 +209,7 @@ export function DataTable<TData, TValue>({
               <TableCell
                 testdata-id="table-no-results"
                 colSpan={columns.length}
-                className="h-24 text-center"
+                className="h-24 text-center text-gray-400"
               >
                 No results.
               </TableCell>

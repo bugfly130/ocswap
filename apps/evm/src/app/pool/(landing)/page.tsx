@@ -12,15 +12,20 @@ import { TableFiltersSearchToken } from '../../../ui/pool/TableFiltersSearchToke
 export default async function PoolPage() {
   return (
     <Container maxWidth="7xl" className="px-4">
-      <div className="flex flex-wrap gap-3 mb-4">
-        <TableFiltersSearchToken />
+      <div className="flex flex-col">
+        <div className="flex flex-wrap gap-3 mb-4">
+          <TableFiltersSearchToken />
+          <TableFiltersPoolType />
+          <TableFiltersNetwork />
+        </div>
 
-        <TableFiltersPoolType />
-        <TableFiltersNetwork />
-        <TableFiltersFarmsOnly />
-        <TableFiltersSmartPoolsOnly />
-        <TableFiltersResetButton />
+        <div className="flex flex-wrap gap-3 mb-4">
+          <TableFiltersFarmsOnly />
+          <TableFiltersSmartPoolsOnly />
+          <TableFiltersResetButton />
+        </div>
       </div>
+
       <PoolsTable />
     </Container>
   )

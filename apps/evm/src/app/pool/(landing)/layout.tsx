@@ -16,7 +16,6 @@ export default function TabsLayout({
       <Container maxWidth="7xl" className="pt-4">
         <Hero />
       </Container>
-
       <Container
         maxWidth="7xl"
         className="gap-4 p-4 rounded-xl"
@@ -100,7 +99,7 @@ export default function TabsLayout({
           </div>
         </section>
 
-        <div className="h-full pt-4 pb-20 border-t border-accent">
+        <div className="pb-20 border-t border-accent">
           <PoolsFiltersProvider>{children}</PoolsFiltersProvider>
         </div>
       </Container>

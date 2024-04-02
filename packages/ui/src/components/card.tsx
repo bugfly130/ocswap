@@ -10,7 +10,7 @@ import { SkeletonText } from './skeleton'
 const cardVariants = cva('relative rounded-xl border border-accent', {
   variants: {
     variant: {
-      default: 'shadow-sm bg-white dark:bg-background',
+      default: 'shadow-sm bg-transparent dark:bg-background',
       outline: '',
     },
   },
@@ -207,7 +207,7 @@ const CardCurrencyAmountItem = React.forwardRef<
     return (
       <CardItem
         title={
-          <div className="font-medium flex items-center gap-2 text-muted-foreground">
+          <div className="flex items-center gap-2 font-medium text-muted-foreground">
             <Currency.Icon currency={currency} width={18} height={18} />{' '}
             {currency.symbol}
           </div>

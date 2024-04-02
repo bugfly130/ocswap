@@ -6,7 +6,7 @@ import { Inter, Roboto_Mono } from 'next/font/google'
 import React from 'react'
 
 import { Providers } from './providers'
-import { Trackers } from './trackers'
+// import { Trackers } from './trackers'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -59,9 +59,9 @@ export default function RootLayout({
       <link rel="manifest" href="/site.webmanifest?v=1" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg?v=1" color="#fa52a0" />
       <link rel="shortcut icon" href="/favicon.ico?v=1" />
-      <body className="h-screen" suppressHydrationWarning={true}>
-        <div className="flex flex-col h-screen">
-          <div className="flex flex-row bg-black backdrop-filter backdrop-blur-[100px] h-[302px] w-full">
+      <body suppressHydrationWarning={true}>
+        <div className="flex flex-col h-screen bg-black">
+          <div className="absolute top-0 flex flex-row backdrop-filter backdrop-blur-[100px] h-[302px] w-full">
             <div
               className="flex-1 transform scale-75 rotate-45 opacity-50 mix-blend-lighten"
               style={{
@@ -77,9 +77,6 @@ export default function RootLayout({
               }}
             />
           </div>
-          <div className="h-full bg-black" />
-        </div>
-        <div className="absolute top-0 flex flex-col w-full h-full">
           <Providers>
             <SanctionedAddressDialog />
             {children}

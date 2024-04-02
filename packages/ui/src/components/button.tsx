@@ -12,15 +12,16 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-blue hover:bg-blue-600 focus:bg-blue-700 active:bg-blue-600 text-white',
+          'bg-[#1991F5] hover:bg-blue-500 focus:bg-blue-500 active:bg-blue-500 text-white',
         destructive:
           'bg-red hover:bg-red-600 focus:bg-red-700 active:bg-red-600 text-white',
         warning:
           'bg-amber-400 hover:bg-amber-500 focus:bg-amber-600 active:bg-amber-500 text-amber-900',
         outline:
-          '!border border-accent bg-transparent hover:bg-muted hover:text-blue-500',
+          '!border border-[#1991F5] text-[#1991F5] bg-transparent hover:bg-muted hover:text-blue-500',
         secondary:
-          'bg-gradient-to-br from-blue-500 to-teal-500 hover:bg-muted focus:bg-accent',
+          'bg-[#1991F5] hover:bg-blue-500 focus:bg-blue-500 active:bg-blue-500 text-white',
+        // 'bg-gradient-to-br from-blue-500 to-teal-500 hover:bg-muted focus:bg-accent text-white',
         // ghost: 'hover:bg-secondary focus:bg-accent',
         ghost: 'text-gray-400 hover:text-white focus:text-white',
         link: 'text-blue hover:underline hover:text-blue-700 font-semibold !p-0 !h-[unset] !min-h-[unset]',

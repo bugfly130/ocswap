@@ -23,7 +23,7 @@ const percentInputProps: Partial<React.InputHTMLAttributes<HTMLInputElement>> =
   }
 
 const textFieldVariants = cva(
-  'truncate appearance-none dark:text-slate-50 text-gray-900 w-full !ring-0 !outline-none',
+  'truncate appearance-none text-slate-400 w-full !ring-0 !outline-none',
   {
     variants: {
       size: {
@@ -35,7 +35,7 @@ const textFieldVariants = cva(
           'border-0 flex items-center px-3 rounded-lg font-medium block bg-secondary group-hover:bg-muted group-focus:bg-accent',
         naked: 'border-0 bg-transparent',
         outline:
-          'bg-secondary flex items-center px-3 rounded-lg font-medium block border border-accent group-hover:border-black/20 group-focus:border-black/30 hover:border-black/30 focus-within:border-black/30 dark:group-hover:border-white/20 dark:group-focus:border-white/30 dark:hover:border-white/30 dark:focus-within:border-white/30',
+          'bg-gray-600 flex items-center px-3 rounded-lg font-medium block border border-accent group-hover:border-black/20 group-focus:border-black/30 hover:border-black/30 focus-within:border-black/30',
       },
       isError: {
         yes: 'bg-red/10 text-red',
@@ -142,7 +142,7 @@ const Component = <T extends InputType>(
   }
 
   return (
-    <div className="group relative flex items-center justify-between w-full">
+    <div className="relative flex items-center justify-between w-full group">
       {Icon ? (
         <Icon
           {...iconProps}

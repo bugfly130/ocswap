@@ -82,8 +82,8 @@ export const ConnectButton: FC<ButtonProps> = ({
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button {...props}>
-          <span className="hidden sm:block">Connect Wallet</span>
-          <span className="block sm:hidden">Connect</span>
+          <span className="hidden text-white sm:block">Connect Wallet</span>
+          <span className="block text-white sm:hidden">Connect</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
@@ -107,11 +107,11 @@ export const ConnectButton: FC<ButtonProps> = ({
           })}
         </DropdownMenuGroup>
         <DropdownMenuGroup>
-          <div className="text-xs dark:text-neutral-400 text-neutral-800 px-2 py-1 text-justify">
+          <div className="px-2 py-1 text-xs text-justify dark:text-neutral-400 text-neutral-800">
             <span>{`Connecting a wallet means you accept Sushi Labs' `}</span>
             <Link
               href="/terms-of-service"
-              className="hover:text-neutral-500 font-semibold"
+              className="font-semibold hover:text-neutral-500"
               target="_blank"
             >
               Terms
@@ -119,7 +119,7 @@ export const ConnectButton: FC<ButtonProps> = ({
             <span>{` and `}</span>
             <Link
               href="/privacy-policy"
-              className="hover:text-neutral-500 font-semibold"
+              className="font-semibold hover:text-neutral-500"
               target="_blank"
             >
               Privacy Policy

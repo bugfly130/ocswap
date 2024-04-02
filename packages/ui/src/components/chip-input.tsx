@@ -20,7 +20,7 @@ export type ChipInputRootProps = React.InputHTMLAttributes<HTMLDivElement>
 
 const ChipInputRoot = React.forwardRef<HTMLDivElement, ChipInputRootProps>(
   ({ ...props }, ref) => {
-    return <div ref={ref} className="flex gap-2 items-center" {...props} />
+    return <div ref={ref} className="flex items-center gap-2" {...props} />
   },
 )
 ChipInputRoot.displayName = 'ChipInputRoot'
@@ -156,7 +156,7 @@ const ChipInput: FC<ChipInputProps> = ({
           onKeyUp={onKeyUp}
           className={classNames(
             className,
-            'flex flex-grow bg-transparent truncate !outline-none !ring-0',
+            'flex flex-grow truncate !outline-none !ring-0 bg-transparent',
           )}
           ref={ref}
           {...props}

@@ -1,6 +1,5 @@
 'use client'
 
-import { PlusCircleIcon } from '@heroicons/react/24/outline'
 import {
   Chip,
   Popover,
@@ -15,6 +14,7 @@ import {
   CommandItem,
 } from '@sushiswap/ui/components/command'
 import { CheckIcon, NetworkIcon } from '@sushiswap/ui/components/icons'
+import { SelectIcon } from '@sushiswap/ui/components/select'
 import React, { FC, useCallback, useState, useTransition } from 'react'
 import { SUPPORTED_CHAIN_IDS } from 'src/config'
 import { Chain, ChainId } from 'sushi/chain'
@@ -61,8 +61,7 @@ export const TableFiltersNetwork: FC = () => {
     <Popover modal={true} open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
-          icon={PlusCircleIcon}
-          variant="outline"
+          variant="default"
           role="combobox"
           size="sm"
           aria-expanded={open}
@@ -75,7 +74,7 @@ export const TableFiltersNetwork: FC = () => {
               <Chip variant="secondary" className="lg:hidden">
                 {values.length}
               </Chip>
-              <div className="hidden lg:flex gap-1">
+              <div className="hidden gap-1 lg:flex">
                 {values.length > 2 ? (
                   <Chip variant="secondary">{values.length} selected</Chip>
                 ) : (
@@ -90,6 +89,7 @@ export const TableFiltersNetwork: FC = () => {
               </div>
             </>
           )}
+          <SelectIcon />
         </Button>
       </PopoverTrigger>
       <PopoverContent

@@ -149,7 +149,10 @@ const NavigationContainer: React.FC<NavContainerProps> = ({
   variant,
 }) => {
   return (
-    <div className={navigationContainerVariants({ variant })}>
+    <div
+      className={navigationContainerVariants({ variant })}
+      style={{ backgroundColor: 'rgb(8 51 68)', opacity: '90%' }}
+    >
       <SushiIcon width={38} height={38} />
       <h3 className="text-2xl font-semibold tracking-tight text-white">
         OCSWAP

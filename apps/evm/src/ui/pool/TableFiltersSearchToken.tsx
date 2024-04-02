@@ -23,7 +23,7 @@ export const TableFiltersSearchToken: FC = () => {
   )
 
   return (
-    <div>
+    <div className="grow">
       <ChipInput
         size="sm"
         icon={MagnifyingGlassIcon}
@@ -31,7 +31,7 @@ export const TableFiltersSearchToken: FC = () => {
         variant="outline"
         values={isPending ? values : tokenSymbols ?? []}
         onValueChange={onValueChange}
-        placeholder="Search"
+        placeholder="Type And Press Enter To Add Tokens"
         maxValues={3}
       />
     </div>

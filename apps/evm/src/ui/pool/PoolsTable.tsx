@@ -366,7 +366,7 @@ export const PoolsTable: FC<PositionsTableProps> = ({ onRowClick }) => {
       }
     >
       <Card>
-        <CardHeader>
+        <CardHeader className="hidden">
           <CardTitle>
             Pools{' '}
             {poolCount?.count ? (

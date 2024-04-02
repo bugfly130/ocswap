@@ -108,7 +108,7 @@ interface TableCellAsLink extends React.TdHTMLAttributes<HTMLTableCellElement> {
 
 const TableCellAsLink = React.forwardRef<HTMLTableCellElement, TableCellAsLink>(
   ({ external, className, children, href, ...props }, ref) => (
-    <td className="!p-0 h-[76px]" ref={ref} {...props}>
+    <td className="text-slate-50 !p-0 h-[76px]" ref={ref} {...props}>
       <Link
         scroll={false}
         shallow={true}

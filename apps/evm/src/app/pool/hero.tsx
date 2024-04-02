@@ -59,11 +59,6 @@ export const Hero: FC = () => {
                   asChild
                   size="lg"
                   className="flex-1 sm:flex-0 sm:w-[unset] rounded-r-none"
-                  style={{
-                    padding: '12px 16px',
-                    background:
-                      'linear-gradient(94.04deg, #1991F5 2.32%, #19A6B8 105.98%)',
-                  }}
                 >
                   <LinkInternal
                     href={
@@ -135,7 +130,7 @@ export const Hero: FC = () => {
                 icon={GiftIcon}
                 variant="outline"
                 size="lg"
-                className="flex-1 text-blue-500 border rounded-none border-blue hover:text-blue-500 hover:border"
+                className="flex-1 text-[#1991F5] border rounded-none border-[#1991F5] hover:text-blue-500"
               >
                 <LinkInternal href="/pools/incentivize">
                   Pool Incentive

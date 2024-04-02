@@ -1,6 +1,5 @@
 'use client'
 
-import { PlusCircleIcon } from '@heroicons/react/24/outline'
 import { Protocol } from '@sushiswap/client'
 import { useMutationObserver } from '@sushiswap/hooks'
 import {
@@ -23,6 +22,7 @@ import {
   CommandItem,
 } from '@sushiswap/ui/components/command'
 import { CheckIcon } from '@sushiswap/ui/components/icons'
+import { SelectIcon } from '@sushiswap/ui/components/select'
 import React, { FC, useCallback, useState, useTransition } from 'react'
 
 import { PROTOCOL_MAP } from '../../lib/constants'
@@ -84,13 +84,12 @@ export const TableFiltersPoolType: FC = () => {
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
-          icon={PlusCircleIcon}
           aria-label="Select a protocol"
-          variant="outline"
+          variant="default"
           role="combobox"
           size="sm"
           aria-expanded={open}
-          className="!border-dashed"
+          className="!border-dashed text-white"
         >
           <span>Type</span>
           {values?.length > 0 && (
@@ -99,7 +98,7 @@ export const TableFiltersPoolType: FC = () => {
               <Chip variant="secondary" className="lg:hidden">
                 {values.length}
               </Chip>
-              <div className="hidden lg:flex gap-1">
+              <div className="hidden gap-1 lg:flex">
                 {values.length > 2 ? (
                   <Chip variant="secondary">{values.length} selected</Chip>
                 ) : (
@@ -114,6 +113,7 @@ export const TableFiltersPoolType: FC = () => {
               </div>
             </>
           )}
+          <SelectIcon />
         </Button>
       </PopoverTrigger>
       <PopoverContent align="start" className="!w-[unset] !p-0">
