@@ -110,7 +110,7 @@ export const ManageV2LiquidityCard: FC<ManageV2LiquidityCardProps> = ({
             )}
           </TabsList>
         </CardContent>
-        <div className="px-6 pb-4">
+        <div className="pb-4">
           <Separator />
         </div>
         <PoolPositionProvider pool={pool}>

@@ -60,7 +60,7 @@ const CardHeader = React.forwardRef<
   <div
     ref={ref}
     className={classNames(
-      'flex flex-col space-y-1.5 p-4 whitespace-pre-wrap',
+      'flex flex-col space-y-1.5 whitespace-pre-wrap',
       className,
     )}
     {...props}
@@ -236,7 +236,7 @@ const CardContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={classNames('p-6 pt-0 flex flex-col gap-6', className)}
+    className={classNames('py-2 flex flex-col gap-6', className)}
     {...props}
   />
 ))

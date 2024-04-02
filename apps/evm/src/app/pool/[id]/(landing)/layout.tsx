@@ -34,7 +34,7 @@ export default async function Layout({
       {/* <Container maxWidth="5xl" className="px-4">
         <Breadcrumb />
       </Container> */}
-      <Container maxWidth="5xl" className="z-10 pt-10 text-gray-300">
+      <Container maxWidth="5xl" className="z-10 px-2 pt-4 text-gray-300">
         <PoolHeader
           backUrl={referer?.includes('/pool?') ? referer?.toString() : '/pool'}
           address={pool.address}

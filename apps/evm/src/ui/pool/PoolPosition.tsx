@@ -52,7 +52,13 @@ const PoolPositionConnected: FC<PoolPositionProps> = ({ pool }) => {
   const isLoading = isUnstakedLoading || isStakedLoading
 
   return (
-    <Card>
+    <Card
+      className="p-1 rounded-lg"
+      style={{
+        background: 'rgba(255, 255, 255, 0.1)',
+        backdropFilter: 'blur(35px)',
+      }}
+    >
       <CardHeader>
         <CardTitle>My Position</CardTitle>
         <CardDescription>
