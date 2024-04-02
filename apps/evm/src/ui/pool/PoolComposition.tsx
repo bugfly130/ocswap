@@ -43,15 +43,22 @@ export const PoolComposition: FC<PoolCompositionProps> = ({ pool }) => {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Pool Liquidity</CardTitle>
-        <CardDescription>
-          {isLoading ? <SkeletonText /> : <>{formatUSD(reserveUSD)}</>}
-        </CardDescription>
+      <CardHeader className="px-0 py-2">
+        <div className="flex flex-row items-center">
+          <CardLabel className="grow">Pool Liquidity</CardLabel>
+          <CardDescription>
+            {isLoading ? <SkeletonText /> : <>{formatUSD(reserveUSD)}</>}
+          </CardDescription>
+        </div>
       </CardHeader>
-      <CardContent>
-        <CardGroup>
-          <CardLabel>Tokens</CardLabel>
+      <CardContent
+        className="px-0 py-0 rounded-xl"
+        style={{
+          background: 'rgba(255, 255, 255, 0.1)',
+          backdropFilter: 'blur(35px)',
+        }}
+      >
+        <CardGroup className="p-2">
           <CardCurrencyAmountItem
             isLoading={isLoading}
             amount={data?.reserve0}

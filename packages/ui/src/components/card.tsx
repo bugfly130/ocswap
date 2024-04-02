@@ -60,7 +60,7 @@ const CardHeader = React.forwardRef<
   <div
     ref={ref}
     className={classNames(
-      'flex flex-col space-y-1.5 p-6 whitespace-pre-wrap',
+      'flex flex-col space-y-1.5 p-4 whitespace-pre-wrap',
       className,
     )}
     {...props}
@@ -75,7 +75,7 @@ const CardTitle = React.forwardRef<
   <h3
     ref={ref}
     className={classNames(
-      'text-lg font-semibold leading-none tracking-tight',
+      'text-lg font-semibold leading-none tracking-tight text-slate-50',
       className,
     )}
     {...props}
@@ -89,7 +89,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={classNames('text-sm text-muted-foreground', className)}
+    className={classNames('text-sm text-gray-400', className)}
     {...props}
   />
 ))
@@ -145,7 +145,7 @@ const CardItem = React.forwardRef<HTMLDivElement, CardItemProps>(
     if (skeleton) {
       return (
         <div ref={ref} className="grid grid-cols-2 gap-2" {...props}>
-          <div className="flex flex-col gap-0.5">
+          <div className="flex flex-col gap-0.5 items-center">
             <SkeletonText fontSize="sm" />
             {subtitle && <SkeletonText fontSize="xs" />}
           </div>
@@ -206,16 +206,17 @@ const CardCurrencyAmountItem = React.forwardRef<
 
     return (
       <CardItem
+        className="items-center"
         title={
-          <div className="flex items-center gap-2 font-medium text-muted-foreground">
-            <Currency.Icon currency={currency} width={18} height={18} />{' '}
+          <div className="flex items-center gap-2 font-medium text-gray-400">
             {currency.symbol}
           </div>
         }
         ref={ref}
         {...props}
       >
-        <span className="flex gap-1 font-semibold">
+        <Currency.Icon currency={currency} width={24} height={24} />{' '}
+        <span className="flex gap-1 p-1 font-semibold text-slate-50">
           {amount.toSignificant(6)}{' '}
           <span className="font-normal text-gray-400 dark:text-slate-600">
             {fiatValue}

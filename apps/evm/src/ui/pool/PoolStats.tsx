@@ -1,14 +1,7 @@
 'use client'
 
 import { Pool } from '@sushiswap/client'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardLabel,
-  CardTitle,
-  classNames,
-} from '@sushiswap/ui'
+import { Card, CardContent, CardLabel, classNames } from '@sushiswap/ui'
 import { SkeletonText } from '@sushiswap/ui/components/skeleton'
 import { FC } from 'react'
 import { usePoolGraphData } from 'src/lib/hooks'
@@ -27,17 +20,20 @@ export const PoolStats: FC<PoolStats> = ({ pool }) => {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Statistics</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-1 gap-3">
-          <div>
+      <CardContent className="px-0 py-0">
+        <div className="flex flex-row gap-3">
+          <div
+            className="flex-1 p-2 rounded-xl whitespace-nowrap"
+            style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(35px)',
+            }}
+          >
             <CardLabel>Liquidity</CardLabel>
             {isLoading ? (
               <SkeletonText />
             ) : data ? (
-              <div className="text-xl font-semibold">
+              <div className="flex flex-col text-xl font-semibold text-slate-50">
                 {formatUSD(data.liquidityUSD ?? 0)}{' '}
                 <span
                   className={classNames(
@@ -51,10 +47,16 @@ export const PoolStats: FC<PoolStats> = ({ pool }) => {
               </div>
             ) : null}
           </div>
-          <div>
+          <div
+            className="flex-1 p-2 rounded-xl whitespace-nowrap"
+            style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(35px)',
+            }}
+          >
             <CardLabel>Volume (24h)</CardLabel>
             {data ? (
-              <div className="text-xl font-semibold">
+              <div className="flex flex-col text-xl font-semibold text-slate-50">
                 {formatUSD(data.volume1d ?? 0)}{' '}
                 <span
                   className={classNames(
@@ -70,10 +72,16 @@ export const PoolStats: FC<PoolStats> = ({ pool }) => {
               <SkeletonText />
             ) : null}
           </div>
-          <div>
+          <div
+            className="flex-1 p-2 rounded-xl whitespace-nowrap"
+            style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(35px)',
+            }}
+          >
             <CardLabel>Fees (24h)</CardLabel>
             {data ? (
-              <div className="text-xl font-semibold">
+              <div className="flex flex-col text-xl font-semibold text-slate-50 ">
                 {formatUSD(data.fees1d ?? 0)}{' '}
                 <span
                   className={classNames(
@@ -89,10 +97,16 @@ export const PoolStats: FC<PoolStats> = ({ pool }) => {
               <SkeletonText />
             ) : null}
           </div>
-          <div>
+          <div
+            className="flex-1 p-2 rounded-xl whitespace-nowrap"
+            style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(35px)',
+            }}
+          >
             <CardLabel>Transactions (24h)</CardLabel>
             {data ? (
-              <div className="text-xl font-semibold">
+              <div className="flex flex-col text-lg font-semibold text-slate-50 ">
                 {formatNumber(data.txCount1d).replace('.00', '')}{' '}
                 <span
                   className={classNames(

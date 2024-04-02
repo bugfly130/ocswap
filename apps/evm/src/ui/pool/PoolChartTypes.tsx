@@ -21,7 +21,13 @@ function PoolChartTypes<C extends string>({
   setChart,
 }: PoolChartTypesProps<C>) {
   return (
-    <div className="flex items-center gap-1">
+    <div
+      className="flex items-center gap-1 p-1 rounded-lg"
+      style={{
+        background: 'rgba(255, 255, 255, 0.1)',
+        backdropFilter: 'blur(35px)',
+      }}
+    >
       {charts.map((chart) => (
         <Toggle
           size="xs"

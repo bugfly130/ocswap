@@ -219,15 +219,15 @@ export const PoolChartGraph: FC<PoolChartProps> = ({
 
   return (
     <>
-      <CardHeader>
+      <CardHeader className="px-0 py-2">
         <CardTitle>
-          <span className="hoveredItemValue">
+          <span className="hoveredItemValue text-slate-50">
             {chart === PoolChartType.APR
               ? formatPercent(yData[yData.length - 1])
               : formatUSD(yData[yData.length - 1])}
           </span>{' '}
           {chart === PoolChartType.Volume && (
-            <span className="text-sm font-medium text-gray-600 dark:text-slate-300">
+            <span className="text-sm font-medium text-slate-50 dark:text-slate-300">
               <span className="text-xs top-[-2px] relative">•</span>{' '}
               <span className="hoveredItemValue">
                 {formatUSD(Number(yData[yData.length - 1]) * Number(swapFee))}
@@ -249,15 +249,15 @@ export const PoolChartGraph: FC<PoolChartProps> = ({
           )}
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-0 py-0 ">
         {isLoading ? (
           <SkeletonBox
             className={classNames(
-              'h-[400px] w-full dark:via-slate-800 dark:to-slate-900',
+              'h-[350px] w-full dark:via-slate-800 dark:to-slate-900',
             )}
           />
         ) : (
-          <ReactECharts option={DEFAULT_OPTION} style={{ height: 400 }} />
+          <ReactECharts option={DEFAULT_OPTION} style={{ height: 350 }} />
         )}
       </CardContent>
     </>

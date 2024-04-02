@@ -30,7 +30,13 @@ export const PoolMyRewards: FC<PoolMyRewardsProps> = ({ pool }) => {
   if (!pool?.incentives?.length && !pendingRewards?.length) return <span />
 
   return (
-    <Card>
+    <Card
+      className="p-1 rounded-lg"
+      style={{
+        background: 'rgba(255, 255, 255, 0.1)',
+        backdropFilter: 'blur(35px)',
+      }}
+    >
       <CardHeader>
         <CardTitle>Unclaimed rewards</CardTitle>
         <CardDescription>

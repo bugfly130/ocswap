@@ -31,10 +31,10 @@ export default async function Layout({
   const referer = headersList.get('referer')
   return (
     <>
-      <Container maxWidth="5xl" className="px-4">
+      {/* <Container maxWidth="5xl" className="px-4">
         <Breadcrumb />
-      </Container>
-      <Container maxWidth="5xl" className="pt-10 px-4">
+      </Container> */}
+      <Container maxWidth="5xl" className="z-10 pt-10 text-gray-300">
         <PoolHeader
           backUrl={referer?.includes('/pool?') ? referer?.toString() : '/pool'}
           address={pool.address}
@@ -43,7 +43,7 @@ export default async function Layout({
         />
       </Container>
       <section className="flex flex-col flex-1 mt-4">
-        <div className="bg-gray-50 dark:bg-white/[0.02] border-t border-accent pt-10 pb-20 h-full">
+        <div className="bg-black dark:bg-white/[0.02] border-t border-accent h-full">
           {children}
         </div>
       </section>

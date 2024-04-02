@@ -240,7 +240,7 @@ const CurrencyInput: FC<CurrencyInputProps> = ({
           <div
             id={`${id}-button`}
             className={classNames(
-              'flex items-center gap-1 text-xl py-2 pl-2 pr-2 rounded-full font-medium whitespace-nowrap',
+              'flex items-center gap-1 text-xl text-gray-400 py-2 pl-2 pr-2 rounded-full font-medium whitespace-nowrap',
             )}
           >
             {currency ? (
