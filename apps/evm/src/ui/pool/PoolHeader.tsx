@@ -169,11 +169,11 @@ export const PoolHeader: FC<PoolHeader> = ({
             </div>
             <div className="flex flex-row justify-end gap-2">
               <span className="font-semibold tracking-tighter">Rewards: </span>
-              {0.04}%
+              {'XXX'}%
               <span className="font-semibold tracking-tighter">
                 &nbsp;Fees:
               </span>
-              {0.11}%
+              {'XXX'}%
             </div>
           </div>
         </div>

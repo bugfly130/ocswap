@@ -31,7 +31,7 @@ export const PoolMyRewards: FC<PoolMyRewardsProps> = ({ pool }) => {
 
   return (
     <Card
-      className="p-1 rounded-lg"
+      className="p-4 rounded-lg"
       style={{
         background: 'rgba(255, 255, 255, 0.1)',
         backdropFilter: 'blur(35px)',

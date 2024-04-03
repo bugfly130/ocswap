@@ -33,7 +33,7 @@ const PoolChartV2: FC<PoolChartV2Props> = ({ address, chainId }) => {
 
   return (
     <Card>
-      <div className="border-b border-accent px-6 py-4 flex flex-col items-center justify-between gap-4 md:flex-row">
+      <div className="flex flex-col items-center justify-between gap-4 border-b border-accent md:flex-row">
         <PoolChartTypes
           charts={charts}
           selectedChart={chart}
