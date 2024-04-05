@@ -116,7 +116,7 @@ export const TokenSelectorRow: FC<TokenSelectorRow> = memo(
               )}
               <div className="flex flex-col items-start">
                 <div className="flex gap-1">
-                  <span className="font-semibold text-gray-900 group-hover:text-gray-900 dark:text-slate-50 dark:group-hover:text-white">
+                  <span className="font-semibold dark:text-gray-900 dark:group-hover:text-gray-900 text-slate-50 group-hover:text-white">
                     {currency.symbol}
                   </span>
                   {showWarning ? (
@@ -139,7 +139,7 @@ export const TokenSelectorRow: FC<TokenSelectorRow> = memo(
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <span className="text-sm text-muted-foreground hover:underline">
+                      <span className="text-sm text-gray-400 hover:underline">
                         {currency.name ?? currency.symbol}
                       </span>
                     </TooltipTrigger>
@@ -153,7 +153,7 @@ export const TokenSelectorRow: FC<TokenSelectorRow> = memo(
                         href={Chain.from(currency.chainId)?.getTokenUrl(
                           currency.wrapped.address,
                         )}
-                        className="text-blue hover:underline flex gap-1"
+                        className="flex gap-1 text-blue hover:underline"
                       >
                         Show on explorer{' '}
                         <ArrowTopRightOnSquareIcon width={16} height={16} />
@@ -180,12 +180,12 @@ export const TokenSelectorRow: FC<TokenSelectorRow> = memo(
                     <span
                       className={classNames(
                         selected ? 'font-semibold' : 'font-medium',
-                        'text-right text-gray-900 dark:text-slate-50 truncate',
+                        'text-right dark:text-gray-900 text-slate-50 truncate',
                       )}
                     >
                       {balance?.toSignificant(6)}
                     </span>
-                    <span className="text-sm font-medium text-right text-gray-500 dark:text-slate-400">
+                    <span className="text-sm font-medium text-right dark:text-gray-500 text-slate-400">
                       {price ? `$${balance?.multiply(price).toFixed(2)}` : '-'}
                     </span>
                   </div>
@@ -199,7 +199,7 @@ export const TokenSelectorRow: FC<TokenSelectorRow> = memo(
                   name="pin"
                   onClick={onPin}
                   className={classNames(
-                    pin.isPinned ? '' : 'grayscale opacity-50',
+                    pin.isPinned ? '' : 'grayscale opacity-80',
                     'z-50',
                   )}
                 />

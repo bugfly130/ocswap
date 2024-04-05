@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
   Chip,
-  FormSection,
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
@@ -90,10 +89,10 @@ export const SelectFeeConcentratedWidget: FC<SelectFeeConcentratedWidget> =
     }, [pools])
 
     return (
-      <FormSection
-        title="Fee tier"
-        description="Some fee tiers work better than others depending on the volatility of your pair. Lower fee tiers generally work better when pairing stable coins. Higher fee tiers generally work better when pairing exotic coins."
-      >
+      <div className="flex flex-col">
+        <h3 className="py-2 text-gray-400 text-md">
+          Which token pair would you like to add liquidity to?
+        </h3>
         <div className={!token0 || !token1 ? 'opacity-40' : ''}>
           <RadioGroup
             value={feeAmount}
@@ -108,7 +107,7 @@ export const SelectFeeConcentratedWidget: FC<SelectFeeConcentratedWidget> =
                     <Card className="opacity-40">
                       <CardHeader>
                         <CardTitle>
-                          <span className="flex items-center gap-2">
+                          <span className="flex items-center gap-2 text-slate-50">
                             <span>{option.value / 10000}% Fees </span>
                             {tvlDistribution.get(option.value) && (
                               <Chip variant="secondary">
@@ -127,7 +126,7 @@ export const SelectFeeConcentratedWidget: FC<SelectFeeConcentratedWidget> =
                       </CardHeader>
                     </Card>
                   </HoverCardTrigger>
-                  <HoverCardContent className="!p-0">
+                  <HoverCardContent className="gap-2 p-2">
                     <CardHeader>
                       <CardTitle>Pool doesnt exist yet.</CardTitle>
                       <CardDescription>
@@ -172,7 +171,12 @@ export const SelectFeeConcentratedWidget: FC<SelectFeeConcentratedWidget> =
                   asChild
                   key={i}
                   testdata-id={`fee-option-${option.value}`}
-                  className="!h-[unset] !w-[unset] !p-0 !text-left !justify-start cursor-pointer dark:data-[state=on]:bg-secondary"
+                  className="!h-[unset] !w-[unset] rounded-md p-4 !text-left !justify-start cursor-pointer dark:data-[state=on]:bg-secondary"
+                  // {option.value == SushiSwapV3FeeAmount.LOW
+                  style={{
+                    backdropFilter: 'blur(35px)',
+                  }}
+                  // }
                 >
                   <Card>
                     <CardHeader>
@@ -200,6 +204,6 @@ export const SelectFeeConcentratedWidget: FC<SelectFeeConcentratedWidget> =
             )}
           </RadioGroup>
         </div>
-      </FormSection>
+      </div>
     )
   })

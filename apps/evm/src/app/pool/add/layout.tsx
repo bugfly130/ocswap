@@ -9,9 +9,9 @@ export const metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Container maxWidth="5xl" className="py-10 px-4">
-        <div className="flex flex-col gap-2">
-          <div className="relative flex items-center gap-3">
+      <Container maxWidth="5xl" className="z-10 px-4 pt-10 pb-20">
+        <div className="flex flex-col items-center gap-2 text-slate-50">
+          <div className="flex items-center gap-3">
             <BackButton
               variant="ghost"
               name="back"
@@ -28,7 +28,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </Container>
       <section className="flex flex-col flex-1">
-        <div className="bg-gray-50 dark:bg-white/[0.02] border-t border-accent pt-4 pb-20 h-full">
+        <div className="h-full pt-4 pb-20 bg-black border-t dark:bg-gray-50 border-accent">
           <Container maxWidth="5xl" className="px-4">
             {children}
           </Container>

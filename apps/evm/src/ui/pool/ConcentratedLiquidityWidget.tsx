@@ -1,8 +1,8 @@
 'use client'
 
 import { Transition } from '@headlessui/react'
-import { LockClosedIcon, PlusIcon } from '@heroicons/react-v1/solid'
-import { DialogTrigger, FormSection, Message, classNames } from '@sushiswap/ui'
+import { LockClosedIcon } from '@heroicons/react-v1/solid'
+import { DialogTrigger, Message, classNames } from '@sushiswap/ui'
 import { Button } from '@sushiswap/ui/components/button'
 import {
   getV3NonFungiblePositionManagerContractConfig,
@@ -180,28 +180,36 @@ export const ConcentratedLiquidityWidget: FC<ConcentratedLiquidityWidget> = ({
               </div>
             </div>
           ) : null}
-          <Web3Input.Currency
-            id="add-liquidity-token0"
-            type="INPUT"
-            className="p-3 bg-white dark:bg-secondary rounded-xl border border-accent"
-            chainId={chainId}
-            value={formattedAmounts[Field.CURRENCY_A]}
-            onChange={_onFieldAInput}
-            onSelect={setToken0}
-            currency={token0}
-            disabled={depositADisabled}
-            loading={tokensLoading || isOwnerLoading || isPoolLoading}
-          />
+          <div
+            className="rounded-xl"
+            style={{
+              background: 'rgba(0, 0, 0, 0.7)',
+              backdropFilter: 'blur(35px)',
+            }}
+          >
+            <Web3Input.Currency
+              id="add-liquidity-token0"
+              type="INPUT"
+              className="p-3 border bg-secondary rounded-xl border-accent"
+              chainId={chainId}
+              value={formattedAmounts[Field.CURRENCY_A]}
+              onChange={_onFieldAInput}
+              onSelect={setToken0}
+              currency={token0}
+              disabled={depositADisabled}
+              loading={tokensLoading || isOwnerLoading || isPoolLoading}
+            />
+          </div>
         </div>
-        <div className="flex items-center justify-center mt-[-24px] mb-[-24px] z-10">
-          <div className="p-1 bg-white dark:bg-slate-900 border border-accent rounded-full">
+        {/* <div className="flex items-center justify-center mt-[-24px] mb-[-24px] z-10">
+          <div className="p-1 border rounded-full dark:bg-white bg-slate-900 border-accent">
             <PlusIcon
               width={16}
               height={16}
               className="text-muted-foreground"
             />
           </div>
-        </div>
+        </div> */}
         <div className="relative">
           <Transition
             as={Fragment}
@@ -236,18 +244,26 @@ export const ConcentratedLiquidityWidget: FC<ConcentratedLiquidityWidget> = ({
               </div>
             </div>
           </Transition>
-          <Web3Input.Currency
-            id="add-liquidity-token1"
-            type="INPUT"
-            className="p-3 bg-white dark:bg-secondary rounded-xl border border-accent"
-            chainId={chainId}
-            value={formattedAmounts[Field.CURRENCY_B]}
-            onChange={_onFieldBInput}
-            onSelect={setToken1}
-            currency={token1}
-            loading={tokensLoading || isOwnerLoading || isPoolLoading}
-            disabled={depositBDisabled}
-          />
+          <div
+            className="rounded-xl"
+            style={{
+              background: 'rgba(0, 0, 0, 0.7)',
+              backdropFilter: 'blur(35px)',
+            }}
+          >
+            <Web3Input.Currency
+              id="add-liquidity-token1"
+              type="INPUT"
+              className="p-3 border dark:bg-white bg-secondary rounded-xl border-accent"
+              chainId={chainId}
+              value={formattedAmounts[Field.CURRENCY_B]}
+              onChange={_onFieldBInput}
+              onSelect={setToken1}
+              currency={token1}
+              loading={tokensLoading || isOwnerLoading || isPoolLoading}
+              disabled={depositBDisabled}
+            />
+          </div>
         </div>
 
         <Checker.Connect fullWidth>
@@ -313,12 +329,17 @@ export const ConcentratedLiquidityWidget: FC<ConcentratedLiquidityWidget> = ({
 
   if (withTitleAndDescription)
     return (
-      <FormSection
-        title="Liquidity"
-        description="Depending on your range, the supplied tokens for this position will not always be a 50:50 ratio."
-      >
-        {widget}
-      </FormSection>
+      <div className="flex flex-col">
+        <h3 className="py-2 text-md text-slate-50">Liquidity</h3>
+        <div
+          className={classNames(
+            'flex flex-col gap-6',
+            !token0 || !token1 ? 'opacity-40' : '',
+          )}
+        >
+          {widget}
+        </div>
+      </div>
     )
 
   return widget

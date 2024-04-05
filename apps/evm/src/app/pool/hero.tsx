@@ -153,7 +153,7 @@ export const Hero: FC = () => {
       >
         <div className="flex flex-col items-center gap-1 lg:items-end">
           <h1 className="my-2 text-2xl font-semibold tracking-tight text-white">
-            Looking for a partnership with Ocswa?
+            Looking for a partnership with Ocswap?
           </h1>
           <h3 className="text-base font-semibold tracking-tight text-gray-500 max-w-[500px]">
             If you&apos;re searching for a collaboration that revolves around
@@ -162,6 +162,7 @@ export const Hero: FC = () => {
         <div className="flex flex-row w-full">
           <Button
             className="grow sm:flex-0 sm:w-[unset]"
+            style={{ justifyContent: 'left' }}
             variant="link"
             size="sm"
             asChild

@@ -176,7 +176,7 @@ const Navigation: React.FC<NavProps> = ({
     <NavigationContainer variant={variant}>
       <NavigationMenu>
         <NavigationMenuList>
-          <NavigationMenuItem className="block lg:hidden">
+          <NavigationMenuItem className="block md:hidden">
             <NavigationMenuTrigger>Explore</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="min-w-[240px] gap-3 p-4">
@@ -197,7 +197,7 @@ const Navigation: React.FC<NavProps> = ({
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem className="hidden lg:block">
+          <NavigationMenuItem className="hidden md:block">
             {legacyBehavior ? (
               <NavigationMenuLink
                 asChild
@@ -214,7 +214,7 @@ const Navigation: React.FC<NavProps> = ({
               </NavigationMenuLink>
             )}
           </NavigationMenuItem>
-          <NavigationMenuItem className="hidden lg:block">
+          <NavigationMenuItem className="hidden md:block">
             {legacyBehavior ? (
               <NavigationMenuLink
                 asChild

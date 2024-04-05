@@ -11,13 +11,10 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
   Explainer,
-  FormSection,
   Label,
-  LinkExternal,
   Message,
   TextField,
   TextFieldDescription,
@@ -380,23 +377,10 @@ export const SelectPricesWidget: FC<SelectPricesWidget> = ({
   if (feeAmount) poolFish.searchParams.append('feeTier', `${feeAmount}`)
 
   return (
-    <FormSection
-      title="Range"
-      description={
-        <>
-          Select a price range to provide liquidity. You will not earn any fees
-          when prices move outside of this range.{' '}
-          <a
-            target="_blank"
-            className="text-blue"
-            rel="noopener noreferrer"
-            href="https://docs.uniswap.org/concepts/protocol/concentrated-liquidity"
-          >
-            Learn more.
-          </a>
-        </>
-      }
-    >
+    <div className="flex flex-col">
+      <h3 className="py-2 text-md text-slate-50">
+        Which token pair would you like to add liquidity on?
+      </h3>
       <div
         className={classNames(
           'flex flex-col gap-6',
@@ -404,7 +388,15 @@ export const SelectPricesWidget: FC<SelectPricesWidget> = ({
         )}
       >
         {noLiquidity ? (
-          <Message size="sm" variant="muted" className="text-center">
+          <Message
+            size="sm"
+            variant="muted"
+            className="text-gray-400"
+            style={{
+              background: 'rgba(0, 0, 0, 0.7)',
+              backdropFilter: 'blur(35px)',
+            }}
+          >
             This pool must be initialized before you can add liquidity.{' '}
             {showStartPrice
               ? 'To initialize, select a starting price for the pool. Then, enter your liquidity price range and deposit amount. '
@@ -414,20 +406,30 @@ export const SelectPricesWidget: FC<SelectPricesWidget> = ({
           </Message>
         ) : null}
         {children ? children : null}
-        <div className="rounded-xl flex flex-col gap-8">
+        <div
+          className="flex flex-col gap-8 p-4 rounded-xl"
+          style={{
+            background: 'rgba(0, 0, 0, 0.7)',
+            backdropFilter: 'blur(35px)',
+          }}
+        >
           {isMounted && showStartPrice && (
             <div className="flex flex-col gap-3">
               {noLiquidity && (
                 <div className="flex flex-col gap-2">
-                  <Label>Start price</Label>
-                  <TextField
-                    variant="outline"
-                    value={startPriceTypedValue}
-                    onValueChange={onStartPriceInput}
-                    testdata-id="start-price-input"
-                    type="number"
-                    unit={`${token1?.symbol} per ${token0?.symbol}`}
-                  />
+                  <div className="flex flex-row items-center gap-2">
+                    <Label className="text-slate-50 whitespace-nowrap">
+                      Start price
+                    </Label>
+                    <TextField
+                      variant="outline"
+                      value={startPriceTypedValue}
+                      onValueChange={onStartPriceInput}
+                      testdata-id="start-price-input"
+                      type="number"
+                      unit={`${token1?.symbol} per ${token0?.symbol}`}
+                    />
+                  </div>
                   <TextFieldDescription>
                     Your pool needs a starting price somewhere between the min.
                     and max. price
@@ -471,7 +473,7 @@ export const SelectPricesWidget: FC<SelectPricesWidget> = ({
             </div>
           )}
           <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-2 flex-wrap">
+            <div className="flex flex-wrap items-center gap-2">
               <div className="flex justify-end lg:hidden">
                 {isLoading || !pool || !token0 || !token1 ? (
                   <SkeletonText fontSize="xs" />
@@ -496,13 +498,13 @@ export const SelectPricesWidget: FC<SelectPricesWidget> = ({
                   </div>
                 )}
               </div>
-              <div className="flex flex-1 justify-between">
-                <RadioGroup value={priceRange} className="gap-2 flex">
+              <div className="flex items-center justify-between flex-1">
+                <RadioGroup value={priceRange} className="flex gap-1">
                   {PRICE_RANGE_OPTIONS.map(({ value, label, onClick }) => (
                     <RadioGroup.Option value={value} key={value}>
                       <Toggle
                         disabled={!feeAmount}
-                        size="sm"
+                        size="xs"
                         variant="outline"
                         onClick={
                           priceRange === value
@@ -523,12 +525,18 @@ export const SelectPricesWidget: FC<SelectPricesWidget> = ({
                   ))}
                 </RadioGroup>
                 {switchTokens ? (
-                  <div className="flex justify-end gap-1">
+                  <div
+                    className="flex justify-end gap-1 p-1 rounded-md"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      backdropFilter: 'blur(35px)',
+                    }}
+                  >
                     <Toggle
                       variant="outline"
                       onPressedChange={handleSwitchTokens}
                       pressed={isSorted}
-                      size="sm"
+                      size="xs"
                     >
                       {isSorted ? token0?.symbol : token1?.symbol}
                     </Toggle>
@@ -536,7 +544,7 @@ export const SelectPricesWidget: FC<SelectPricesWidget> = ({
                       variant="outline"
                       onPressedChange={handleSwitchTokens}
                       pressed={!isSorted}
-                      size="sm"
+                      size="xs"
                     >
                       {isSorted ? token1?.symbol : token0?.symbol}
                     </Toggle>
@@ -548,16 +556,16 @@ export const SelectPricesWidget: FC<SelectPricesWidget> = ({
             </div>
             <Card>
               <CardHeader>
-                <CardDescription className="flex flex-col gap-3 !text-accent-foreground">
+                <CardDescription className="flex flex-col gap-3 text-gray-400">
                   <div className="flex justify-between">
-                    <div className="flex gap-1 items-center">
+                    <div className="flex items-center gap-1">
                       {`Token Ratio (${token0?.symbol} : ${token1?.symbol})`}
                       <Explainer>
                         This is the ratio of the cash values of the two
                         underlying tokens in this position.
                       </Explainer>
                     </div>
-                    <div className="flex gap-1 items-center">
+                    <div className="flex items-center gap-1">
                       {valueRatio
                         ? `${(valueRatio[0] * 100).toFixed(0)}% : ${(
                             valueRatio[1] * 100
@@ -614,7 +622,7 @@ export const SelectPricesWidget: FC<SelectPricesWidget> = ({
                     </div>
                   </div>
                   <div className="flex justify-between">
-                    <div className="flex gap-1 items-center">
+                    <div className="flex items-center gap-1">
                       Capital Efficiency
                       <Explainer>
                         For example, 2x capital efficiency means one unit of
@@ -637,7 +645,7 @@ export const SelectPricesWidget: FC<SelectPricesWidget> = ({
                     </div>
                   </div>
                   <div className="flex justify-between ">
-                    <div className="flex gap-1 items-center">
+                    <div className="flex items-center gap-1">
                       <TooltipProvider>
                         <Tooltip delayDuration={0}>
                           <TooltipTrigger asChild>
@@ -657,7 +665,7 @@ export const SelectPricesWidget: FC<SelectPricesWidget> = ({
                               value={yieldRate}
                               onChange={setYieldRate}
                             >
-                              <div className="flex gap-1 items-center">
+                              <div className="flex items-center gap-1">
                                 {YIELD_RATE_OPTIONS.map(({ value, label }) => (
                                   <RadioGroup.Option
                                     value={value}
@@ -751,7 +759,7 @@ export const SelectPricesWidget: FC<SelectPricesWidget> = ({
               }
             />
           </div>
-          <Card>
+          {/* <Card>
             <CardHeader>
               <CardDescription>
                 We{`'`}re excited to share that Sushi integration is now live on{' '}
@@ -771,10 +779,10 @@ export const SelectPricesWidget: FC<SelectPricesWidget> = ({
                 </Button>
               </LinkExternal>
             </CardFooter>
-          </Card>
+          </Card> */}
         </div>
       </div>
-    </FormSection>
+    </div>
   )
 }
 
@@ -841,60 +849,66 @@ export const PriceBlock: FC<PriceBlockProps> = ({
 
   return (
     <Card
-      className="bg-transparent shadow-none"
+      className="p-2 bg-transparent shadow-none round-xl"
       onBlur={handleOnBlur}
       onFocus={handleOnFocus}
+      style={{
+        background: 'rgba(255, 255, 255, 0.1)',
+        backdropFilter: 'blur(35px)',
+      }}
     >
       <CardHeader>
         <CardTitle>{label}</CardTitle>
-        <CardDescription>
-          {token1?.symbol} per {token0?.symbol}
-        </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="flex items-center justify-between">
-          <TextField
-            autoFocus={focus}
-            variant="naked"
-            testdata-id={`${id}-input`}
-            type="number"
-            value={localValue}
-            onValueChange={setLocalValue}
-            disabled={locked}
-            tabIndex={0}
-            className="text-3xl font-medium pt-1 pb-2"
-          />
-          <div className="flex gap-1">
-            <button
-              type="button"
-              disabled={decrementDisabled}
-              onClick={handleDecrement}
-              className={classNames(
-                decrementDisabled
-                  ? 'opacity-40'
-                  : 'hover:bg-gray-300 dark:hover:bg-slate-600',
-                'flex items-center justify-center w-5 h-5 bg-gray-200 dark:bg-slate-700 rounded-full',
-              )}
-              tabIndex={-1}
-            >
-              <MinusIcon width={12} height={12} />
-            </button>
-            <button
-              type="button"
-              disabled={incrementDisabled}
-              onClick={handleIncrement}
-              onKeyDown={handleIncrement}
-              className={classNames(
-                incrementDisabled
-                  ? 'opacity-40'
-                  : 'hover:bg-gray-300 dark:hover:bg-slate-600',
-                'flex items-center justify-center w-5 h-5 bg-gray-200 dark:bg-slate-700 rounded-full',
-              )}
-              tabIndex={-1}
-            >
-              <PlusIcon width={12} height={12} />
-            </button>
+        <div className="flex flex-col">
+          <div className="flex flex-row items-center justify-between">
+            <TextField
+              autoFocus={focus}
+              variant="naked"
+              testdata-id={`${id}-input`}
+              type="number"
+              value={localValue}
+              onValueChange={setLocalValue}
+              disabled={locked}
+              tabIndex={0}
+              className="pt-1 pb-2 text-3xl font-medium"
+            />
+            <div className="flex flex-col gap-1">
+              <button
+                type="button"
+                disabled={decrementDisabled}
+                onClick={handleDecrement}
+                className={classNames(
+                  decrementDisabled
+                    ? 'opacity-40'
+                    : 'hover:bg-gray-300 dark:hover:bg-slate-600',
+                  'flex items-center justify-center w-5 h-5 bg-gray-200 dark:bg-slate-700 rounded-full',
+                )}
+                tabIndex={-1}
+              >
+                <MinusIcon width={12} height={12} />
+              </button>
+              <button
+                type="button"
+                disabled={incrementDisabled}
+                onClick={handleIncrement}
+                onKeyDown={handleIncrement}
+                className={classNames(
+                  incrementDisabled
+                    ? 'opacity-40'
+                    : 'hover:bg-gray-300 dark:hover:bg-slate-600',
+                  'flex items-center justify-center w-5 h-5 bg-gray-200 dark:bg-slate-700 rounded-full',
+                )}
+                tabIndex={-1}
+              >
+                <PlusIcon width={12} height={12} />
+              </button>
+            </div>
           </div>
+          <span className="text-sm text-slate-400">
+            {token1?.symbol} per {token0?.symbol}
+          </span>
         </div>
       </CardContent>
     </Card>

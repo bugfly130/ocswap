@@ -1,4 +1,3 @@
-import { FormSection } from '@sushiswap/ui'
 import { Button } from '@sushiswap/ui/components/button'
 import { Currency } from '@sushiswap/ui/components/currency'
 import { SelectIcon } from '@sushiswap/ui/components/select'
@@ -24,10 +23,10 @@ export const SelectTokensWidget: FC<SelectTokensWidget> = ({
   setToken1,
 }) => {
   return (
-    <FormSection
-      title="Tokens"
-      description="Which token pair would you like to add liquidity to."
-    >
+    <div className="flex flex-col">
+      <h3 className="text-md text-gray-400 py-2">
+        Which token pair would you like to add liquidity to?
+      </h3>
       <div className="flex gap-3">
         <TokenSelector
           id={'token0-token-selector'}
@@ -85,6 +84,6 @@ export const SelectTokensWidget: FC<SelectTokensWidget> = ({
           </Button>
         </TokenSelector>
       </div>
-    </FormSection>
+    </div>
   )
 }

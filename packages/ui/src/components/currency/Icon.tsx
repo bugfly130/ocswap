@@ -1,7 +1,7 @@
 import { ImageProps } from 'next/image'
 import { FC } from 'react'
 import { Chain, ChainId } from 'sushi/chain'
-import { Currency } from 'sushi/currency'
+import { Currency, Type } from 'sushi/currency'
 
 import { Avatar, AvatarImage } from '../avatar'
 import { LinkExternal } from '../link'

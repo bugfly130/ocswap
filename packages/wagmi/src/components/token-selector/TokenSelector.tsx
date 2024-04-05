@@ -283,8 +283,12 @@ export const TokenSelector: FC<TokenSelectorProps> = ({
           <div
             data-state={isLoading ? 'inactive' : 'active'}
             className={classNames(
-              'data-[state=active]:block data-[state=active]:flex-1 data-[state=inactive]:hidden',
+              'data-[state=active]:block data-[state=active]:flex-1 data-[state=inactive]:hidden rounded-xl',
             )}
+            style={{
+              background: 'rgba(0, 0, 0, 0.7)',
+              backdropFilter: 'blur(35px)',
+            }}
           >
             {queryToken &&
               !customTokenMap[
@@ -309,7 +313,7 @@ export const TokenSelector: FC<TokenSelectorProps> = ({
               isBalanceLoading={isBalanceLoading}
             />
             {sortedTokenList?.length === 0 && !queryToken && chainId && (
-              <span className="h-10 flex items-center justify-center text-center text-sm text-gray-500 dark:text-slate-500">
+              <span className="flex items-center justify-center h-10 text-sm text-center text-gray-500 dark:text-slate-500">
                 No results found.
               </span>
             )}

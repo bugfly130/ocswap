@@ -79,7 +79,7 @@ function SkeletonText({
       <div
         className={classNames(
           className,
-          'flex w-full h-full rounded-md overflow-hidden animate-pulse bg-black/[0.10] dark:bg-white/[0.10]',
+          'flex w-full h-full rounded-md overflow-hidden animate-pulse dark:bg-black/[0.10] bg-white/[0.10]',
         )}
       />
     </div>

@@ -125,9 +125,9 @@ export const TableFiltersPoolType: FC = () => {
               forceMount
               className="hidden md:block w-[240px]"
             >
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 text-slate-50">
                 <Label>{PROTOCOL_MAP[peekedProtocol]}</Label>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-gray-400">
                   {POOL_DESCRIPTIONS[peekedProtocol]}
                 </div>
               </div>
@@ -143,7 +143,7 @@ export const TableFiltersPoolType: FC = () => {
                     key={el}
                     protocol={el}
                     onPeek={(protocol) => setPeekedProtocol(protocol)}
-                    onSelect={() =>
+                    onSelect={() => 
                       protocolHandler(el.toUpperCase() as Protocol)
                     }
                   />

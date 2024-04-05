@@ -79,7 +79,7 @@ export const AddSectionPoolShareCardV2: FC<AddSectionPoolShareCardV2> = ({
   return (
     <Collapsible open={Boolean(token1Per0 && token1Per0)}>
       <Card variant="outline">
-        <CardContent className="grid grid-cols-3 pt-6">
+        <CardContent className="grid grid-cols-3 pt-6 text-slate-50">
           <Stat>
             <StatValue size="sm">{token1Per0 || '-'}</StatValue>
             <StatLabel size="sm">

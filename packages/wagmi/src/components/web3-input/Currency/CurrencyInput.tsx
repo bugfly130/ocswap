@@ -201,6 +201,10 @@ const CurrencyInput: FC<CurrencyInputProps> = ({
         'relative space-y-2 overflow-hidden pb-2',
         className,
       )}
+      style={{
+        background: 'rgba(0, 0, 0, 0.8)',
+        backdropFilter: 'blur(35px)',
+      }}
     >
       <div
         data-state={fetching ? 'active' : 'inactive'}

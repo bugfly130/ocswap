@@ -48,7 +48,7 @@ export const TokenSelectorImportRow: FC<TokenSelectorImportRow> = ({
   return (
     <Dialog>
       <div className="relative py-0.5 h-[64px]">
-        <div className="flex items-center w-full hover:bg-muted focus:bg-accent h-full rounded-lg px-3">
+        <div className="flex items-center w-full h-full px-3 rounded-lg hover:bg-muted focus:bg-accent">
           {currencies[0] ? (
             <div className="flex flex-row items-center flex-grow gap-4">
               <div className="w-10 h-10">
@@ -60,10 +60,10 @@ export const TokenSelectorImportRow: FC<TokenSelectorImportRow> = ({
                 />
               </div>
               <div className="flex flex-col items-start">
-                <span className="font-semibold text-gray-900 group-hover:text-gray-900 dark:text-slate-50 dark:group-hover:text-white">
+                <span className="font-semibold dark:text-gray-900 group-hover:text-gray-900 text-slate-50 group-hover:text-white">
                   {currencies[0].symbol}
                 </span>
-                <span className="text-sm text-gray-500 dark:text-slate-400 group-hover:dark:text-blue-100">
+                <span className="text-sm text-gray-400 dark:text-gray-500 group-hover:text-blue-100">
                   {currencies[0].name}
                 </span>
               </div>
@@ -115,10 +115,10 @@ export const TokenSelectorImportRow: FC<TokenSelectorImportRow> = ({
                 {currencies.reduce<ReactNode[]>((acc, cur) => {
                   if (cur) {
                     acc.push(
-                      <div className="flex items-center gap-4 py-2 px-4">
+                      <div className="flex items-center gap-4 px-4 py-2">
                         <Icon currency={cur} width={40} height={40} />
                         <div className="flex flex-col gap-1">
-                          <span className="truncate font-semibold text-gray-900 group-hover:text-gray-900 dark:text-slate-50 group-hover:dark:text-white">
+                          <span className="font-semibold truncate dark:text-gray-900 group-hover:text-gray-900 text-slate-50 group-hover:text-white">
                             {cur.symbol}
                           </span>
                           <a
@@ -126,7 +126,7 @@ export const TokenSelectorImportRow: FC<TokenSelectorImportRow> = ({
                             href={Chain.from(cur.chainId)?.getTokenUrl(
                               cur.address,
                             )}
-                            className="flex gap-1 text-sm text-blue font-medium"
+                            className="flex gap-1 text-sm font-medium text-blue"
                             rel="noreferrer"
                           >
                             {shortenAddress(cur.address)}
@@ -149,10 +149,10 @@ export const TokenSelectorImportRow: FC<TokenSelectorImportRow> = ({
                   )
                   if (currency) {
                     acc.push(
-                      <div className="flex items-center gap-4 py-2 px-4">
+                      <div className="flex items-center gap-4 px-4 py-2">
                         <Icon currency={currency} width={40} height={40} />
                         <div className="flex flex-col gap-1">
-                          <span className="truncate font-semibold text-gray-900 group-hover:text-gray-900 dark:text-slate-50 group-hover:dark:text-white">
+                          <span className="font-semibold truncate dark:text-gray-900 group-hover:text-gray-900 text-slate-50 group-hover:text-white">
                             {currency.symbol}
                           </span>
                           <a
@@ -160,7 +160,7 @@ export const TokenSelectorImportRow: FC<TokenSelectorImportRow> = ({
                             href={Chain.from(currency.chainId)?.getTokenUrl(
                               currency.address,
                             )}
-                            className="flex gap-1 text-sm text-blue font-medium"
+                            className="flex gap-1 text-sm font-medium text-blue"
                             rel="noreferrer"
                           >
                             {shortenAddress(currency.address)}
@@ -177,7 +177,7 @@ export const TokenSelectorImportRow: FC<TokenSelectorImportRow> = ({
           )}
         </div>
         <DialogFooter>
-          <div className="flex flex-col gap-3 w-full">
+          <div className="flex flex-col w-full gap-3">
             <Button fullWidth size="xl" onClick={onClick}>
               {!tokenSecurity?.honeypots || tokenSecurity.honeypots.length === 0
                 ? 'I understand'

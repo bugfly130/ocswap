@@ -1,4 +1,4 @@
-import { FormSection, NetworkSelector } from '@sushiswap/ui'
+import { NetworkSelector } from '@sushiswap/ui'
 import { Button } from '@sushiswap/ui/components/button'
 import { NetworkIcon } from '@sushiswap/ui/components/icons'
 import { SelectIcon } from '@sushiswap/ui/components/select'
@@ -20,10 +20,10 @@ export const SelectNetworkWidget: FC<SelectNetworkWidgetProps> = memo(
     title: _title,
   }) {
     return (
-      <FormSection
-        title="Network"
-        description="Select the network you would like to provide liquidity on."
-      >
+      <div className="flex flex-col">
+        <h3 className="py-2 text-gray-400 text-md">
+          Which network would you like to provide liquidity on?
+        </h3>
         <div>
           <NetworkSelector
             networks={networks}
@@ -37,7 +37,7 @@ export const SelectNetworkWidget: FC<SelectNetworkWidgetProps> = memo(
             </Button>
           </NetworkSelector>
         </div>
-      </FormSection>
+      </div>
     )
   },
 )

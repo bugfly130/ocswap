@@ -17,7 +17,6 @@ import {
   DialogTrigger,
   Dots,
   FormError,
-  FormSection,
   LinkExternal,
   List,
   Separator,
@@ -63,13 +62,23 @@ const APPROVE_TAG = 'approve-incentivize'
 
 export default function Page() {
   return (
-    <ConcentratedLiquidityURLStateProvider
-      supportedNetworks={ANGLE_ENABLED_NETWORKS}
-    >
-      <ConcentratedLiquidityProvider>
-        <Incentivize />
-      </ConcentratedLiquidityProvider>
-    </ConcentratedLiquidityURLStateProvider>
+    <div className="flex flex-col items-center justify-center>">
+      <div
+        className="flex flex-col gap-6 p-6 flex-8 rounded-xl"
+        style={{
+          background: 'rgba(255, 255, 255, 0.1)',
+          backdropFilter: 'blur(35px)',
+        }}
+      >
+        <ConcentratedLiquidityURLStateProvider
+          supportedNetworks={ANGLE_ENABLED_NETWORKS}
+        >
+          <ConcentratedLiquidityProvider>
+            <Incentivize />
+          </ConcentratedLiquidityProvider>
+        </ConcentratedLiquidityURLStateProvider>
+      </div>
+    </div>
   )
 }
 
@@ -225,10 +234,11 @@ const Incentivize = withCheckerRoot(() => {
           disableIfNotExists={true}
         />
         <Separator />
-        <FormSection
-          title="Duration"
-          description="The time period you want to distribute rewards within"
-        >
+        <div className="flex flex-col">
+          <h3 className="py-2 text-lg font-semibold text-slate-50">Duration</h3>
+          <h3 className="py-2 text-gray-400 text-md">
+            The time period you want to distribute rewards within
+          </h3>
           <div className="grid grid-cols-2 gap-3">
             <div className="flex flex-col gap-2">
               <DateField
@@ -271,11 +281,12 @@ const Incentivize = withCheckerRoot(() => {
               {!validEndDate ? <FormError>Invalid end date.</FormError> : null}
             </div>
           </div>
-        </FormSection>
-        <FormSection
-          title="Rewards"
-          description="How many rewards in total would you like to distribute?"
-        >
+        </div>
+        <div className="flex flex-col">
+          <h3 className="py-2 text-lg font-semibold text-slate-50">Rewards</h3>
+          <h3 className="py-2 text-gray-400 text-md">
+            How many rewards in total would you like to distribute?
+          </h3>
           <Web3Input.Currency
             id="swap-from"
             type="INPUT"
@@ -304,7 +315,7 @@ const Incentivize = withCheckerRoot(() => {
           <p
             className={typographyVariants({
               variant: 'muted',
-              className: 'text-sm',
+              className: 'text-sm text-gray-500 mt-2',
             })}
           >
             Rewards are distributed per hour. The minimum reward for this
@@ -317,7 +328,7 @@ const Incentivize = withCheckerRoot(() => {
             </Button>
           </p>
           <Separator className="!my-10" />
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 text-gray-400">
             <div className="flex items-center justify-between">
               <h1
                 className={typographyVariants({
@@ -339,7 +350,7 @@ const Incentivize = withCheckerRoot(() => {
                 customize ? 'mt-4' : 'hidden',
               )}
             >
-              <div className="flex flex-col gap-10">
+              <div className="flex flex-col gap-10 text-slate-50">
                 <div className="flex flex-col">
                   {token0 ? (
                     <span className="flex items-center gap-2">
@@ -347,13 +358,13 @@ const Incentivize = withCheckerRoot(() => {
                       {token0?.symbol}
                     </span>
                   ) : null}
-                  <div className="grid grid-cols-12 items-center gap-x-4">
+                  <div className="grid items-center grid-cols-12 gap-x-4">
                     <Slider
                       value={distro1}
                       onValueChange={setDistro1}
                       max={100}
                       step={5}
-                      className="col-span-9 w-full"
+                      className="w-full col-span-9"
                     />
                     <div className="col-span-3">
                       <TextField
@@ -364,7 +375,7 @@ const Incentivize = withCheckerRoot(() => {
                         onValueChange={(val) => setDistro1([+val])}
                       />
                     </div>
-                    <span className="col-span-9 text-sm text-muted-foreground">
+                    <span className="col-span-9 text-sm text-gray-400">
                       Percentage of rewards that get distributed to{' '}
                       {token0?.symbol} liquidity
                     </span>
@@ -377,13 +388,13 @@ const Incentivize = withCheckerRoot(() => {
                       {token1?.symbol}
                     </span>
                   ) : null}
-                  <div className="grid grid-cols-12 items-center gap-x-4">
+                  <div className="grid items-center grid-cols-12 gap-x-4">
                     <Slider
                       value={distro2}
                       onValueChange={setDistro2}
                       max={100}
                       step={5}
-                      className="col-span-9 w-full"
+                      className="w-full col-span-9"
                     />
                     <div className="col-span-3">
                       <TextField
@@ -402,13 +413,13 @@ const Incentivize = withCheckerRoot(() => {
                 </div>
                 <div className="flex flex-col">
                   <span className="flex items-center gap-2">Fees</span>
-                  <div className="grid grid-cols-12 items-center gap-x-4">
+                  <div className="grid items-center grid-cols-12 gap-x-4">
                     <Slider
                       value={distro3}
                       onValueChange={setDistro3}
                       max={100}
                       step={5}
-                      className="col-span-9 w-full"
+                      className="w-full col-span-9"
                     />
                     <div className="col-span-3">
                       <TextField
@@ -419,7 +430,7 @@ const Incentivize = withCheckerRoot(() => {
                         onValueChange={(val) => setDistro3([+val])}
                       />
                     </div>
-                    <span className="col-span-9 text-sm text-muted-foreground">
+                    <span className="col-span-9 text-sm text-gray-400">
                       Percentage of rewards that get distributed to fee
                       generation
                     </span>
@@ -428,7 +439,7 @@ const Incentivize = withCheckerRoot(() => {
               </div>
               <h1
                 className={classNames(
-                  totalDistro !== 100 ? 'text-red' : 'text-muted-foreground',
+                  totalDistro !== 100 ? 'text-red' : 'text-gray-400',
                   'text-sm pt-4',
                 )}
               >
@@ -677,7 +688,7 @@ const Incentivize = withCheckerRoot(() => {
               </Checker.Guard>
             </Checker.Network>
           </Checker.Connect>
-        </FormSection>
+        </div>
       </div>
       {pool && token0 && token1 ? (
         <DialogConfirm

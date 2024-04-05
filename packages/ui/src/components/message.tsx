@@ -10,7 +10,7 @@ const messageVariants = cva('relative', {
     variant: {
       info: 'bg-blue/10 text-blue',
       destructive: 'bg-red/10 text-red',
-      warning: 'bg-yellow/10 dark:text-yellow text-amber-900',
+      warning: 'bg-yellow/10 text-yellow dark:text-amber-900',
       muted: 'bg-secondary',
       success: 'bg-green/10 text-green',
     },
@@ -55,7 +55,7 @@ const Message = React.forwardRef<HTMLDivElement, MessageProps>(
       >
         {children}
         {onClose ? (
-          <div className="absolute right-1 top-1 bottom-0">
+          <div className="absolute bottom-0 right-1 top-1">
             <IconButton
               variant="ghost"
               size="xs"

@@ -19,6 +19,13 @@ import { SelectNetworkWidget } from '../../../ui/pool/SelectNetworkWidget'
 import { SelectPricesWidget } from '../../../ui/pool/SelectPricesWidget'
 import { SelectTokensWidget } from '../../../ui/pool/SelectTokensWidget'
 
+import { Currency } from '@sushiswap/ui'
+import { formatUSD } from 'sushi/format'
+
+import { Badge } from '@sushiswap/ui/components/badge'
+import { NetworkIcon } from '@sushiswap/ui/components/icons'
+import { chainName } from 'sushi/chain'
+
 export default function Page() {
   return (
     <ConcentratedLiquidityURLStateProvider>
@@ -79,130 +86,145 @@ const _Add: FC = () => {
 
   return (
     <>
-      {/*<div className="hidden lg:block">*/}
-      {/*  <div className="lg:grid grid-cols-2 items-center gap-6 sticky top-[96px]">*/}
-      {/*    <div className="col-span-2 flex gap-7">*/}
-      {/*      <div className="flex min-w-[44px] mb-4">*/}
-      {/*        <Badge*/}
-      {/*          className="border-2 border-gray-100 dark:border-slate-900 rounded-full z-[11] !bottom-0 right-[-15%]"*/}
-      {/*          position="bottom-right"*/}
-      {/*          badgeContent={*/}
-      {/*            chainId ? (*/}
-      {/*              <NetworkIcon chainId={chainId} width={24} height={24} />*/}
-      {/*            ) : (*/}
-      {/*              <div className="w-6 h-6 rounded-full bg-gray-300" />*/}
-      {/*            )*/}
-      {/*          }*/}
-      {/*        >*/}
-      {/*          <Currency.IconList iconWidth={48} iconHeight={48}>*/}
-      {/*            {token0 && !tokensLoading ? (*/}
-      {/*              <Currency.Icon currency={token0} />*/}
-      {/*            ) : (*/}
-      {/*              <div className="w-[48px] h-[48px] rounded-full bg-gray-300 dark:bg-slate-800" />*/}
-      {/*            )}*/}
-      {/*            {token1 && !tokensLoading ? (*/}
-      {/*              <Currency.Icon currency={token1} />*/}
-      {/*            ) : (*/}
-      {/*              <div className="w-[48px] h-[48px] rounded-full bg-gray-300 dark:bg-slate-800" />*/}
-      {/*            )}*/}
-      {/*          </Currency.IconList>*/}
-      {/*        </Badge>*/}
-      {/*      </div>*/}
-      {/*      <div className="flex flex-col flex-grow">*/}
-      {/*        {token0 && token1 ? (*/}
-      {/*          <>*/}
-      {/*            <h1 className="text-xl text-gray-900 dark:text-slate-50 font-semibold">*/}
-      {/*              {token0.symbol}/{token1.symbol}*/}
-      {/*            </h1>*/}
-      {/*            <p className="font-medium text-gray-700 dark:dark:text-slate-400 text-slate-600">*/}
-      {/*              SushiSwap V3 • {feeAmount / 10000}%*/}
-      {/*            </p>*/}
-      {/*          </>*/}
-      {/*        ) : tokensLoading ? (*/}
-      {/*          <>*/}
-      {/*            <SkeletonText fontSize="xl" className="w-full" />*/}
-      {/*            <SkeletonText className="w-full" />*/}
-      {/*          </>*/}
-      {/*        ) : (*/}
-      {/*          <></>*/}
-      {/*        )}*/}
-      {/*      </div>*/}
-      {/*    </div>*/}
-      {/*    <div className="col-span-2 flex flex-col gap-2">*/}
-      {/*      <List.Label className="!px-0">Network</List.Label>*/}
-      {/*      <div className="flex font-medium items-center gap-2 rounded-xl ">*/}
-      {/*        <NetworkIcon chainId={chainId} width={24} height={24} /> {Chain.from(chainId)?.name}*/}
-      {/*      </div>*/}
-      {/*    </div>*/}
-      {/*    <div className="col-span-2 flex flex-col gap-2">*/}
-      {/*      <List.Label className="!px-0">Fee Tier</List.Label>*/}
-      {/*      <div className="flex items-center font-medium gap-2 rounded-xl ">{feeAmount / 10000}% Fee</div>*/}
-      {/*    </div>*/}
-      {/*    <div className="col-span-2 flex flex-col gap-2">*/}
-      {/*      <List.Label className="!px-0">Pool Type</List.Label>*/}
-      {/*      <div className="flex items-center font-medium gap-2 rounded-xl">Concentrated Liquidity</div>*/}
-      {/*    </div>*/}
-      {/*    <div className="col-span-2 flex flex-col gap-2">*/}
-      {/*      <List.Label className="!px-0">Current Price</List.Label>*/}
-      {/*      {!isInitialLoading && !pool ? (*/}
-      {/*        <span className="">N/A</span>*/}
-      {/*      ) : isInitialLoading ? (*/}
-      {/*        <SkeletonText className="w-[120px]" />*/}
-      {/*      ) : token0 && token1 && pool ? (*/}
-      {/*        <div>*/}
-      {/*          <Button icon={SwitchHorizontalIcon} variant="link" onClick={() => setInvert((prev) => !prev)}>*/}
-      {/*            <div className="flex items-baseline gap-1.5">*/}
-      {/*              {invert ? token1.symbol : token0.symbol} ={' '}*/}
-      {/*              {pool.priceOf(invert ? token1.wrapped : token0.wrapped)?.toSignificant(4)}{' '}*/}
-      {/*              {invert ? token0.symbol : token1.symbol}*/}
-      {/*              <span className="text-sm font-normal">${fiatAmountsAsNumber[invert ? 1 : 0].toFixed(2)}</span>*/}
-      {/*            </div>*/}
-      {/*          </Button>*/}
-      {/*        </div>*/}
-      {/*      ) : null}*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
-      <SelectNetworkWidget
-        selectedNetwork={chainId}
-        onSelect={setNetwork}
-        networks={SUPPORTED_CHAIN_IDS}
-      />
-      <SelectTokensWidget
-        chainId={chainId}
-        token0={token0}
-        token1={token1}
-        setToken0={setToken0}
-        setToken1={setToken1}
-      />
-      <SelectFeeConcentratedWidget
-        feeAmount={feeAmount}
-        setFeeAmount={setFeeAmount}
-        token1={token1}
-        token0={token0}
-      />
-      <SelectPricesWidget
-        chainId={chainId}
-        token0={token0}
-        token1={token1}
-        poolAddress={poolAddress}
-        tokenId={tokenId}
-        feeAmount={feeAmount}
-        switchTokens={switchTokens}
-      />
-      <ConcentratedLiquidityWidget
-        chainId={chainId}
-        account={address}
-        token0={token0}
-        token1={token1}
-        setToken0={setToken0}
-        setToken1={setToken1}
-        feeAmount={feeAmount}
-        tokensLoading={tokensLoading}
-        existingPosition={position ?? undefined}
-        tokenId={tokenId}
-        successLink={`/pools/${chainId}:${poolAddress}?activeTab=myPositions`}
-      />
+      <div className="flex flex-row gap-6">
+        <div className="flex-col hidden gap-6 md:flex">
+          <div
+            className="flex flex-col gap-4 p-6 flex-4 rounded-xl"
+            style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(35px)',
+            }}
+          >
+            <div className="flex items-center gap-2">
+              <Badge
+                className="border-2 border-slate-900 rounded-full z-[11]"
+                position="bottom-right"
+                badgeContent={
+                  <NetworkIcon chainId={chainId} width={14} height={14} />
+                }
+              >
+                <Currency.IconList iconWidth={26} iconHeight={26}>
+                  {token0 ? <Currency.Icon currency={token0} /> : null}
+                  {token1 ? <Currency.Icon currency={token1} /> : null}
+                </Currency.IconList>
+              </Badge>
+              <div className="flex flex-col ms-6">
+                <h3 className="text-lg text-slate-50">
+                  {token0?.symbol}/{token1?.symbol}
+                </h3>
+                <h3 className="text-sm text-gray-400 whitespace-nowrap">
+                  OcswapShop V3.0%
+                </h3>
+              </div>
+            </div>
+            <div className="flex flex-col gap-2 p-2">
+              <h3 className="text-sm text-slate-50">Network</h3>
+              <div className="flex items-center gap-2">
+                <NetworkIcon chainId={chainId} width={26} height={26} />
+                <h3 className="text-md text-slate-50">
+                  {chainName?.[chainId]}
+                </h3>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2 p-2">
+              <h3 className="text-sm text-gray-400">Free Tier</h3>
+              <h3 className="text-md text-slate-50">
+                {feeAmount / 10000}% Fee
+              </h3>
+            </div>
+
+            <div className="flex flex-col gap-2 p-2">
+              <h3 className="text-sm text-gray-400">Pool Type</h3>
+              <h3 className="text-md text-slate-50">Concentrated Liquidity</h3>
+            </div>
+
+            <div className="flex flex-col gap-2 p-2">
+              <h3 className="text-sm text-gray-400">Current Price</h3>
+              <h3 className="text-md text-slate-50">
+                {_fiatAmountsAsNumber
+                  ? formatUSD(_fiatAmountsAsNumber[0] + _fiatAmountsAsNumber[1])
+                  : 'N/A'}
+              </h3>
+            </div>
+
+            {/* <div className="flex flex-col">
+              <Button
+                asChild
+                variant="link"
+                className={typographyVariants({
+                  variant: 'h1',
+                  className:
+                    'sm:!text2-xl sm:!text-4xl !font-bold text-gray-900 dark:text-slate-50 truncate overflow-x-auto',
+                })}
+              >
+                <LinkExternal
+                  href={Chain.from(pool.chainId)?.getTokenUrl(address)}
+                >
+                  {token0.symbol}/{token1.symbol}
+                </LinkExternal>
+              </Button>
+              <div className="flex items-center flex-1">
+                <span className="font-semibold tracking-tighter">Fee: </span>
+                <span className="font-semibold tracking-tighter">
+                  {pool instanceof SushiSwapV3Pool
+                    ? pool.fee / 10000
+                    : pool.swapFee * 100}
+                  %
+                </span>
+              </div>
+            </div> */}
+          </div>
+        </div>
+        <div
+          className="flex flex-col gap-6 p-6 flex-8 rounded-xl"
+          style={{
+            background: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(35px)',
+          }}
+        >
+          <SelectNetworkWidget
+            selectedNetwork={chainId}
+            onSelect={setNetwork}
+            networks={SUPPORTED_CHAIN_IDS}
+          />
+          <SelectTokensWidget
+            chainId={chainId}
+            token0={token0}
+            token1={token1}
+            setToken0={setToken0}
+            setToken1={setToken1}
+          />
+          <SelectFeeConcentratedWidget
+            feeAmount={feeAmount}
+            setFeeAmount={setFeeAmount}
+            token1={token1}
+            token0={token0}
+          />
+          <SelectPricesWidget
+            chainId={chainId}
+            token0={token0}
+            token1={token1}
+            poolAddress={poolAddress}
+            tokenId={tokenId}
+            feeAmount={feeAmount}
+            switchTokens={switchTokens}
+          />
+          <ConcentratedLiquidityWidget
+            chainId={chainId}
+            account={address}
+            token0={token0}
+            token1={token1}
+            setToken0={setToken0}
+            setToken1={setToken1}
+            feeAmount={feeAmount}
+            tokensLoading={tokensLoading}
+            existingPosition={position ?? undefined}
+            tokenId={tokenId}
+            successLink={`/pools/${chainId}:${poolAddress}?activeTab=myPositions`}
+          />
+        </div>
+      </div>
     </>
   )
 }

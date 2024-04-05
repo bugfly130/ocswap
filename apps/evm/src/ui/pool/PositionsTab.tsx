@@ -24,7 +24,7 @@ const ITEMS: { id: string; value: string; children: React.ReactNode }[] = [
       <div className="flex items-center gap-2">
         <span>🍣</span>{' '}
         <span>
-          SushiSwap <sup>v3</sup>
+          OCSwap <sup>v3</sup>
         </span>
       </div>
     ),
@@ -36,7 +36,7 @@ const ITEMS: { id: string; value: string; children: React.ReactNode }[] = [
       <div className="flex items-center gap-2">
         <span>🍣</span>{' '}
         <span>
-          SushiSwap <sup>v2</sup>
+          OCSwap <sup>v2</sup>
         </span>
       </div>
     ),

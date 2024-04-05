@@ -100,15 +100,15 @@ const COLUMNS = [
             </Badge>
           </div>
           <div className="flex flex-col gap-0.5">
-            <span className="flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-50">
+            <span className="flex items-center gap-1 text-sm font-medium text-slate-50 dark:text-gray-900">
               {unwrapToken(token0).symbol}{' '}
-              <span className="font-normal text-gray-900 dark:text-slate-500">
+              <span className="font-normal text-slate-500 dark:text-gray-900">
                 /
               </span>{' '}
               {unwrapToken(token1).symbol}{' '}
               <div
                 className={classNames(
-                  'text-[10px] bg-gray-200 dark:bg-slate-700 rounded-lg px-1 ml-1',
+                  'text-[10px] bg-slate-700 dark:bg-gray-200 rounded-lg px-1 ml-1',
                 )}
               />
             </span>

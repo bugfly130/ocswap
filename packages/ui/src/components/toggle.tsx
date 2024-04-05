@@ -12,12 +12,12 @@ const toggleVariants = cva(
     variants: {
       variant: {
         default: 'bg-transparent text-[#8B9194]',
-        outline: 'bg-[#1991F5] text-white',
+        outline: 'bg-transparent !border border-[#1991F5] text-white',
       },
       size: {
         xs: 'h-[26px] px-2 text-xs rounded-md',
-        default: 'h-10 px-3 rounded-xl',
-        sm: 'h-9 px-2.5 rounded-xl',
+        default: 'h-10 px-3 rounded-md',
+        sm: 'h-9 px-2.5 rounded-md',
         lg: 'h-11 px-5 rounded-xl',
       },
     },

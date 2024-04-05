@@ -23,7 +23,7 @@ const percentInputProps: Partial<React.InputHTMLAttributes<HTMLInputElement>> =
   }
 
 const textFieldVariants = cva(
-  'truncate appearance-none text-slate-400 w-full !ring-0 !outline-none',
+  'truncate appearance-none text-slate-50 w-full !ring-0 !outline-none',
   {
     variants: {
       size: {
@@ -32,10 +32,10 @@ const textFieldVariants = cva(
       },
       variant: {
         default:
-          'border-0 flex items-center px-3 rounded-lg font-medium block bg-secondary group-hover:bg-muted group-focus:bg-accent',
+          'border-0 flex items-center px-3 rounded-lg font-medium block bg-[#282828] group-hover:bg-muted group-focus:bg-accent',
         naked: 'border-0 bg-transparent',
         outline:
-          'bg-gray-600 flex items-center px-3 rounded-lg font-medium block border border-accent group-hover:border-black/20 group-focus:border-black/30 hover:border-black/30 focus-within:border-black/30',
+          'bg-[#282828] flex items-center px-3 rounded-lg font-medium block border border-accent group-hover:border-black/20 group-focus:border-black/30 hover:border-black/30 focus-within:border-black/30',
       },
       isError: {
         yes: 'bg-red/10 text-red',

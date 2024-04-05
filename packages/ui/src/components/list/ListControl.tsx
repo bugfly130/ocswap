@@ -12,7 +12,7 @@ export const ListControl: FC<ListControlProps> = ({ children, className }) => {
   return (
     <Card
       className={classNames(
-        '!border-none bg-white dark:!bg-secondary rounded-xl overflow-hidden shadow-sm',
+        '!border-none rounded-xl overflow-hidden shadow-sm',
         className,
       )}
     >

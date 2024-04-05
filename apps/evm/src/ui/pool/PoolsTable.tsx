@@ -209,7 +209,7 @@ const COLUMNS = [
               )}
               {row.original.protocol === 'SUSHISWAP_V2' && (
                 <Chip variant="pink" className="ml-2">
-                  SushiSwap V2
+                  OCSwap V2
                 </Chip>
               )}
             </DropdownMenuLabel>

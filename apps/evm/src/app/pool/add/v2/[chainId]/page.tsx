@@ -257,129 +257,142 @@ const _Add: FC<AddProps> = ({
 
   return (
     <>
-      <SelectNetworkWidget
-        networks={networks}
-        selectedNetwork={chainId}
-        onSelect={setChainId}
-      />
-      <SelectTokensWidget
-        chainId={chainId}
-        token0={token0}
-        token1={token1}
-        setToken0={_setToken0}
-        setToken1={_setToken1}
-      />
-      <FormSection
-        title="Deposit"
-        description="Select the amount of tokens you want to deposit"
-      >
-        <div className="flex flex-col gap-4">
-          <Web3Input.Currency
-            id="add-liquidity-token0"
-            type="INPUT"
-            className="p-3 bg-white dark:bg-slate-800 rounded-xl"
-            chainId={chainId}
-            value={input0}
-            onChange={onChangeToken0TypedAmount}
-            onSelect={_setToken0}
-            currency={token0}
-            disabled={
-              !token0 ||
-              poolState === SushiSwapV2PoolState.LOADING ||
-              poolState === SushiSwapV2PoolState.INVALID
-            }
-            loading={poolState === SushiSwapV2PoolState.LOADING}
+      <div className="flex flex-col items-center justify-center>">
+        <div
+          className="flex flex-col gap-6 p-6 flex-8 rounded-xl"
+          style={{
+            background: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(35px)',
+          }}
+        >
+          <SelectNetworkWidget
+            networks={networks}
+            selectedNetwork={chainId}
+            onSelect={setChainId}
           />
-          <div className="left-0 right-0 mt-[-24px] mb-[-24px] flex items-center justify-center">
-            <button
-              type="button"
-              className="z-10 p-2 bg-gray-100 rounded-full dark:bg-slate-900"
-            >
-              <PlusIcon
-                strokeWidth={3}
-                className="w-4 h-4 dark:text-slate-400 text-slate-600"
+          <SelectTokensWidget
+            chainId={chainId}
+            token0={token0}
+            token1={token1}
+            setToken0={_setToken0}
+            setToken1={_setToken1}
+          />
+          <div className="flex flex-col">
+            <h3 className="py-2 text-md text-slate-50">Deposit</h3>
+            <div className="flex flex-col gap-4">
+              <Web3Input.Currency
+                id="add-liquidity-token0"
+                type="INPUT"
+                className="p-3 border bg-secondary rounded-xl border-accent"
+                chainId={chainId}
+                value={input0}
+                onChange={onChangeToken0TypedAmount}
+                onSelect={_setToken0}
+                currency={token0}
+                disabled={
+                  !token0 ||
+                  poolState === SushiSwapV2PoolState.LOADING ||
+                  poolState === SushiSwapV2PoolState.INVALID
+                }
+                loading={poolState === SushiSwapV2PoolState.LOADING}
               />
-            </button>
-          </div>
-          <Web3Input.Currency
-            id="add-liquidity-token1"
-            type="INPUT"
-            className="p-3 bg-white dark:bg-slate-800 rounded-xl"
-            chainId={chainId}
-            value={input1}
-            onChange={onChangeToken1TypedAmount}
-            onSelect={_setToken1}
-            currency={token1}
-            disabled={
-              !token1 ||
-              poolState === SushiSwapV2PoolState.LOADING ||
-              poolState === SushiSwapV2PoolState.INVALID
-            }
-            loading={poolState === SushiSwapV2PoolState.LOADING}
-          />
-          <AddSectionPoolShareCardV2
-            pool={pool}
-            poolState={poolState}
-            input0={parsedInput0}
-            input1={parsedInput1}
-          />
-          <CheckerProvider>
-            <Checker.Connect fullWidth>
-              <Checker.Network fullWidth chainId={chainId}>
-                <Checker.Amounts
-                  fullWidth
-                  chainId={chainId}
-                  amounts={[parsedInput0, parsedInput1]}
+              <div className="left-0 right-0 mt-[-24px] mb-[-24px] flex items-center justify-center">
+                <button
+                  type="button"
+                  className="z-10 p-2 border border-blue-500 rounded-full dark:bg-gray-100 bg-slate-900"
                 >
-                  {(!pool || isSushiSwapV2Pool(pool)) &&
-                    isSushiSwapV2ChainId(chainId) && (
-                      <>
-                        <Checker.ApproveERC20
-                          id="approve-token-0"
-                          className="whitespace-nowrap"
-                          fullWidth
-                          amount={parsedInput0}
-                          contract={SUSHISWAP_V2_ROUTER_ADDRESS[chainId]}
-                        >
-                          <Checker.ApproveERC20
-                            id="approve-token-1"
-                            className="whitespace-nowrap"
-                            fullWidth
-                            amount={parsedInput1}
-                            contract={SUSHISWAP_V2_ROUTER_ADDRESS[chainId]}
-                          >
-                            <Checker.Success tag={APPROVE_TAG_ADD_LEGACY}>
-                              <AddSectionReviewModalLegacy
-                                poolAddress={pool?.liquidityToken.address}
-                                poolState={poolState as SushiSwapV2PoolState}
-                                chainId={chainId}
-                                token0={token0}
-                                token1={token1}
-                                input0={parsedInput0}
-                                input1={parsedInput1}
-                                onSuccess={() => {
-                                  setTypedAmounts({ input0: '', input1: '' })
-                                }}
+                  <PlusIcon
+                    strokeWidth={3}
+                    className="w-4 h-4 text-slate-400 dark:text-slate-600"
+                  />
+                </button>
+              </div>
+              <Web3Input.Currency
+                id="add-liquidity-token1"
+                type="INPUT"
+                className="p-3 border bg-secondary rounded-xl border-accent"
+                chainId={chainId}
+                value={input1}
+                onChange={onChangeToken1TypedAmount}
+                onSelect={_setToken1}
+                currency={token1}
+                disabled={
+                  !token1 ||
+                  poolState === SushiSwapV2PoolState.LOADING ||
+                  poolState === SushiSwapV2PoolState.INVALID
+                }
+                loading={poolState === SushiSwapV2PoolState.LOADING}
+              />
+              <AddSectionPoolShareCardV2
+                pool={pool}
+                poolState={poolState}
+                input0={parsedInput0}
+                input1={parsedInput1}
+              />
+              <CheckerProvider>
+                <Checker.Connect fullWidth>
+                  <Checker.Network fullWidth chainId={chainId}>
+                    <Checker.Amounts
+                      fullWidth
+                      chainId={chainId}
+                      amounts={[parsedInput0, parsedInput1]}
+                    >
+                      {(!pool || isSushiSwapV2Pool(pool)) &&
+                        isSushiSwapV2ChainId(chainId) && (
+                          <>
+                            <Checker.ApproveERC20
+                              id="approve-token-0"
+                              className="whitespace-nowrap"
+                              fullWidth
+                              amount={parsedInput0}
+                              contract={SUSHISWAP_V2_ROUTER_ADDRESS[chainId]}
+                            >
+                              <Checker.ApproveERC20
+                                id="approve-token-1"
+                                className="whitespace-nowrap"
+                                fullWidth
+                                amount={parsedInput1}
+                                contract={SUSHISWAP_V2_ROUTER_ADDRESS[chainId]}
                               >
-                                <Button
-                                  size="xl"
-                                  fullWidth
-                                  testId="add-liquidity"
-                                >
-                                  {title}
-                                </Button>
-                              </AddSectionReviewModalLegacy>
-                            </Checker.Success>
-                          </Checker.ApproveERC20>
-                        </Checker.ApproveERC20>
-                      </>
-                    )}
-                </Checker.Amounts>
-              </Checker.Network>
-            </Checker.Connect>
-          </CheckerProvider>
+                                <Checker.Success tag={APPROVE_TAG_ADD_LEGACY}>
+                                  <AddSectionReviewModalLegacy
+                                    poolAddress={pool?.liquidityToken.address}
+                                    poolState={
+                                      poolState as SushiSwapV2PoolState
+                                    }
+                                    chainId={chainId}
+                                    token0={token0}
+                                    token1={token1}
+                                    input0={parsedInput0}
+                                    input1={parsedInput1}
+                                    onSuccess={() => {
+                                      setTypedAmounts({
+                                        input0: '',
+                                        input1: '',
+                                      })
+                                    }}
+                                  >
+                                    <Button
+                                      size="xl"
+                                      fullWidth
+                                      testId="add-liquidity"
+                                    >
+                                      {title}
+                                    </Button>
+                                  </AddSectionReviewModalLegacy>
+                                </Checker.Success>
+                              </Checker.ApproveERC20>
+                            </Checker.ApproveERC20>
+                          </>
+                        )}
+                    </Checker.Amounts>
+                  </Checker.Network>
+                </Checker.Connect>
+              </CheckerProvider>
+            </div>
+          </div>
         </div>
-      </FormSection>
+      </div>
     </>
   )
 }

@@ -24,7 +24,7 @@ export const PoolNameCellV3: FC<Row<ConcentratedLiquidityPositionWithV3Pool>> =
         <div className="hidden sm:flex">
           {_token0 && _token1 && (
             <Badge
-              className="border-2 border-slate-900 rounded-full z-[11]"
+              className="border-2 border-slate-900 rounded-full z-[11] min-w-[54px]"
               position="bottom-right"
               badgeContent={
                 <NetworkIcon
@@ -43,7 +43,7 @@ export const PoolNameCellV3: FC<Row<ConcentratedLiquidityPositionWithV3Pool>> =
         </div>
         <div className="flex sm:hidden" />
         <div className="flex flex-col gap-0.5">
-          <span className="font-medium text-sm flex items-center gap-1 text-gray-900 dark:text-slate-50">
+          <span className="flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-50">
             {_token0?.symbol}{' '}
             <span className="font-normal text-gray-900 dark:text-slate-500">
               /
