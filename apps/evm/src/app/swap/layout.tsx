@@ -16,7 +16,7 @@ export default function SwapLayout({
     <>
       <Providers>
         <Header />
-        <div className="lg:p-4 mt-16 mb-[86px]">{children}</div>
+        <div className="mb-[86px] z-10 px-4 pt-10 pb-20">{children}</div>
       </Providers>
       <HotJar />
     </>

@@ -279,12 +279,6 @@ const DerivedstateSimpleSwapProvider: FC<DerivedStateSimpleSwapProviderProps> =
       },
     )
 
-    console.log(
-      'defaultedParams',
-      Array.from(defaultedParams.entries()),
-      Array.from(searchParams.entries()),
-    )
-
     return (
       <DerivedStateSimpleSwapContext.Provider
         value={useMemo(() => {

@@ -28,7 +28,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </Container>
       <section className="flex flex-col flex-1">
-        <div className="h-full pt-4 pb-20 bg-black border-t dark:bg-gray-50 border-accent">
+        <div className="h-full pt-4 pb-20 bg-black border-t border-accent">
           <Container maxWidth="5xl" className="px-4">
             {children}
           </Container>
