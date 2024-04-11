@@ -13,7 +13,7 @@ export default function SwapSimplePage() {
     <Providers>
       <Container className="px-4">
         <div className="flex flex-col gap-4 text-slate-50">
-          {/* <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4">
             <span className="text-lg text-slate-50">
               Instantly Exchange Your Tokens on OCS!
             </span>
@@ -27,7 +27,7 @@ export default function SwapSimplePage() {
             <SimpleSwapPoolInfo />
             <SimpleSwapWidget />
           </div>
-          <div className="flex-col">OCSWAP Info</div> */}
+          <div className="flex-col">OCSWAP Info</div>
           <SimpleSwapWidget />
         </div>
       </Container>

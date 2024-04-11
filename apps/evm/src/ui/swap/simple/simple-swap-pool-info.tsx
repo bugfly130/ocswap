@@ -1,57 +1,108 @@
 'use client'
 
+import { useDerivedStateSimpleSwap } from './derivedstate-simple-swap-provider'
+
 import React, { useMemo } from 'react'
 import { formatUSD } from 'sushi/format'
-import { useDerivedStateSimpleSwap } from './derivedstate-simple-swap-provider'
 
 import { type GetPoolsArgs } from '@sushiswap/client'
 import { usePools } from '@sushiswap/client/hooks'
+import { Currency } from '@sushiswap/ui/components/currency'
+import { Native, Token } from 'sushi/currency'
 
 export const SimpleSwapPoolInfo = () => {
   const {
     state: { token0, token1, chainId },
+    isLoading,
   } = useDerivedStateSimpleSwap()
 
-  // console.log('aaaaaaaaaaaa', token0?.symbol, token1?.symbol)
-
   const args = useMemo<GetPoolsArgs>(() => {
-    console.log('aaaaaaaaaaaa', chainId, token0, token1)
     if (token0?.symbol && token1?.symbol)
       return {
         chainIds: [chainId],
         tokenSymbols: [token0?.symbol, token1?.symbol],
-        isWhitelisted: false,
+        isWhitelisted: true,
       }
     else return undefined
   }, [token0, token1, chainId])
 
   const { data: pools } = usePools({ args, shouldFetch: true })
-  console.log('aaaaaaaaaaab', pools)
-  const { pool } = useMemo(() => {
-    return {
-      pool:
-        pools
-          ?.flat()
-          .filter(
-            (pool) =>
-              (pool.token0.symbol === token0?.symbol &&
-                pool.token1.symbol === token1?.symbol) ||
-              (pool.token1.symbol === token0?.symbol &&
-                pool.token0.symbol === token1?.symbol),
-          )
-          .at(0) || undefined,
-    }
-  }, [pools, token0, token1])
+
+  const pool = useMemo(() => {
+    const foundP = pools?.flat().find((p) => {
+      const [_token0, _token1] = [
+        Native.onChain(chainId).wrapped.address.toLowerCase() ===
+        p.token0.address.toLowerCase()
+          ? Native.onChain(chainId)
+          : p.token0,
+        Native.onChain(chainId).wrapped.address.toLowerCase() ===
+        p.token1.address.toLowerCase()
+          ? Native.onChain(chainId)
+          : p.token1,
+      ]
+      if (
+        (token0?.symbol === _token0.symbol &&
+          token1?.symbol === _token1.symbol) ||
+        (token1?.symbol === _token0.symbol && token0?.symbol === _token1.symbol)
+      ) {
+        return true // Return true to include the current element in the foundP result
+      }
+    })
+
+    return foundP
+  }, [pools, token0, token1, chainId])
 
   return (
     <div className="flex flex-col">
       <div className="flex flex-row gap-6">
-        <span className="text-lg text-slate-50">
-          {token0?.symbol}/{token1?.symbol}
-        </span>
-        <span className="text-sm text-slate-50">
-          {pool?.volumeUSD ? formatUSD(pool?.volumeUSD) : 'N/A'}
-        </span>
+        <div
+          className="flex flex-col flex-1 gap-6 p-4 rounded-xl"
+          style={{
+            background: 'rgba(255, 255, 255, 0.08)',
+            backdropFilter: 'blur(35px)',
+          }}
+        >
+          {!isLoading ? (
+            <div className="gap-4">
+              <div className="flex gap-2">
+                {/* <Currency.IconList iconWidth={26} iconHeight={26}>
+                  {pool?.token0 ? (
+                    <Currency.Icon currency={pool?.token0} />
+                  ) : null}
+                  {token1 ? <Currency.Icon currency={token1} /> : null}
+                </Currency.IconList> */}
+                <span className="text-sm text-gray-400">
+                  {token0?.symbol}/{token1?.symbol}
+                </span>
+              </div>
+              <div className="flex gap-2">
+                <span className="text-lg text-slate-50">
+                  {pool?.volumeUSD ? formatUSD(pool?.volume1d) : 'N/A'}
+                </span>
+              </div>
+            </div>
+          ) : (
+            <div>a</div>
+          )}
+        </div>
+        <div
+          className="flex flex-col items-center flex-1 gap-6 p-6 rounded-xl"
+          style={{
+            background: 'rgba(255, 255, 255, 0.08)',
+            backdropFilter: 'blur(35px)',
+          }}
+        >
+          a
+        </div>
+        <div
+          className="flex flex-col items-center flex-1 gap-6 p-6 rounded-xl"
+          style={{
+            background: 'rgba(255, 255, 255, 0.08)',
+            backdropFilter: 'blur(35px)',
+          }}
+        >
+          b
+        </div>
       </div>
       <div className="flex flex-col">
         <div className="flex flex-row">
