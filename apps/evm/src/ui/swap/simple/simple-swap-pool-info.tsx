@@ -55,8 +55,8 @@ export const SimpleSwapPoolInfo = () => {
     return foundP
   }, [pools, token0, token1, chainId])
 
-  const [token0_, token1_] = useMemo(() => {
-    if (!pool) return [undefined, undefined]
+  const [token0_, token1_, liquidityToken] = useMemo(() => {
+    if (!pool) return [undefined, undefined, undefined]
 
     return [
       unwrapToken(
@@ -75,10 +75,34 @@ export const SimpleSwapPoolInfo = () => {
           symbol: pool.token1.symbol,
         }),
       ),
+      new Token({
+        address: pool.id.includes(':') ? pool.id.split(':')[1] : pool.id,
+        name: 'SLP Token',
+        decimals: 18,
+        symbol: 'SLP',
+        chainId: pool.chainId,
+      }),
     ]
   }, [pool])
 
-  console.log('aaaaaaaa', pool)
+  // const { data, isLoading: isPoolLoading } = usePoolGraphData({
+  //   poolAddress: pool.address,
+  //   chainId: pool.chainId as ChainId,
+  // })
+
+  // const amounts = [data?.reserve0, data?.reserve1]
+
+  // const fiatValues = useTokenAmountDollarValues({
+  //   chainId: pool.chainId,
+  //   amounts,
+  // })
+
+  // const isLoading = isPoolLoading || fiatValues.length !== amounts.length
+
+  // const [reserve0USD, reserve1USD, reserveUSD] = useMemo(() => {
+  //   if (isLoading) return [0, 0, 0]
+  //   return [fiatValues[0], fiatValues[1], fiatValues[0] + fiatValues[1]]
+  // }, [fiatValues, isLoading])
 
   return (
     <div className="flex flex-col">
@@ -119,17 +143,23 @@ export const SimpleSwapPoolInfo = () => {
           }}
         >
           <MarketCapIcon width={32} height={32} />
-          <span className="text-lg text-slate-50">a</span>
+          <span className="text-lg text-slate-50">
+            {formatUSD(pool?.totalSupply ?? 0)}
+          </span>
           <span className="text-sm text-gray-400">Market Cap</span>
         </div>
         <div
-          className="flex flex-col items-center flex-1 gap-6 p-6 rounded-xl"
+          className="flex flex-col items-center flex-1 gap-2 p-4 rounded-xl"
           style={{
             background: 'rgba(255, 255, 255, 0.08)',
             backdropFilter: 'blur(35px)',
           }}
         >
-          b
+          <MarketCapIcon width={32} height={32} />
+          <span className="text-lg text-slate-50">
+            {formatUSD(pool?.volumeUSD ?? 0)}
+          </span>
+          <span className="text-sm text-gray-400">Volume Traded</span>
         </div>
       </div>
       <div className="flex flex-col">

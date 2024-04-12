@@ -35,8 +35,8 @@ export const SushiIcon: IconComponent = (props) => {
           y2="9.51244"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#3EEDFC" />
-          <stop offset="1" stop-color="#168BF4" />
+          <stop stopColor="#3EEDFC" />
+          <stop offset="1" stopColor="#168BF4" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_1_4217"
@@ -46,8 +46,8 @@ export const SushiIcon: IconComponent = (props) => {
           y2="-3.45117"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#3EEDFC" />
-          <stop offset="1" stop-color="#168BF4" />
+          <stop stopColor="#3EEDFC" />
+          <stop offset="1" stopColor="#168BF4" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_1_4217"
@@ -57,8 +57,8 @@ export const SushiIcon: IconComponent = (props) => {
           y2="4.14333"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#3EEDFC" />
-          <stop offset="1" stop-color="#168BF4" />
+          <stop stopColor="#3EEDFC" />
+          <stop offset="1" stopColor="#168BF4" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_1_4217"
@@ -68,8 +68,8 @@ export const SushiIcon: IconComponent = (props) => {
           y2="3.77698"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#3EEDFC" />
-          <stop offset="1" stop-color="#168BF4" />
+          <stop stopColor="#3EEDFC" />
+          <stop offset="1" stopColor="#168BF4" />
         </linearGradient>
       </defs>
     </svg>
