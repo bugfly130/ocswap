@@ -11,7 +11,7 @@ export const metadata = {
 export default function SwapSimplePage() {
   return (
     <Providers>
-      <Container className="px-4">
+      <Container maxWidth="7xl" className="z-10 px-4">
         <div className="flex flex-col gap-4 text-slate-50">
           <div className="flex flex-col gap-4">
             <span className="text-lg text-slate-50">
@@ -23,12 +23,13 @@ export default function SwapSimplePage() {
               without any hassle.
             </span>
           </div>
-          <div className="flex flex-row">
-            <SimpleSwapPoolInfo />
+          <div className="flex flex-row gap-6">
+            <div className="hidden lg:flex">
+              <SimpleSwapPoolInfo />
+            </div>
             <SimpleSwapWidget />
           </div>
           <div className="flex-col">OCSWAP Info</div>
-          <SimpleSwapWidget />
         </div>
       </Container>
     </Providers>

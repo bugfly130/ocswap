@@ -16,7 +16,7 @@ export default function SwapLayout({
     <>
       <Providers>
         <Header />
-        <div className="mb-[86px] z-10 px-4 pt-10 pb-20">{children}</div>
+        <div className="flex flex-col p-2 bg-black">{children}</div>
       </Providers>
       <HotJar />
     </>

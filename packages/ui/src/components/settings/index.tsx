@@ -104,7 +104,7 @@ export const SettingsOverlay: FC<SettingsOverlayProps> = ({
             Adjust to your personal preferences.
           </DialogDescription>
         </DialogHeader>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 text-slate-50">
           {modules.includes(SettingsModule.SlippageTolerance) && (
             <List className="!pt-0">
               <List.Control>

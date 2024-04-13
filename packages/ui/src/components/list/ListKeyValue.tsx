@@ -52,7 +52,7 @@ export const ListKeyValue: FC<ListKeyValueProps> = ({
       )}
     >
       <div className="flex flex-col gap-0.5">
-        <span className="text-sm font-medium text-gray-700 dark:text-slate-300">
+        <span className="text-sm font-medium dark:text-gray-700 text-slate-300">
           {title}
         </span>
         {subtitle && (
@@ -60,7 +60,7 @@ export const ListKeyValue: FC<ListKeyValueProps> = ({
         )}
       </div>
       <div className="flex justify-end">
-        <span className="flex justify-end w-full text-sm font-medium text-right text-gray-900 truncate dark:text-slate-50">
+        <span className="flex justify-end w-full text-sm font-medium text-right truncate dark:text-gray-900 text-slate-50">
           {children}
         </span>
       </div>

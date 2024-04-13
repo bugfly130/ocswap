@@ -10,7 +10,6 @@ import {
   CardGroup,
   CardHeader,
   CardLabel,
-  CardTitle,
 } from '@sushiswap/ui/components/card'
 import React, { FC, useMemo } from 'react'
 import { usePoolGraphData, useTokenAmountDollarValues } from 'src/lib/hooks'

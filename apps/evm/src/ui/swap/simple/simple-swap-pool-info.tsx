@@ -3,20 +3,20 @@
 import { useDerivedStateSimpleSwap } from './derivedstate-simple-swap-provider'
 
 import React, { useMemo } from 'react'
-import { formatUSD } from 'sushi/format'
 
 import { type GetPoolsArgs } from '@sushiswap/client'
 import { usePools } from '@sushiswap/client/hooks'
-import { Currency } from '@sushiswap/ui/components/currency'
-import { unwrapToken } from 'src/lib/functions'
-import { Native, Token } from 'sushi/currency'
+import { Native } from 'sushi/currency'
 
-import { MarketCapIcon } from '@sushiswap/ui/components/icons'
+import { ChainId } from 'sushi/chain'
+import { PoolInfoChart } from './simple-swap-pool-chart'
+import { PoolInfoLiquidity } from './simple-swap-pool-info-liquidity'
+import { PoolInfoMarketCap } from './simple-swap-pool-info-marketcap'
+import { PoolInfoVolume } from './simple-swap-pool-info-volume'
 
 export const SimpleSwapPoolInfo = () => {
   const {
     state: { token0, token1, chainId },
-    isLoading,
   } = useDerivedStateSimpleSwap()
 
   const args = useMemo<GetPoolsArgs>(() => {
@@ -55,119 +55,50 @@ export const SimpleSwapPoolInfo = () => {
     return foundP
   }, [pools, token0, token1, chainId])
 
-  const [token0_, token1_, liquidityToken] = useMemo(() => {
-    if (!pool) return [undefined, undefined, undefined]
-
-    return [
-      unwrapToken(
-        new Token({
-          chainId: pool.chainId,
-          address: pool.token0.address,
-          decimals: pool.token0.decimals,
-          symbol: pool.token0.symbol,
-        }),
-      ),
-      unwrapToken(
-        new Token({
-          chainId: pool.chainId,
-          address: pool.token1.address,
-          decimals: pool.token1.decimals,
-          symbol: pool.token1.symbol,
-        }),
-      ),
-      new Token({
-        address: pool.id.includes(':') ? pool.id.split(':')[1] : pool.id,
-        name: 'SLP Token',
-        decimals: 18,
-        symbol: 'SLP',
-        chainId: pool.chainId,
-      }),
-    ]
-  }, [pool])
-
-  // const { data, isLoading: isPoolLoading } = usePoolGraphData({
-  //   poolAddress: pool.address,
-  //   chainId: pool.chainId as ChainId,
-  // })
-
-  // const amounts = [data?.reserve0, data?.reserve1]
-
-  // const fiatValues = useTokenAmountDollarValues({
-  //   chainId: pool.chainId,
-  //   amounts,
-  // })
-
-  // const isLoading = isPoolLoading || fiatValues.length !== amounts.length
-
-  // const [reserve0USD, reserve1USD, reserveUSD] = useMemo(() => {
-  //   if (isLoading) return [0, 0, 0]
-  //   return [fiatValues[0], fiatValues[1], fiatValues[0] + fiatValues[1]]
-  // }, [fiatValues, isLoading])
-
   return (
-    <div className="flex flex-col">
-      <div className="flex flex-row gap-6">
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-row gap-4">
         <div
-          className="flex flex-col flex-1 gap-6 p-4 rounded-xl"
+          className="flex flex-col flex-1 gap-2 p-4 rounded-xl min-w-[180px]"
           style={{
             background: 'rgba(255, 255, 255, 0.08)',
             backdropFilter: 'blur(35px)',
           }}
         >
-          {!isLoading && pool && token0_ && token1_ ? (
-            <div className="flex flex-col gap-2">
-              <div className="flex items-center gap-2">
-                <Currency.IconList iconWidth={26} iconHeight={26}>
-                  <Currency.Icon currency={token0_} />
-                  <Currency.Icon currency={token1_} />
-                </Currency.IconList>
-                <span className="text-sm text-gray-400">
-                  {token0?.symbol}/{token1?.symbol}
-                </span>
-              </div>
-              <div className="flex gap-2">
-                <span className="text-lg text-slate-50">
-                  {formatUSD(pool.volume1d)}
-                </span>
-              </div>
-            </div>
-          ) : (
-            ''
-          )}
+          {pool ? <PoolInfoLiquidity pool={pool} /> : ''}
         </div>
         <div
-          className="flex flex-col items-center flex-1 gap-2 p-4 rounded-xl"
+          className="flex flex-col flex-1 gap-2 p-4 rounded-xl min-w-[180px]"
           style={{
             background: 'rgba(255, 255, 255, 0.08)',
             backdropFilter: 'blur(35px)',
           }}
         >
-          <MarketCapIcon width={32} height={32} />
-          <span className="text-lg text-slate-50">
-            {formatUSD(pool?.totalSupply ?? 0)}
-          </span>
-          <span className="text-sm text-gray-400">Market Cap</span>
+          {pool ? <PoolInfoMarketCap pool={pool} /> : ''}
         </div>
         <div
-          className="flex flex-col items-center flex-1 gap-2 p-4 rounded-xl"
+          className="flex flex-col flex-1 gap-2 p-4 rounded-xl min-w-[180px]"
           style={{
             background: 'rgba(255, 255, 255, 0.08)',
             backdropFilter: 'blur(35px)',
           }}
         >
-          <MarketCapIcon width={32} height={32} />
-          <span className="text-lg text-slate-50">
-            {formatUSD(pool?.volumeUSD ?? 0)}
-          </span>
-          <span className="text-sm text-gray-400">Volume Traded</span>
+          {pool ? <PoolInfoVolume pool={pool} /> : ''}
         </div>
       </div>
       <div className="flex flex-col">
-        <div className="flex flex-row">
+        {pool ? (
+          <PoolInfoChart
+            address={pool.address}
+            chainId={pool.chainId as ChainId}
+          />
+        ) : (
+          ''
+        )}
+        {/* <div className="flex flex-row">
           <h3>Overview Statstic</h3>
-          {/*Period Toggle Button*/}
         </div>
-        <div className="mt-10">a</div>
+        <div className="mt-10">a</div> */}
       </div>
     </div>
   )

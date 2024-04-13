@@ -158,14 +158,14 @@ export const CrossChainSwapTokenNotFoundDialog = () => {
                     Token {tokenFrom?.token && tokenTo?.token ? '1' : ''}
                   </List.Label>
                   <List.Control>
-                    <p className="p-3 text-sm text-gray-900 dark:text-slate-50">
+                    <p className="p-3 text-sm text-slate-50">
                       Could not retrieve token info for{' '}
                       <a
                         target="_blank"
                         href={Chain.from(chainId0)?.getTokenUrl(
                           token0.wrapped.address,
                         )}
-                        className="text-blue font-medium"
+                        className="font-medium text-blue"
                         rel="noreferrer"
                       >
                         {shortenAddress(token0.wrapped.address)}
@@ -182,14 +182,14 @@ export const CrossChainSwapTokenNotFoundDialog = () => {
                     Token {tokenFrom?.token && tokenTo?.token ? '2' : ''}
                   </List.Label>
                   <List.Control>
-                    <p className="p-3 text-sm text-gray-900 dark:text-slate-50">
+                    <p className="p-3 text-sm text-slate-50">
                       Could not retrieve token info for{' '}
                       <a
                         target="_blank"
                         href={Chain.from(chainId1)?.getTokenUrl(
                           token1.wrapped.address,
                         )}
-                        className="text-blue font-medium"
+                        className="font-medium text-blue"
                         rel="noreferrer"
                       >
                         {shortenAddress(token1.wrapped.address)}
@@ -257,7 +257,7 @@ export const CrossChainSwapTokenNotFoundDialog = () => {
 
               {tokenSecurity?.isSupported && (
                 <div className="flex items-center gap-0.5 justify-center mt-4">
-                  <span className="text-xs text-gray-700 dark:text-slate-400">
+                  <span className="text-xs text-slate-400">
                     Honeypot detection powered by GoPlus
                   </span>
                   <GoPlusLabsIcon width={22} height={20} />
@@ -337,7 +337,7 @@ export const CrossChainSwapTokenNotFoundDialog = () => {
                 )}
               {tokenSecurity.isSupported && (
                 <div className="flex items-center gap-0.5 justify-center">
-                  <span className="text-xs text-gray-700 dark:text-slate-400">
+                  <span className="text-xs text-slate-400">
                     Honeypot detection powered by GoPlus
                   </span>
                   <GoPlusLabsIcon width={22} height={20} />

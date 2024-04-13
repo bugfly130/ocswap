@@ -12,19 +12,22 @@ import { SimpleSwapTradeButton } from './simple-swap-trade-button'
 import { SimpleSwapTradeStats } from './simple-swap-trade-stats'
 import { SwapMaintenanceMessage } from './swap-maintenance-message'
 
-
-
 export const SimpleSwapWidget = () => {
-
   return (
-    <div className="flex flex-col gap-4">
+    <div
+      className="flex flex-col gap-4 p-4 rounded-xl"
+      style={{
+        background: 'rgba(255, 255, 255, 0.08)',
+        backdropFilter: 'blur(35px)',
+      }}
+    >
       <SimpleSwapHeader />
       <div className="flex items-center justify-between">
         <SwapModeButtons />
         <SimpleSwapSettingsOverlay />
       </div>
       <SwapMaintenanceMessage />
-      <CrossChainBanner />
+      {/* <CrossChainBanner /> */}
       <SimpleSwapToken0Input />
       <SimpleSwapSwitchTokensButton />
       <div className="flex flex-col">
