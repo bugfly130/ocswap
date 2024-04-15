@@ -50,31 +50,6 @@ export const SlippageTolerance: FC<{
   return (
     <HoverCard openDelay={0} closeDelay={0}>
       <div className={classNames(className, 'p-4 rounded-lg')}>
-        {showAutoSelector ? (
-          <>
-            <div className="flex justify-between items-center gap-4">
-              <div className="flex flex-col gap-2">
-                <Label>Automatic Slippage Tolerance</Label>
-                <span
-                  className={typographyVariants({
-                    variant: 'muted',
-                    className: 'text-sm',
-                  })}
-                >
-                  Turn off automatic slippage tolerance <br /> to adjust the
-                  value.
-                </span>
-              </div>
-              <Switch
-                checked={slippageTolerance === 'AUTO'}
-                onCheckedChange={(checked) =>
-                  setSlippageTolerance(checked ? 'AUTO' : '0.5')
-                }
-              />
-            </div>
-            <div className="my-4 h-px w-full dark:bg-slate-200/5 bg-gray-900/5" />
-          </>
-        ) : null}
         <div className="flex justify-between gap-[60px]">
           <div className="flex flex-col gap-2">
             <Label className="flex items-center gap-1">
@@ -83,9 +58,9 @@ export const SlippageTolerance: FC<{
                 <InformationCircleIcon width={16} height={16} />
               </HoverCardTrigger>
               <HoverCardPrimitive.Portal>
-                <HoverCardContent className="!p-0 max-w-[320px] z-[1080]">
+                <HoverCardContent className="p-2 max-w-[320px] z-[1080]">
                   <CardHeader>
-                    <CardTitle>Slippage</CardTitle>
+                    <CardTitle>Max Slippage</CardTitle>
                     <CardDescription className="prose">
                       <p>
                         Slippage is the difference between the expected value of
@@ -107,7 +82,7 @@ export const SlippageTolerance: FC<{
                 </HoverCardContent>
               </HoverCardPrimitive.Portal>
             </Label>
-            <span className="text-sm text-red mb-2">
+            <span className="mb-2 text-sm text-red">
               {+slippageTolerance <= 0.1 && +slippageTolerance > 0
                 ? 'Your transaction may be reverted due to low slippage tolerance'
                 : isDangerous
@@ -124,10 +99,10 @@ export const SlippageTolerance: FC<{
             {slippageTolerance === 'AUTO' ? '0.5%' : `${slippageTolerance}%`}
           </span>
         </div>
-        <Collapsible open={slippageTolerance !== 'AUTO'}>
+        <Collapsible open={true}>
           <div className="flex gap-1 items-center border border-accent rounded-xl bg-secondary p-0.5">
             <RadioGroup value={slippageTolerance} onChange={onChange}>
-              <div className="flex gap-1 items-center">
+              <div className="flex items-center gap-1">
                 {TABS.map((tab, i) => (
                   <RadioGroup.Option
                     className="h-[40px]"

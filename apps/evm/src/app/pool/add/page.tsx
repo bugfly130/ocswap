@@ -147,33 +147,6 @@ const _Add: FC = () => {
                   : 'N/A'}
               </h3>
             </div>
-
-            {/* <div className="flex flex-col">
-              <Button
-                asChild
-                variant="link"
-                className={typographyVariants({
-                  variant: 'h1',
-                  className:
-                    'sm:!text2-xl sm:!text-4xl !font-bold text-gray-900 dark:text-slate-50 truncate overflow-x-auto',
-                })}
-              >
-                <LinkExternal
-                  href={Chain.from(pool.chainId)?.getTokenUrl(address)}
-                >
-                  {token0.symbol}/{token1.symbol}
-                </LinkExternal>
-              </Button>
-              <div className="flex items-center flex-1">
-                <span className="font-semibold tracking-tighter">Fee: </span>
-                <span className="font-semibold tracking-tighter">
-                  {pool instanceof SushiSwapV3Pool
-                    ? pool.fee / 10000
-                    : pool.swapFee * 100}
-                  %
-                </span>
-              </div>
-            </div> */}
           </div>
         </div>
         <div

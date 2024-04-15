@@ -8,7 +8,6 @@ import { Button } from '../button'
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -20,10 +19,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '../tooltip'
-import { CarbonOffset } from './CarbonOffset'
-import { ExpertMode } from './ExpertMode'
+// import { CarbonOffset } from './CarbonOffset'
+// import { ExpertMode } from './ExpertMode'
 import { SlippageTolerance } from './SlippageTolerance'
-import { SwapApi } from './SwapApi'
+// import { SwapApi } from './SwapApi'
 
 export enum SettingsModule {
   CarbonOffset = 'CarbonOffset',
@@ -99,10 +98,7 @@ export const SettingsOverlay: FC<SettingsOverlayProps> = ({
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Settings</DialogTitle>
-          <DialogDescription>
-            Adjust to your personal preferences.
-          </DialogDescription>
+          <DialogTitle>Trade Settings</DialogTitle>
         </DialogHeader>
         <div className="flex flex-col gap-4 text-slate-50">
           {modules.includes(SettingsModule.SlippageTolerance) && (
@@ -112,7 +108,7 @@ export const SettingsOverlay: FC<SettingsOverlayProps> = ({
               </List.Control>
             </List>
           )}
-          {modules.length > 1 && (
+          {/* {modules.length > 1 && (
             <List className="!pt-0">
               <List.Control>
                 {modules.includes(SettingsModule.ExpertMode) && <ExpertMode />}
@@ -128,7 +124,7 @@ export const SettingsOverlay: FC<SettingsOverlayProps> = ({
                 <SwapApi />
               </List.Control>
             </List>
-          )}
+          )} */}
         </div>
       </DialogContent>
     </Dialog>
