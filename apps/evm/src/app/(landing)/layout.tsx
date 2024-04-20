@@ -11,9 +11,11 @@ export default function LandingLayout({
   return (
     <>
       <Providers>
-        <div className={classNames('flex flex-col flex-1')}>
+        <div className={classNames('flex flex-col flex-1 w-full')}>
           <Header />
-          <div className="flex flex-col flex-1">{children}</div>
+          <div className="flex flex-col flex-1 bg-black text-slate-50">
+            {children}
+          </div>
         </div>
       </Providers>
       <HotJar />

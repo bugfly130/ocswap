@@ -7,12 +7,13 @@ import * as React from 'react'
 import classNames from 'classnames'
 
 const toggleVariants = cva(
-  'inline-flex gap-2 items-center justify-center text-sm font-medium transition-colors data-[state=on]:bg-[#1991F5] data-[state=on]:text-white disabled:pointer-events-none disabled:opacity-50 hover:bg-muted hover:text-muted-foreground  ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-blue',
+  'inline-flex gap-2 items-center justify-center text-sm font-medium transition-colors text-gray-400 data-[state=on]:text-white disabled:pointer-events-none disabled:opacity-50 hover:text-slate-50  ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-blue',
   {
     variants: {
       variant: {
-        default: 'bg-transparent text-[#8B9194]',
-        outline: 'bg-transparent !border border-[#1991F5] text-white',
+        default: 'bg-transparent data-[state=on]:bg-[#1991F5]',
+        outline:
+          'bg-transparent !border border-default data-[state=on]:border-[#1991F5]',
       },
       size: {
         xs: 'h-[26px] px-2 text-xs rounded-md',

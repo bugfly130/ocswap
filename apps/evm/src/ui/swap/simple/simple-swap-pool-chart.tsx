@@ -29,14 +29,26 @@ const PoolInfoChart: FC<PoolChartProps> = ({ address, chainId }) => {
   )
 
   return (
-    <Card>
-      <div className="flex flex-col items-center justify-between gap-4 border-b border-accent md:flex-row">
-        <PoolInfoChartPeriods
-          periods={periods}
-          selectedPeriod={period}
-          setPeriod={setPeriod}
-        />
+    <Card
+      className="p-2"
+      style={{
+        background: 'rgba(255, 255, 255, 0.08)',
+        backdropFilter: 'blur(35px)',
+      }}
+    >
+      <div className="flex flex-row pt-2">
+        <h1 className="flex-grow text-xl font-semibold text-slate-50">
+          Overview Statistic
+        </h1>
+        <div className="flex flex-col items-center justify-between gap-4 border-b border-accent md:flex-row">
+          <PoolInfoChartPeriods
+            periods={periods}
+            selectedPeriod={period}
+            setPeriod={setPeriod}
+          />
+        </div>
       </div>
+
       <PoolInfoChartGraph period={period} address={address} chainId={chainId} />
     </Card>
   )

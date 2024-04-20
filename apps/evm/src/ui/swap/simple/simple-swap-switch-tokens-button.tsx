@@ -10,11 +10,11 @@ export const SimpleSwapSwitchTokensButton = () => {
   } = useDerivedStateSimpleSwap()
 
   return (
-    <div className="left-0 right-0 lg:mt-[-26px] lg:mb-[-26px] flex items-center justify-center">
+    <div className="flex items-center justify-center">
       <button
         onClick={switchTokens}
         type="button"
-        className="hover:shadow-sm transition-border z-10 group bg-background p-2 border border-accent transition-all rounded-full cursor-pointer"
+        className="z-10 p-2 transition-all bg-black border-2 rounded-full cursor-pointer border-blue hover:shadow-sm transition-border group border-accent"
       >
         <div className="transition-transform rotate-0 group-hover:rotate-180">
           <ArrowsUpDownIcon

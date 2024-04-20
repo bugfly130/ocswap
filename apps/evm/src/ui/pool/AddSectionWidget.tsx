@@ -59,10 +59,7 @@ export const AddSectionWidget: FC<AddSectionWidgetProps> = ({
                 title: 'Add Liquidity Slippage',
               },
             }}
-            modules={[
-              SettingsModule.CustomTokens,
-              SettingsModule.SlippageTolerance,
-            ]}
+            modules={[SettingsModule.SlippageTolerance]}
           >
             <IconButton
               size="sm"

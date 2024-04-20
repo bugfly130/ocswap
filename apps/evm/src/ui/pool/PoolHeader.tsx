@@ -1,13 +1,10 @@
 'use client'
 
-import { ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid'
 import { Pool as PoolV2 } from '@sushiswap/client'
 import {
   Button,
   Currency,
   LinkExternal,
-  LinkInternal,
-  classNames,
   typographyVariants,
 } from '@sushiswap/ui'
 import {
@@ -20,15 +17,12 @@ import React, { FC, useMemo } from 'react'
 import { unwrapToken } from 'src/lib/functions'
 import { Chain } from 'sushi/chain'
 import { Token } from 'sushi/currency'
-import { formatPercent, shortenAddress } from 'sushi/format'
+import { formatPercent } from 'sushi/format'
 import { SushiSwapV3Pool } from 'sushi/pool'
 
-import { style } from 'd3'
-import { formatUSD } from 'sushi/format'
 import { APRHoverCard } from './APRHoverCard'
 
 type PoolHeader = {
-  backUrl: string
   address: string
   pool: SushiSwapV3Pool | null | undefined | PoolV2
   apy?: {
@@ -41,7 +35,6 @@ type PoolHeader = {
 }
 
 export const PoolHeader: FC<PoolHeader> = ({
-  backUrl,
   address,
   pool,
   apy,
@@ -75,7 +68,7 @@ export const PoolHeader: FC<PoolHeader> = ({
 
   if (pool && token0 && token1)
     return (
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 z-10 px-2 pt-4 text-gray-300">
         {/* <div className="flex items-center gap-3 max-w-[100vh]">
           <Currency.IconList iconWidth={24} iconHeight={24}>
             <Currency.Icon currency={token1} />

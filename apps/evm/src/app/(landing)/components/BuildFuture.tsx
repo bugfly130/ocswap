@@ -72,8 +72,8 @@ export const BuildFuture: FC = () => {
   return (
     <section className="px-4 py-20 sm:py-40">
       <Container maxWidth="5xl" className="mx-auto">
-        <div className="prose dark:prose-invert mx-auto text-center flex flex-col">
-          <h1>
+        <div className="flex flex-col mx-auto prose text-center text-gray-400 dark:prose-invert">
+          <h1 className="text-slate-50">
             Help build <span className="text-pink">the future</span> with Sushi.{' '}
           </h1>
           <h5>
@@ -83,7 +83,7 @@ export const BuildFuture: FC = () => {
             the potentials, and reshape the future of decentralized finance.
           </h5>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 mt-20">
+        <div className="grid grid-cols-1 gap-6 mt-20 md:grid-cols-2">
           {DATA.map(
             ({
               caption,

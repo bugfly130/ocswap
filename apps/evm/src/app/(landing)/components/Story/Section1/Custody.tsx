@@ -39,7 +39,7 @@ const DATA: ExpendableCardData = {
 export const Custody: FC = () => {
   return (
     <section className="py-20 sm:py-40">
-      <Container maxWidth="5xl" className="mx-auto px-4 space-y-20">
+      <Container maxWidth="5xl" className="px-4 mx-auto space-y-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-[100px]">
           <CustodyImage />
           <div className="flex flex-col justify-center gap-3">
@@ -53,15 +53,15 @@ export const Custody: FC = () => {
               {({ setOpen, containerId, titleId }) => (
                 <motion.div
                   layoutId={containerId}
-                  className="prose dark:prose-invert flex flex-col items-center lg:items-start"
+                  className="flex flex-col items-center prose text-gray-400 dark:prose-invert lg:items-start"
                 >
                   <motion.h1
                     layoutId={titleId}
-                    className="flex flex-col items-center lg:items-start text-center lg:text-left"
+                    className="flex flex-col items-center text-center lg:items-start lg:text-left text-slate-50"
                   >
                     {DATA.title}
                   </motion.h1>
-                  <h5 className="text-lg text-center lg:text-left mb-8">
+                  <h5 className="mb-8 text-lg text-center lg:text-left">
                     Own your own crypto, just like cash in your wallet. Fully
                     decentralized & self custody of your funds means your money
                     in your wallet, as it should be.

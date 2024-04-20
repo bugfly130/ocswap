@@ -19,16 +19,13 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '../tooltip'
-// import { CarbonOffset } from './CarbonOffset'
-// import { ExpertMode } from './ExpertMode'
+import { GasFees } from './GasFees'
 import { SlippageTolerance } from './SlippageTolerance'
-// import { SwapApi } from './SwapApi'
+import { SwapApi } from './SwapApi'
 
 export enum SettingsModule {
-  CarbonOffset = 'CarbonOffset',
-  CustomTokens = 'CustomTokens',
   SlippageTolerance = 'SlippageTolerance',
-  ExpertMode = 'ExpertMode',
+  GasFees = 'GasFees',
   SwapApi = 'SwapApi',
 }
 
@@ -62,7 +59,7 @@ export const SettingsOverlay: FC<SettingsOverlayProps> = ({
         ) : (
           <Button
             size="sm"
-            className="!rounded-full"
+            className="!rounded-lg"
             variant="secondary"
             icon={Cog6ToothIcon}
             onClick={() => setOpen(true)}
@@ -77,7 +74,7 @@ export const SettingsOverlay: FC<SettingsOverlayProps> = ({
                         e.stopPropagation()
                         setSlippageTolerance('0.5')
                       }}
-                      className="!rounded-full -mr-1.5 !bg-opacity-50"
+                      className="!rounded-lg -mr-1.5 !bg-opacity-50"
                       iconPosition="end"
                       variant={
                         Number(slippageTolerance) > 2 ? 'warning' : 'secondary'
@@ -108,13 +105,10 @@ export const SettingsOverlay: FC<SettingsOverlayProps> = ({
               </List.Control>
             </List>
           )}
-          {/* {modules.length > 1 && (
+          {modules.includes(SettingsModule.GasFees) && (
             <List className="!pt-0">
               <List.Control>
-                {modules.includes(SettingsModule.ExpertMode) && <ExpertMode />}
-                {modules.includes(SettingsModule.CarbonOffset) && (
-                  <CarbonOffset />
-                )}
+                <GasFees />
               </List.Control>
             </List>
           )}
@@ -124,7 +118,7 @@ export const SettingsOverlay: FC<SettingsOverlayProps> = ({
                 <SwapApi />
               </List.Control>
             </List>
-          )} */}
+          )}
         </div>
       </DialogContent>
     </Dialog>

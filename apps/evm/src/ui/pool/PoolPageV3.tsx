@@ -69,7 +69,7 @@ const Pool: FC<{ pool: Awaited<ReturnType<typeof getPool>> }> = ({ pool }) => {
   const fiatValues = useTokenAmountDollarValues({ chainId, amounts: reserves })
 
   return (
-    <Container maxWidth="5xl" className="px-2 sm:px-4">
+    <Container maxWidth="6xl" className="px-2 sm:px-4">
       <div className="flex flex-col gap-6">
         {pool.hasEnabledSteerVault && (
           <Message variant="info" size="sm">

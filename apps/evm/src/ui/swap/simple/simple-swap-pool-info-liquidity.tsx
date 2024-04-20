@@ -46,7 +46,7 @@ export const PoolInfoLiquidity: FC<PoolInfoLiquidityProps> = ({ pool }) => {
         {isLoading ? (
           <SkeletonText />
         ) : (
-          <span className="text-lg text-slate-50">
+          <span className="pt-1 text-lg font-semibold text-slate-50">
             {formatUSD(data?.liquidityNative ?? 0)}
           </span>
         )}

@@ -1,9 +1,6 @@
 import { getPool } from '@sushiswap/client'
-import { Breadcrumb, Container } from '@sushiswap/ui'
 import { unstable_cache } from 'next/cache'
-import { headers } from 'next/headers'
 import { unsanitize } from 'sushi'
-import { PoolHeader } from '../../../../ui/pool/PoolHeader'
 import notFound from '../../not-found'
 
 export const metadata = {
@@ -27,22 +24,16 @@ export default async function Layout({
     notFound()
   }
 
-  const headersList = headers()
-  const referer = headersList.get('referer')
   return (
     <>
-      {/* <Container maxWidth="5xl" className="px-4">
-        <Breadcrumb />
-      </Container> */}
-      <Container maxWidth="5xl" className="z-10 px-2 pt-4 text-gray-300">
+      {/* <Container maxWidth="5xl" className="z-10 px-2 pt-4 text-gray-300">
         <PoolHeader
-          backUrl={referer?.includes('/pool?') ? referer?.toString() : '/pool'}
           address={pool.address}
           pool={pool}
           apy={{ rewards: pool?.incentiveApr, fees: pool?.feeApr1d }}
         />
-      </Container>
-      <section className="flex flex-col flex-1 mt-4">
+      </Container> */}
+      <section className="flex flex-col flex-1 w-full mt-4">
         <div className="bg-black dark:bg-white/[0.02] border-t border-accent h-full">
           {children}
         </div>

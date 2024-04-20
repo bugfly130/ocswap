@@ -38,7 +38,9 @@ export const PoolInfoMarketCap: FC<PoolInfoMarketCapProps> = ({ pool }) => {
       {isLoading ? (
         <SkeletonText />
       ) : (
-        <span className="text-lg text-slate-50">{formatUSD(reserveUSD)}</span>
+        <span className="pt-1 text-lg font-semibold text-slate-50">
+          {formatUSD(reserveUSD)}
+        </span>
       )}
       <span className="text-sm text-gray-400">Market Cap</span>
     </div>

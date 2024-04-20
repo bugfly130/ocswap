@@ -42,7 +42,7 @@ export const Hero: FC = () => {
           <div className="flex flex-col">
             <div className="flex flex-col">
               <h1 className={typographyVariants({ variant: 'h1' })}>
-                Buy and Sell Instantly on Sushi.{' '}
+                Buy and Sell Instantly on Ocswap.{' '}
                 <span className="text-blue"> {TITLES[index]}.</span>
               </h1>
               <p

@@ -4,7 +4,6 @@ import { useSlippageTolerance } from '@sushiswap/hooks'
 import classNames from 'classnames'
 import React, { FC, useCallback } from 'react'
 
-import { Collapsible } from '../animation'
 import { CardDescription, CardHeader, CardTitle } from '../card'
 import {
   HoverCard,
@@ -14,10 +13,8 @@ import {
 } from '../hover-card'
 import { Label } from '../label'
 import { Separator } from '../separator'
-import { Switch } from '../switch'
 import { TextField } from '../text-field'
 import { Toggle } from '../toggle'
-import { typographyVariants } from '../typography'
 
 const TABS = ['0.1', '0.5', '1.0']
 
@@ -28,8 +25,7 @@ export const SlippageTolerance: FC<{
     title?: string
   }
   className?: string
-  showAutoSelector?: boolean
-}> = ({ options, className, showAutoSelector = true }) => {
+}> = ({ options, className = true }) => {
   const [slippageTolerance, setSlippageTolerance] = useSlippageTolerance(
     options?.storageKey,
   )
@@ -50,10 +46,10 @@ export const SlippageTolerance: FC<{
   return (
     <HoverCard openDelay={0} closeDelay={0}>
       <div className={classNames(className, 'p-4 rounded-lg')}>
-        <div className="flex justify-between gap-[60px]">
+        <div className="flex justify-between gap-[50px]">
           <div className="flex flex-col gap-2">
             <Label className="flex items-center gap-1">
-              {options?.title || 'Slippage'}{' '}
+              {options?.title || 'Max Slippage'}{' '}
               <HoverCardTrigger>
                 <InformationCircleIcon width={16} height={16} />
               </HoverCardTrigger>
@@ -90,46 +86,36 @@ export const SlippageTolerance: FC<{
                   : undefined}
             </span>
           </div>
-          <span
-            className={classNames(
-              isDangerous ? '!text-red' : 'dark:text-slate-400 text-gray-600',
-              'text-sm font-semibold',
-            )}
-          >
-            {slippageTolerance === 'AUTO' ? '0.5%' : `${slippageTolerance}%`}
-          </span>
         </div>
-        <Collapsible open={true}>
-          <div className="flex gap-1 items-center border border-accent rounded-xl bg-secondary p-0.5">
-            <RadioGroup value={slippageTolerance} onChange={onChange}>
-              <div className="flex items-center gap-1">
-                {TABS.map((tab, i) => (
-                  <RadioGroup.Option
-                    className="h-[40px]"
-                    key={i}
-                    value={tab}
-                    as={Toggle}
-                    size="sm"
-                    pressed={slippageTolerance === tab}
-                  >
-                    {tab}%
-                  </RadioGroup.Option>
-                ))}
-              </div>
-            </RadioGroup>
+        <div className="flex gap-1 items-center border border-accent rounded-xl bg-secondary p-0.5">
+          <RadioGroup value={slippageTolerance} onChange={onChange}>
+            <div className="flex items-center gap-4">
+              {TABS.map((tab, i) => (
+                <RadioGroup.Option
+                  className="h-[40px] w-[80px]"
+                  key={i}
+                  value={tab}
+                  as={Toggle}
+                  size="sm"
+                  pressed={slippageTolerance === tab}
+                >
+                  {tab}%
+                </RadioGroup.Option>
+              ))}
+            </div>
+          </RadioGroup>
 
-            <Separator orientation="vertical" className="min-h-[36px]" />
-            <TextField
-              type="number"
-              value={slippageTolerance}
-              onValueChange={setSlippageTolerance}
-              placeholder="Custom"
-              id="slippage-tolerance"
-              maxDecimals={1}
-              unit="%"
-            />
-          </div>
-        </Collapsible>
+          <Separator orientation="vertical" className="min-h-[36px]" />
+          <TextField
+            type="number"
+            value={slippageTolerance}
+            onValueChange={setSlippageTolerance}
+            placeholder="Custom"
+            id="slippage-tolerance"
+            maxDecimals={1}
+            unit="%"
+          />
+        </div>
       </div>
     </HoverCard>
   )

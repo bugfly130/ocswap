@@ -1,12 +1,6 @@
 'use client'
 
-import {
-  CardContent,
-  CardHeader,
-  SkeletonText,
-  classNames,
-} from '@sushiswap/ui'
-import { CardDescription, CardTitle } from '@sushiswap/ui/components/card'
+import { CardContent, classNames } from '@sushiswap/ui'
 import { SkeletonBox } from '@sushiswap/ui/components/skeleton'
 import { format } from 'date-fns'
 import ReactECharts from 'echarts-for-react'
@@ -191,32 +185,6 @@ export const PoolInfoChartGraph: FC<PoolInfoChartGraphProps> = ({
 
   return (
     <>
-      <CardHeader className="px-0 py-2">
-        <CardTitle>
-          <span className="hoveredItemValue text-slate-50">
-            {formatUSD(yData[yData.length - 1])}
-          </span>{' '}
-          <span className="text-sm font-medium text-slate-50 dark:text-slate-300">
-            <span className="text-xs top-[-2px] relative">•</span>{' '}
-            <span className="hoveredItemValue">
-              {formatUSD(Number(yData[yData.length - 1]) * Number(swapFee))}
-            </span>{' '}
-            earned
-          </span>
-        </CardTitle>
-        <CardDescription>
-          {xData.length ? (
-            <div className="text-sm text-gray-500 dark:text-slate-500 hoveredItemName">
-              {format(
-                new Date(xData[xData.length - 1] * 1000),
-                'dd MMM yyyy HH:mm',
-              )}
-            </div>
-          ) : (
-            <SkeletonText fontSize="sm" />
-          )}
-        </CardDescription>
-      </CardHeader>
       <CardContent className="px-0 py-0 ">
         {isLoading ? (
           <SkeletonBox

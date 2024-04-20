@@ -21,10 +21,10 @@ export const Partners: FC = () => {
   )
 
   return (
-    <section className="py-20 sm:py-40 px-4 bg-gradient-to-b from-secondary to-transparent">
+    <section className="px-4 py-20 sm:py-40 bg-gradient-to-b from-secondary to-transparent">
       <Container maxWidth="5xl" className="px-4 mx-auto space-y-20">
-        <div className="flex flex-col items-center text-center prose dark:prose-invert mx-auto">
-          <h1>{diff} Days.</h1>
+        <div className="flex flex-col items-center mx-auto prose text-center text-gray-400 dark:prose-invert">
+          <h1 className="text-slate-50">{diff} Days.</h1>
           <h5>
             Ever since the inception of Sushi, our journey has been enriched by
             the invaluable connections we{`'`}ve forged. As we pave the way

@@ -21,11 +21,7 @@ export const SwapModeButtons = () => {
 
   return (
     <div className="flex gap-2">
-      <Link href="/swap">
-        <PathnameButton pathname="/swap" size="sm">
-          Swap
-        </PathnameButton>
-      </Link>
+      <span className="text-xl text-slate-50">Swap</span>
       {bannerMinimized ? (
         <HoverCard>
           <motion.div layoutId="container">
@@ -33,7 +29,7 @@ export const SwapModeButtons = () => {
               <Link href="/swap/cross-chain">
                 <PathnameButton pathname="/swap/cross-chain" size="sm">
                   <HoverCardTrigger asChild>
-                    <span className="saturate-200 flex items-center gap-2 bg-gradient-to-r from-blue to-pink bg-clip-text text-transparent">
+                    <span className="flex items-center gap-2 text-transparent saturate-200 bg-gradient-to-r from-blue to-pink bg-clip-text">
                       <ShuffleIcon
                         width={20}
                         height={20}

@@ -57,7 +57,7 @@ export const SimpleSwapPoolInfo = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row w-full gap-4">
         <div
           className="flex flex-col flex-1 gap-2 p-4 rounded-xl min-w-[180px]"
           style={{
@@ -95,10 +95,6 @@ export const SimpleSwapPoolInfo = () => {
         ) : (
           ''
         )}
-        {/* <div className="flex flex-row">
-          <h3>Overview Statstic</h3>
-        </div>
-        <div className="mt-10">a</div> */}
       </div>
     </div>
   )

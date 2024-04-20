@@ -40,7 +40,11 @@ export const CrossChainSwapTradeStats: FC = () => {
     <Collapsible
       open={+swapAmountString > 0 && trade?.route?.status !== 'NoWay'}
     >
-      <div className="w-full px-2 flex flex-col gap-1">
+      <div className="w-full px-2 flex flex-col gap-1" 
+      style={{
+        background: 'rgba(0, 0, 0, 0.7)',
+        backdropFilter: 'blur(35px)',
+      }}>
         <div className="flex justify-between items-center gap-2">
           <span className="text-sm text-gray-700 dark:text-slate-400">
             Price impact

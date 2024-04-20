@@ -1,7 +1,6 @@
 import { getPool, getSteerVault } from '@sushiswap/client'
 import { Breadcrumb, Container, LinkInternal } from '@sushiswap/ui'
 import { unstable_cache } from 'next/cache'
-import { headers } from 'next/headers'
 import { notFound } from 'next/navigation'
 import React from 'react'
 import { unsanitize } from 'sushi/format'
@@ -35,9 +34,6 @@ export default async function Layout({
     notFound()
   }
 
-  const headersList = headers()
-  const referer = headersList.get('referer')
-
   return (
     <>
       <Container maxWidth="5xl" className="px-4">
@@ -45,7 +41,6 @@ export default async function Layout({
       </Container>
       <Container maxWidth="5xl" className="px-4 pt-10">
         <PoolHeader
-          backUrl={referer?.includes('/pool?') ? referer.toString() : '/pool'}
           address={pool.address}
           pool={pool}
           apy={{
@@ -61,8 +56,8 @@ export default async function Layout({
           <div className="flex flex-col gap-4">
             <Container maxWidth="5xl" className="px-2 sm:px-4">
               {vault.isDeprecated && (
-                <div className="text-center text-red dark:text-red-600 w-full">
-                  <div className=" font-medium">This vault is deprecated.</div>
+                <div className="w-full text-center text-red dark:text-red-600">
+                  <div className="font-medium ">This vault is deprecated.</div>
                   <div className="text-sm">
                     {"It will not accrue any fees and won't be readjusted."}
                   </div>

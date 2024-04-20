@@ -24,7 +24,7 @@ export default function TabsLayout({
           backdropFilter: 'blur(35px)',
         }}
       >
-        <section className="flex flex-col flex-1">
+        {/* <section className="flex flex-col flex-1">
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <LinkInternal
               shallow={true}
@@ -97,7 +97,7 @@ export default function TabsLayout({
               </PathnameButton>
             </LinkInternal>
           </div>
-        </section>
+        </section> */}
 
         <div className="pb-20 border-t border-accent">
           <PoolsFiltersProvider>{children}</PoolsFiltersProvider>

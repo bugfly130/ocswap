@@ -243,10 +243,7 @@ const Component: FC<{ id: string }> = ({ id }) => {
                               title: 'Add Liquidity Slippage',
                             },
                           }}
-                          modules={[
-                            SettingsModule.CustomTokens,
-                            SettingsModule.SlippageTolerance,
-                          ]}
+                          modules={[SettingsModule.SlippageTolerance]}
                         >
                           <IconButton
                             size="sm"

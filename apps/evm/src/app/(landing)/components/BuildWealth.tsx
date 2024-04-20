@@ -19,8 +19,8 @@ export const BuildWealth: FC = () => {
                 layout="fill"
               />
             </div>
-            <div className="prose dark:prose-invert flex flex-col items-center md:items-start">
-              <h1 className="text-center md:text-left">
+            <div className="flex flex-col items-center prose text-gray-400 dark:prose-invert md:items-start">
+              <h1 className="text-center md:text-left text-slate-50">
                 Earn passive income with <br /> your coins.
               </h1>
               <h5 className="mb-8 text-center md:text-left">

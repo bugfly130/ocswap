@@ -60,8 +60,8 @@ export default function RootLayout({
       <link rel="mask-icon" href="/safari-pinned-tab.svg?v=1" color="#fa52a0" />
       <link rel="shortcut icon" href="/favicon.ico?v=1" />
       <body suppressHydrationWarning={true}>
-        <div className="flex flex-col h-screen bg-black">
-          <div className="absolute top-0 flex flex-row backdrop-filter backdrop-blur-[100px] h-[302px] w-full">
+        <div className="flex flex-col items-center h-screen bg-black">
+          <div className="absolute top-0 flex flex-row backdrop-filter backdrop-blur-[100px] h-[302px] w-full mx-auto max-w-5xl">
             <div
               className="flex-1 transform scale-75 rotate-45 opacity-50 mix-blend-lighten"
               style={{
