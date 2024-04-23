@@ -119,13 +119,11 @@ export const ConcentratedPositionsTable: FC<ConcentratedPositionsTableProps> =
             <div className="flex items-center justify-between gap-4 flex-wrap">
               <span>
                 My Positions{' '}
-                <span className="text-gray-400 dark:text-slate-500">
-                  ({_positions.length})
-                </span>
+                <span className="text-gray-400 ">({_positions.length})</span>
               </span>
               <div className="flex gap-4">
                 <div className="flex gap-3 items-center px-2.5">
-                  <span className="text-sm font-medium text-gray-600 dark:text-slate-400">
+                  <span className="text-sm font-medium text-gray-600 ">
                     Hide closed
                   </span>
                   <Switch

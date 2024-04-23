@@ -8,7 +8,7 @@ export const GnosisNaked: IconComponent = (props) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
-    className="dark:text-white text-gray-700"
+    className="  text-gray-700"
   >
     <g clipPath="url(#a)" fill="currentColor">
       <path d="M47.514 70.12c2.3 0 4.542-.775 6.355-2.195L39.29 53.165c-3.513 4.599-2.672 11.222 1.87 14.78a10.465 10.465 0 0 0 6.355 2.177ZM90.879 59.58c0-2.328-.767-4.6-2.169-6.435L74.13 67.906c4.543 3.558 11.066 2.707 14.58-1.892a10.623 10.623 0 0 0 2.169-6.435Z" />

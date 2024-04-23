@@ -95,9 +95,7 @@ export const SmartPositionsTable = () => {
       <CardHeader>
         <CardTitle>
           My Positions{' '}
-          <span className="text-gray-400 dark:text-slate-500">
-            ({_positions?.length})
-          </span>
+          <span className="text-gray-400 ">({_positions?.length})</span>
         </CardTitle>
       </CardHeader>
       <DataTable

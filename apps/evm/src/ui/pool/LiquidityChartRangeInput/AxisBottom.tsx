@@ -19,7 +19,7 @@ const Axis: FC<AxisProps> = ({ axisGenerator }) => {
         .call((g) => g.select('.domain').remove())
   }
 
-  return <g ref={axisRef} className="text-slate-600 dark:text-slate-400" />
+  return <g ref={axisRef} className="text-slate-600 " />
 }
 
 interface AxisBottomProps {

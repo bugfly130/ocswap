@@ -8,7 +8,7 @@ export const EthereumNaked: IconComponent = (props) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
-    className="dark:text-white text-gray-700"
+    className="  text-gray-700"
   >
     <path
       d="M63.993 24v29.573l24.99 11.169L63.993 24Z"

@@ -19,15 +19,13 @@ export const PoolQuickHoverTooltip: FC<PoolQuickHoverTooltipProps> = ({
   return (
     <div className="flex flex-col gap-3 p-2">
       <div className="flex flex-col gap-1">
-        <span className="text-[10px] text-gray-500 dark:text-slate-500">
-          <span className="font-semibold text-gray-900 dark:text-slate-50">
-            Total APR
-          </span>{' '}
-          • Rewards + Fees
+        <span className="text-[10px] text-gray-500 ">
+          <span className="font-semibold text-gray-900 ">Total APR</span> •
+          Rewards + Fees
         </span>
-        <span className="text-3xl font-medium text-gray-900 dark:text-slate-50">
+        <span className="text-3xl font-medium text-gray-900 ">
           {formatPercent(row.totalApr1d)}{' '}
-          <span className="text-[10px] text-gray-500 dark:text-slate-500">
+          <span className="text-[10px] text-gray-500 ">
             {formatPercent(row.incentiveApr)} + {formatPercent(row.feeApr1d)}
           </span>
         </span>

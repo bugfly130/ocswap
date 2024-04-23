@@ -68,7 +68,7 @@ const GetTokens = ({ bond }: { bond: Bond }) => {
   return (
     <div className="w-full h-full bg-gradient-to-r from-[rgba(9,147,236,0.1)] to-[rgba(243,56,195,0.1)] rounded-xl px-3 py-1">
       <div className="flex w-full justify-between text-[13px] flex-wrap">
-        <div className="dark:text-gray-400 flex flex-row items-center space-x-1 whitespace-nowrap">
+        <div className="flex flex-row items-center space-x-1  whitespace-nowrap">
           <span>{text}</span>
           <Explainer>
             Liquidity Provider (LP) tokens represent proportional ownership of
@@ -246,7 +246,7 @@ export const BondsWidget = ({ bond: staleBond }: { bond: Bond }) => {
               )}
             />
             <div className="flex items-center justify-center mt-[-24px] mb-[-24px] z-10">
-              <div className="p-1 bg-white dark:bg-slate-900 border border-accent rounded-full">
+              <div className="p-1 bg-white border rounded-full border-accent">
                 <ArrowDownIcon
                   width={16}
                   height={16}
@@ -330,17 +330,17 @@ export const BondsWidget = ({ bond: staleBond }: { bond: Bond }) => {
               className="flex flex-col"
             >
               {isNegativeDiscount && (
-                <div className="mt-4 flex items-start px-4 py-3 rounded-xl bg-red/20">
+                <div className="flex items-start px-4 py-3 mt-4 rounded-xl bg-red/20">
                   <input
                     id="expert-checkbox"
                     type="checkbox"
                     checked={noDiscountConfirmed}
                     onChange={(e) => setNoDiscountConfirmed(e.target.checked)}
-                    className="cursor-pointer mr-1 w-5 h-5 mt-0.5 text-red-500 !ring-red-600 bg-white border-red rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 scale-75"
+                    className="cursor-pointer mr-1 w-5 h-5 mt-0.5 text-red-500 !ring-red-600 bg-white border-red rounded focus:ring-blue-500 focus:ring-2 scale-75"
                   />
                   <label
                     htmlFor="expert-checkbox"
-                    className="text-sm ml-2 font-medium text-red-500"
+                    className="ml-2 text-sm font-medium text-red-500"
                   >
                     I understand this market is currently priced at a premium,
                     it is cheaper to buy on the market.
@@ -348,11 +348,9 @@ export const BondsWidget = ({ bond: staleBond }: { bond: Bond }) => {
                 </div>
               )}
 
-              <div className="w-full px-2 flex flex-col gap-2 mt-4">
-                <div className="flex justify-between items-center gap-2">
-                  <span className="text-sm text-gray-700 dark:text-slate-400">
-                    Discount
-                  </span>
+              <div className="flex flex-col w-full gap-2 px-2 mt-4">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-sm text-gray-700 ">Discount</span>
                   {discount !== undefined ? (
                     <span
                       className={classNames(
@@ -366,11 +364,9 @@ export const BondsWidget = ({ bond: staleBond }: { bond: Bond }) => {
                     <SkeletonText fontSize="sm" />
                   )}
                 </div>
-                <div className="flex justify-between items-center gap-2">
-                  <span className="text-sm text-gray-700 dark:text-slate-400">
-                    Cliff
-                  </span>
-                  <span className="text-sm font-medium text-gray-700 dark:text-slate-400 text-right">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-sm text-gray-700 ">Cliff</span>
+                  <span className="text-sm font-medium text-right text-gray-700">
                     {isMounted &&
                       formatDistance(
                         getCliffTimestamp({
@@ -381,11 +377,9 @@ export const BondsWidget = ({ bond: staleBond }: { bond: Bond }) => {
                       )}
                   </span>
                 </div>
-                <div className="flex justify-between items-center gap-2">
-                  <span className="text-sm text-gray-700 dark:text-slate-400">
-                    Claimable Date
-                  </span>
-                  <span className="text-sm font-medium text-gray-700 dark:text-slate-400 text-right">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-sm text-gray-700 ">Claimable Date</span>
+                  <span className="text-sm font-medium text-right text-gray-700">
                     {isMounted &&
                       format(
                         getCliffTimestamp({

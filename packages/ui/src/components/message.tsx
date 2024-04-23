@@ -10,7 +10,7 @@ const messageVariants = cva('relative', {
     variant: {
       info: 'bg-blue/10 text-blue',
       destructive: 'bg-red/10 text-red',
-      warning: 'bg-yellow/10 text-yellow dark:text-amber-900',
+      warning: 'bg-yellow/10 text-yellow',
       muted: 'bg-secondary',
       success: 'bg-green/10 text-green',
     },

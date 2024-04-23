@@ -25,7 +25,7 @@ export const Dropzone: FC<Dropzone> = ({
                 ? 'bg-red-500 bg-opacity-[0.15] border-red'
                 : isDragActive
                   ? 'bg-blue-500 bg-opacity-[0.15] border-blue'
-                  : 'dark:bg-white/[0.04] bg-black/[0.04] border-gray-300 dark:border-slate-700',
+                  : '/[0.04] bg-black/[0.04] border-gray-300',
               'border-dashed border-2 rounded-2xl py-6 flex justify-center',
             )}
           >
@@ -72,14 +72,14 @@ export const Dropzone: FC<Dropzone> = ({
                 />
               </svg>
 
-              <div className="flex text-sm text-gray-600 dark:text-slate-400">
+              <div className="flex text-sm text-gray-600 ">
                 <span
                   className={classNames(
                     isDragReject
                       ? 'text-red hover:text-red-400'
                       : isDragActive
                         ? 'text-blue hover:text-blue-400'
-                        : 'text-gray-900 dark:text-slate-200',
+                        : 'text-gray-900',
                     'flex flex-col gap-1 outline-none relative cursor-pointer rounded-md font-medium hover:purple focus-within:outline-none',
                   )}
                 >
@@ -95,7 +95,7 @@ export const Dropzone: FC<Dropzone> = ({
                         ? 'text-red-200'
                         : isDragActive
                           ? 'text-blue-200'
-                          : 'text-gray-500 dark:text-slate-500',
+                          : 'text-gray-500 ',
                       'text-xs',
                     )}
                   >

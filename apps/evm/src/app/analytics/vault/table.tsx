@@ -123,9 +123,7 @@ export const BentoBoxTokenTable: FC = () => {
         <CardTitle>
           Tokens{' '}
           {bentoBoxTokens?.length ? (
-            <span className="text-gray-400 dark:text-slate-500">
-              ({bentoBoxTokens?.length})
-            </span>
+            <span className="text-gray-400 ">({bentoBoxTokens?.length})</span>
           ) : null}
         </CardTitle>
       </CardHeader>

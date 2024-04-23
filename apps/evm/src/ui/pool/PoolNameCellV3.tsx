@@ -43,15 +43,13 @@ export const PoolNameCellV3: FC<Row<ConcentratedLiquidityPositionWithV3Pool>> =
         </div>
         <div className="flex sm:hidden" />
         <div className="flex flex-col gap-0.5">
-          <span className="flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-50">
+          <span className="flex items-center gap-1 text-sm font-medium text-gray-900 ">
             {_token0?.symbol}{' '}
-            <span className="font-normal text-gray-900 dark:text-slate-500">
-              /
-            </span>{' '}
+            <span className="font-normal text-gray-900 ">/</span>{' '}
             {_token1?.symbol}{' '}
             <div
               className={classNames(
-                'text-[10px] bg-gray-200 dark:bg-slate-700 rounded-lg px-1 ml-1',
+                'text-[10px] bg-gray-200  rounded-lg px-1 ml-1',
               )}
             />
           </span>
@@ -59,7 +57,7 @@ export const PoolNameCellV3: FC<Row<ConcentratedLiquidityPositionWithV3Pool>> =
             <div className="bg-blue/20 text-blue text-[10px] px-2 rounded-full">
               V3
             </div>
-            <div className="bg-gray-200 text-gray-700 dark:bg-slate-800 dark:text-slate-300 text-[10px] px-2 rounded-full">
+            <div className="bg-gray-200 text-gray-700 text-[10px] px-2 rounded-full">
               {formatNumber(original.fee / 10000)}%
             </div>
           </div>

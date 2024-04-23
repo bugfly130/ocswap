@@ -17,14 +17,14 @@ export const NotificationGroup: FC<NotificationGroupProps> = ({
         return (
           <div className="relative">
             {notifications.length > 1 && open && (
-              <div className="absolute left-[33px] top-7 bottom-7 w-0.5 bg-gradient-to-t from-gray-300 dark:from-red to-blue" />
+              <div className="absolute left-[33px] top-7 bottom-7 w-0.5 bg-gradient-to-t from-gray-300 to-blue" />
             )}
             <Notification
               data={notifications[0]}
               showExtra={notifications.length > 1}
             />
             {notifications.length > 1 && (
-              <Disclosure.Panel className="border-b border-gray-900/5 dark:border-slate-200/5">
+              <Disclosure.Panel className="border-b border-gray-900/5 ">
                 {notifications.map((el, idx) => {
                   if (idx > 0) {
                     return <Notification key={idx} data={el} hideStatus />

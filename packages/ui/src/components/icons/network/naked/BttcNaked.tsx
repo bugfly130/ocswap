@@ -8,7 +8,7 @@ export const BttcNaked: IconComponent = (props) => (
     fill="none"
     viewBox="0 0 128 128"
     {...props}
-    className="dark:text-white text-gray-700"
+    className="  text-gray-700"
   >
     <path
       fill="currentColor"

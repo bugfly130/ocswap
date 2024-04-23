@@ -335,7 +335,7 @@ export const SimpleSwapTokenNotFoundDialog = () => {
                 )}
               {tokenSecurity.isSupported && (
                 <div className="flex items-center gap-0.5 justify-center">
-                  <span className="text-xs text-gray-700 dark:text-slate-400">
+                  <span className="text-xs text-gray-700 ">
                     Honeypot detection powered by GoPlus
                   </span>
                   <GoPlusLabsIcon width={22} height={20} />

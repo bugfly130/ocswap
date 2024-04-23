@@ -83,7 +83,7 @@ export const AddSectionWidget: FC<AddSectionWidgetProps> = ({
         />
         <div className="flex items-center justify-center mt-[-24px] mb-[-24px] z-10">
           <div
-            className="p-1 bg-white border rounded-full dark:bg-slate-900 border-accent"
+            className="p-1 bg-white border rounded-full border-accent"
             style={{
               background: 'rgba(255, 255, 255, 0.1)',
               backdropFilter: 'blur(35px)',

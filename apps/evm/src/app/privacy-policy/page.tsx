@@ -280,7 +280,7 @@ export default function Page() {
     <Container maxWidth="4xl" className="px-4 mt-20 pb-40 space-y-12">
       <div className="flex flex-col gap-3">
         <h1 className="text-5xl font-semibold">Sushi Labs - Privacy Policy</h1>
-        <p className="text-sm text-neutral-800 dark:text-neutral-400">
+        <p className="text-sm text-neutral-800">
           Last modified: March 26, 2024
         </p>
       </div>

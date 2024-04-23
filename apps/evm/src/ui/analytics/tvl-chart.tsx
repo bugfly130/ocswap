@@ -163,7 +163,7 @@ export const TVLChart: FC<{ x: number[]; y: number[] }> = ({ x, y }) => {
   return (
     <div>
       <CardHeader>
-        <CardTitle className="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <CardTitle className="flex flex-col items-center justify-between gap-4 md:flex-row">
           Total value locked (TVL){' '}
           <div className="flex gap-4">
             <Toggle
@@ -233,7 +233,7 @@ export const TVLChart: FC<{ x: number[]; y: number[] }> = ({ x, y }) => {
         </CardTitle>
         <CardDescription>
           {xData?.length ? (
-            <div className="text-sm text-gray-500 dark:text-slate-500 hoveredItemNameTVL">
+            <div className="text-sm text-gray-500 hoveredItemNameTVL">
               {format(
                 new Date(xData[xData.length - 1] * 1000),
                 'dd MMM yyyy HH:mm',
@@ -248,11 +248,7 @@ export const TVLChart: FC<{ x: number[]; y: number[] }> = ({ x, y }) => {
         {xData ? (
           <ReactECharts option={DEFAULT_OPTION} style={{ height: 400 }} />
         ) : (
-          <SkeletonBox
-            className={classNames(
-              'h-[400px] w-full dark:via-slate-800 dark:to-slate-900',
-            )}
-          />
+          <SkeletonBox className={classNames('h-[400px] w-full ')} />
         )}
       </CardContent>
     </div>

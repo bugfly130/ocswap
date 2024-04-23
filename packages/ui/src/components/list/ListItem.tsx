@@ -87,19 +87,15 @@ export const ListItem: ListItemComponent = ({
             </div>
           )}
           <div className="flex flex-col gap-0.5 items-start">
-            <span className="text-sm font-medium dark:text-slate-200">
-              {title}
-            </span>
+            <span className="text-sm font-medium">{title}</span>
             {subtitle && (
-              <span className="text-[10px] text-gray-700 dark:text-slate-400 text-left">
+              <span className="text-[10px] text-gray-700  text-left">
                 {subtitle}
               </span>
             )}
           </div>
           {typeof value === 'string' ? (
-            <span className="text-xs text-gray-500 dark:text-slate-500">
-              {value}
-            </span>
+            <span className="text-xs text-gray-500 ">{value}</span>
           ) : (
             value
           )}

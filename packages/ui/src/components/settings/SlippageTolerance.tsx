@@ -92,7 +92,7 @@ export const SlippageTolerance: FC<{
             <div className="flex items-center gap-4">
               {TABS.map((tab, i) => (
                 <RadioGroup.Option
-                  className="h-[40px] w-[80px]"
+                  className="h-[40px] w-[75px]"
                   key={i}
                   value={tab}
                   as={Toggle}

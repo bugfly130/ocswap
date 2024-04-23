@@ -251,7 +251,7 @@ export const TokenSelector: FC<TokenSelectorProps> = ({
           </div>
         ) : null}
 
-        <List.Control className="relative flex flex-1 flex-col flex-grow gap-3 px-1 py-0.5 min-h-[128px]">
+        <List.Control className="relative flex flex-1 flex-col flex-grow gap-3 py-0.5 min-h-[128px]">
           <div
             data-state={isLoading ? 'active' : 'inactive'}
             className={classNames(
@@ -287,7 +287,6 @@ export const TokenSelector: FC<TokenSelectorProps> = ({
             )}
             style={{
               background: 'rgba(0, 0, 0, 0.7)',
-              backdropFilter: 'blur(35px)',
             }}
           >
             {queryToken &&
@@ -313,7 +312,7 @@ export const TokenSelector: FC<TokenSelectorProps> = ({
               isBalanceLoading={isBalanceLoading}
             />
             {sortedTokenList?.length === 0 && !queryToken && chainId && (
-              <span className="flex items-center justify-center h-10 text-sm text-center text-gray-500 dark:text-slate-500">
+              <span className="flex items-center justify-center h-10 text-sm text-center text-gray-500">
                 No results found.
               </span>
             )}

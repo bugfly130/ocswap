@@ -72,7 +72,7 @@ export const BuildFuture: FC = () => {
   return (
     <section className="px-4 py-20 sm:py-40">
       <Container maxWidth="5xl" className="mx-auto">
-        <div className="flex flex-col mx-auto prose text-center text-gray-400 dark:prose-invert">
+        <div className="flex flex-col mx-auto prose text-center text-gray-400 ">
           <h1 className="text-slate-50">
             Help build <span className="text-pink">the future</span> with Sushi.{' '}
           </h1>

@@ -10,7 +10,7 @@ export default function MigrateLayout({
 }: { children: React.ReactNode }) {
   return (
     <>
-      <Container maxWidth="5xl" className="py-10 px-4">
+      <Container maxWidth="5xl" className="px-4 py-10">
         <div className="flex flex-col gap-2">
           <div className="relative flex items-center gap-3">
             <BackButton
@@ -26,7 +26,7 @@ export default function MigrateLayout({
         </div>
       </Container>
       <section className="flex flex-col flex-1">
-        <div className="bg-gray-50 dark:bg-white/[0.02] border-t border-accent pt-4 pb-20 h-full">
+        <div className="bg-gray-50 border-t border-accent pt-4 pb-20 h-full">
           <Container maxWidth="5xl" className="px-4">
             {children}
           </Container>

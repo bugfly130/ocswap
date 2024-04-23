@@ -107,7 +107,7 @@ export const ConnectButton: FC<ButtonProps> = ({
           })}
         </DropdownMenuGroup>
         <DropdownMenuGroup>
-          <div className="px-2 py-1 text-xs text-justify dark:text-neutral-400 text-neutral-800">
+          <div className="px-2 py-1 text-xs text-justify text-neutral-800">
             <span>{`Connecting a wallet means you accept Sushi Labs' `}</span>
             <Link
               href="/terms-of-service"

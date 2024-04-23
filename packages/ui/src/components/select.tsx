@@ -79,7 +79,7 @@ const SelectContent = React.forwardRef<
         collisionPadding={collisionPadding}
         sideOffset={sideOffset}
         className={classNames(
-          'max-h-[--radix-select-content-available-height] p-0.5 relative z-50 min-w-[8rem] rounded-xl overflow-hidden bg-white/50 paper dark:bg-slate-800/50 shadow-md animate-in fade-in-80',
+          'max-h-[--radix-select-content-available-height] p-0.5 relative z-50 min-w-[8rem] rounded-xl overflow-hidden bg-white/50 paper shadow-md animate-in fade-in-80',
           position === 'popper' && 'translate-y-1 ',
           className,
         )}
@@ -134,7 +134,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={classNames(
-      'text-gray-700 dark:text-slate-300 relative flex w-full cursor-default select-none items-center rounded-md py-2 pl-8 pr-2 text-sm outline-none hover:bg-secondary focus:bg-accent data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+      'text-gray-700  relative flex w-full cursor-default select-none items-center rounded-md py-2 pl-8 pr-2 text-sm outline-none hover:bg-secondary focus:bg-accent data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       className,
     )}
     {...props}

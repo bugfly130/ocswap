@@ -133,13 +133,13 @@ export const PoolChartGraph: FC<PoolChartProps> = ({
           onMouseOver({ name: params[0].name, value: params[0].value })
 
           const date = new Date(Number(params[0].name * 1000))
-          return `<div class="flex flex-col gap-0.5 paper bg-white/50 dark:bg-slate-800/50 px-3 py-2 rounded-xl overflow-hidden shadow-lg">
-            <span class="text-sm dark:text-slate-50 text-gray-900 font-medium">${
+          return `<div class="flex flex-col gap-0.5 paper bg-white/50 px-3 py-2 rounded-xl overflow-hidden shadow-lg">
+            <span class="text-sm  text-gray-900 font-medium">${
               chart === PoolChartType.APR
                 ? formatPercent(params[0].value)
                 : formatUSD(params[0].value)
             }</span>
-            <span class="text-xs text-gray-500 dark:text-slate-400 font-medium">${
+            <span class="text-xs text-gray-500  font-medium">${
               date instanceof Date && !Number.isNaN(date?.getTime())
                 ? format(
                     date,
@@ -227,7 +227,7 @@ export const PoolChartGraph: FC<PoolChartProps> = ({
               : formatUSD(yData[yData.length - 1])}
           </span>{' '}
           {chart === PoolChartType.Volume && (
-            <span className="text-sm font-medium text-slate-50 dark:text-slate-300">
+            <span className="text-sm font-medium text-slate-50 ">
               <span className="text-xs top-[-2px] relative">•</span>{' '}
               <span className="hoveredItemValue">
                 {formatUSD(Number(yData[yData.length - 1]) * Number(swapFee))}
@@ -238,7 +238,7 @@ export const PoolChartGraph: FC<PoolChartProps> = ({
         </CardTitle>
         <CardDescription>
           {xData.length ? (
-            <div className="text-sm text-gray-500 dark:text-slate-500 hoveredItemName">
+            <div className="text-sm text-gray-500  hoveredItemName">
               {format(
                 new Date(xData[xData.length - 1] * 1000),
                 'dd MMM yyyy HH:mm',
@@ -251,11 +251,7 @@ export const PoolChartGraph: FC<PoolChartProps> = ({
       </CardHeader>
       <CardContent className="px-0 py-0 ">
         {isLoading ? (
-          <SkeletonBox
-            className={classNames(
-              'h-[350px] w-full dark:via-slate-800 dark:to-slate-900',
-            )}
-          />
+          <SkeletonBox className={classNames('h-[350px] w-full')} />
         ) : (
           <ReactECharts option={DEFAULT_OPTION} style={{ height: 350 }} />
         )}

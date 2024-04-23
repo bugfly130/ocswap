@@ -89,11 +89,9 @@ export const ListMenuItem: ListMenuItemComponent = ({
         </div>
       )}
       <div className="flex flex-col gap-0.5 items-start">
-        <span className="text-sm font-medium text-gray-900 dark:text-slate-200">
-          {title}
-        </span>
+        <span className="text-sm font-medium text-gray-900">{title}</span>
         {subtitle && (
-          <span className="text-sm font-normal text-gray-600 dark:text-slate-400 text-left">
+          <span className="text-sm font-normal text-gray-600  text-left">
             {subtitle}
           </span>
         )}

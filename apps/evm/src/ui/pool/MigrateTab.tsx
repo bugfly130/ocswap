@@ -757,7 +757,7 @@ export const MigrateTab: FC<{ pool: Pool }> = withCheckerRoot(({ pool }) => {
                                             <div className="flex flex-col gap-1">
                                               {midPrice?.toSignificant(6)}{' '}
                                               {token1?.symbol}
-                                              <span className="text-xs text-gray-500 dark:text-slate-400">
+                                              <span className="text-xs text-gray-500 ">
                                                 $
                                                 {fiatAmountsAsNumber[0].toFixed(
                                                   2,
@@ -808,7 +808,7 @@ export const MigrateTab: FC<{ pool: Pool }> = withCheckerRoot(({ pool }) => {
                                                     ).symbol
                                                   }
                                                 </div>
-                                                <span className="text-gray-600 dark:text-slate-400 text-xs font-normal">
+                                                <span className="text-gray-600  text-xs font-normal">
                                                   {formatUSD(v3FiatValue0)}
                                                 </span>
                                               </div>
@@ -838,14 +838,14 @@ export const MigrateTab: FC<{ pool: Pool }> = withCheckerRoot(({ pool }) => {
                                                     ).symbol
                                                   }
                                                 </div>
-                                                <span className="text-gray-600 dark:text-slate-400 text-xs font-normal">
+                                                <span className="text-gray-600  text-xs font-normal">
                                                   {formatUSD(v3FiatValue1)}
                                                 </span>
                                               </div>
                                             </List.KeyValue>
                                           )}
                                           <div className="p-4">
-                                            <div className="h-0.5 w-full bg-gray-100 dark:bg-slate-200/5" />
+                                            <div className="h-0.5 w-full bg-gray-100 " />
                                           </div>
                                           {token0Value && (
                                             <List.KeyValue
@@ -871,7 +871,7 @@ export const MigrateTab: FC<{ pool: Pool }> = withCheckerRoot(({ pool }) => {
                                                     ).symbol
                                                   }
                                                 </div>
-                                                <span className="text-gray-600 dark:text-slate-400 text-xs font-normal">
+                                                <span className="text-gray-600  text-xs font-normal">
                                                   {formatUSD(refund0FiatValue)}
                                                 </span>
                                               </div>
@@ -900,7 +900,7 @@ export const MigrateTab: FC<{ pool: Pool }> = withCheckerRoot(({ pool }) => {
                                                     ).symbol
                                                   }
                                                 </div>
-                                                <span className="text-gray-600 dark:text-slate-400 text-xs font-normal">
+                                                <span className="text-gray-600  text-xs font-normal">
                                                   {formatUSD(refund1FiatValue)}
                                                 </span>
                                               </div>

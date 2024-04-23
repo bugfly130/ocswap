@@ -100,15 +100,13 @@ const COLUMNS = [
             </Badge>
           </div>
           <div className="flex flex-col gap-0.5">
-            <span className="flex items-center gap-1 text-sm font-medium text-slate-50 dark:text-gray-900">
+            <span className="flex items-center gap-1 text-sm font-medium text-slate-50 ">
               {unwrapToken(token0).symbol}{' '}
-              <span className="font-normal text-slate-500 dark:text-gray-900">
-                /
-              </span>{' '}
+              <span className="font-normal text-slate-500 ">/</span>{' '}
               {unwrapToken(token1).symbol}{' '}
               <div
                 className={classNames(
-                  'text-[10px] bg-slate-700 dark:bg-gray-200 rounded-lg px-1 ml-1',
+                  'text-[10px] bg-slate-700 rounded-lg px-1 ml-1',
                 )}
               />
             </span>
@@ -126,7 +124,7 @@ const COLUMNS = [
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <div className="bg-gray-200 text-gray-700 dark:bg-slate-800 dark:text-slate-300 text-[10px] px-2 rounded-full">
+                    <div className="bg-gray-200 text-gray-700 text-[10px] px-2 rounded-full">
                       {formatNumber(original.pool.swapFee * 100)}%
                     </div>
                   </TooltipTrigger>
@@ -155,7 +153,7 @@ const COLUMNS = [
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <div className="bg-[#F2E9D6] dark:bg-yellow/60 text-[10px] px-2 rounded-full">
+                    <div className="bg-[#F2E9D6] text-[10px] px-2 rounded-full">
                       💡
                     </div>
                   </TooltipTrigger>
@@ -165,7 +163,7 @@ const COLUMNS = [
                 </Tooltip>
               </TooltipProvider>
               {original.isDeprecated && (
-                <div className="bg-red/50 dark:bg-red/80 text-[10px] px-2 rounded-full">
+                <div className="bg-red/50 text-[10px] px-2 rounded-full">
                   Deprecated
                 </div>
               )}
@@ -578,9 +576,7 @@ export const SmartPoolsTable = () => {
         <CardTitle>
           Smart Pools{' '}
           {_vaults?.length ? (
-            <span className="text-gray-400 dark:text-slate-500">
-              ({_vaults.length})
-            </span>
+            <span className="text-gray-400 ">({_vaults.length})</span>
           ) : null}
         </CardTitle>
         <CardDescription>

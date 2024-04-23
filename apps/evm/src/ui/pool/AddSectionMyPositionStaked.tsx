@@ -19,7 +19,7 @@ export const AddSectionMyPositionStaked: FC = () => {
     return (
       <div className="flex flex-col gap-2">
         <div className="flex gap-1 justify-between items-center">
-          <p className="text-sm font-semibold  dark:text-slate-50 text-gray-900">
+          <p className="text-sm font-semibold   text-gray-900">
             My Staked Position
           </p>
           <div className="h-[16px] w-[40px] animate-pulse bg-slate-600 rounded-full" />
@@ -41,10 +41,10 @@ export const AddSectionMyPositionStaked: FC = () => {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex gap-1 justify-between items-center">
-        <p className="text-sm font-semibold  dark:text-slate-50 text-gray-900">
+        <p className="text-sm font-semibold   text-gray-900">
           My Staked Position
         </p>
-        <p className="text-xs font-medium dark:text-slate-400 text-gray-600">
+        <p className="text-xs font-medium  text-gray-600">
           {formatUSD(value0 + value1)}
         </p>
       </div>
@@ -59,7 +59,7 @@ export const AddSectionMyPositionStaked: FC = () => {
               />
             )}
           </div>
-          <p className="text-xs font-medium flex items-center gap-1 dark:text-slate-400 text-gray-600">
+          <p className="text-xs font-medium flex items-center gap-1  text-gray-600">
             {underlying0?.toSignificant(3)} {underlying0?.currency.symbol}
           </p>
         </div>
@@ -73,7 +73,7 @@ export const AddSectionMyPositionStaked: FC = () => {
               />
             )}
           </div>
-          <p className="text-xs font-medium flex items-center gap-1 dark:text-slate-400 text-gray-600">
+          <p className="text-xs font-medium flex items-center gap-1  text-gray-600">
             {underlying1?.toSignificant(3)} {underlying1?.currency.symbol}
           </p>
         </div>

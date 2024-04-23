@@ -133,7 +133,7 @@ export default function Partner() {
       <div className="py-12">
         <Separator />
       </div>
-      <div className="prose dark:prose-invert">
+      <div className="prose ">
         <h4>Create your request</h4>
         <p>
           Kindly complete the provided form; this action will initiate the

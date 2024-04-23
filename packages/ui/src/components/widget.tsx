@@ -7,8 +7,7 @@ import { Container } from './container'
 const widgetVariants = cva('flex flex-col relative overflow-hidden', {
   variants: {
     variant: {
-      default:
-        'mx-auto p-6 dark:shadow dark:shadow-slate-900 bg-white dark:bg-slate-800',
+      default: 'mx-auto p-6 bg-white',
       empty: '',
     },
   },

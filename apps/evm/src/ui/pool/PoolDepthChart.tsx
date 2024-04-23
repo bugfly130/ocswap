@@ -114,9 +114,9 @@ export const PoolDepthChart: FC<PoolDepthChartProps> = ({
             poolStats.liquidityUSD,
           )
 
-          return `<div class="flex flex-col gap-1.5 bg-white dark:bg-secondary p-4 rounded-lg overflow-hidden shadow-md">
-                    <div className="font-normal text-xs text-gray-400 dark:text-slate-500">Tick stats</div>
-                    <div class="flex flex-col gap-1 text-xs dark:text-slate-50 text-gray-900">
+          return `<div class="flex flex-col gap-1.5 bg-white p-4 rounded-lg overflow-hidden shadow-md">
+                    <div className="font-normal text-xs text-gray-400 ">Tick stats</div>
+                    <div class="flex flex-col gap-1 text-xs  text-gray-900">
                       <span>1 ${token0.symbol} = ${price0} ${token1.symbol}</span>
                       <span>1 ${token1.symbol} = ${price1} ${token0.symbol}</span>
                       <span>Value: ${tvlUSD}</span>

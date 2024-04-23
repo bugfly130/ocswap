@@ -19,7 +19,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <BarHeader />
           </Container>
           <section className="flex flex-col flex-1">
-            <div className="bg-gray-50 dark:bg-white/[0.02] border-t border-accent pt-9 pb-20 h-full">
+            <div className="bg-gray-50 border-t border-accent pt-9 pb-20 h-full">
               {children}
             </div>
           </section>

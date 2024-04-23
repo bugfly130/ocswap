@@ -48,7 +48,7 @@ export const AddSectionReviewModal: FC<AddSectionReviewModal> = ({
                   />
                   {input0?.toSignificant(6)} {input0.currency.symbol}
                 </div>
-                <span className="text-xs font-normal text-gray-600 dark:text-slate-400">
+                <span className="text-xs font-normal text-gray-600 ">
                   {formatUSD(value0)}
                 </span>
               </div>
@@ -69,7 +69,7 @@ export const AddSectionReviewModal: FC<AddSectionReviewModal> = ({
                   />
                   {input1?.toSignificant(6)} {input1.currency.symbol}
                 </div>
-                <span className="text-xs font-normal text-gray-600 dark:text-slate-400">
+                <span className="text-xs font-normal text-gray-600 ">
                   {formatUSD(value1)}
                 </span>
               </div>

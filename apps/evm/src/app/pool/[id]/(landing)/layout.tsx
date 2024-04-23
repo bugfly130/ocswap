@@ -34,9 +34,7 @@ export default async function Layout({
         />
       </Container> */}
       <section className="flex flex-col flex-1 w-full mt-4">
-        <div className="bg-black dark:bg-white/[0.02] border-t border-accent h-full">
-          {children}
-        </div>
+        <div className="bg-black border-t border-accent h-full">{children}</div>
       </section>
     </>
   )

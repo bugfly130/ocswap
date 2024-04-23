@@ -49,17 +49,15 @@ export const SelectFeeWidget: FC<SelectFeeWidgetProps> = memo(
               className={({ checked }) =>
                 classNames(
                   checked ? 'ring ring-blue' : '',
-                  'px-5 py-4 flex items-center rounded-xl bg-white dark:bg-slate-800/40 cursor-pointer',
+                  'px-5 py-4 flex items-center rounded-xl bg-white cursor-pointer',
                 )
               }
             >
               <div className="flex flex-col">
-                <span className="flex gap-4 font-medium text-gray-900 dark:text-slate-50">
+                <span className="flex gap-4 font-medium text-gray-900 ">
                   {option.value / 100}% Fees{' '}
                 </span>
-                <span className="text-sm text-gray-500 dark:text-slate-400 text-slate-600">
-                  {option.subtitle}
-                </span>
+                <span className="text-sm text-gray-500">{option.subtitle}</span>
               </div>
             </RadioGroup.Option>
           ))}

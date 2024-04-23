@@ -102,9 +102,7 @@ export const RewardsSection: FC = () => {
           <CardHeader>
             <CardTitle>
               My Rewards{' '}
-              <span className="text-gray-400 dark:text-slate-500">
-                ({positions.length})
-              </span>
+              <span className="text-gray-400 ">({positions.length})</span>
             </CardTitle>
           </CardHeader>
           <DataTable

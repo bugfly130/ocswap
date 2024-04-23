@@ -157,14 +157,14 @@ export const ConcentratedLiquidityWidget: FC<ConcentratedLiquidityWidget> = ({
       >
         <div className="relative">
           {depositADisabled && !depositBDisabled ? (
-            <div className="bg-gray-200 dark:bg-slate-800 absolute inset-0 z-[1] rounded-xl flex items-center justify-center">
+            <div className="bg-gray-200 absolute inset-0 z-[1] rounded-xl flex items-center justify-center">
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-10 text-sm font-medium text-center">
                 <LockClosedIcon
                   width={24}
                   height={24}
-                  className="text-gray-400 dark:text-slate-400 text-slate-600"
+                  className="text-gray-400"
                 />
-                <span className="dark:text-slate-400 text-slate-600">
+                <span className=" text-slate-600">
                   The market price is outside your specified price range.
                   Single-asset deposit only.{' '}
                   <a
@@ -202,7 +202,7 @@ export const ConcentratedLiquidityWidget: FC<ConcentratedLiquidityWidget> = ({
           </div>
         </div>
         {/* <div className="flex items-center justify-center mt-[-24px] mb-[-24px] z-10">
-          <div className="p-1 border rounded-full dark:bg-white bg-slate-900 border-accent">
+          <div className="p-1 border rounded-full bg-slate-900 border-accent">
             <PlusIcon
               width={16}
               height={16}
@@ -221,14 +221,14 @@ export const ConcentratedLiquidityWidget: FC<ConcentratedLiquidityWidget> = ({
             leaveFrom="transform opacity-100"
             leaveTo="transform opacity-0"
           >
-            <div className="bg-gray-200 dark:bg-slate-800 absolute inset-0 z-[1] rounded-xl flex items-center justify-center">
+            <div className="bg-gray-200 absolute inset-0 z-[1] rounded-xl flex items-center justify-center">
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-10 text-sm font-medium text-center">
                 <LockClosedIcon
                   width={24}
                   height={24}
-                  className="text-gray-400 dark:text-slate-400 text-slate-600"
+                  className="text-gray-400 "
                 />
-                <span className="dark:text-slate-400 text-slate-600">
+                <span className=" text-slate-600">
                   The market price is outside your specified price range.
                   Single-asset deposit only.{' '}
                   <a
@@ -254,7 +254,7 @@ export const ConcentratedLiquidityWidget: FC<ConcentratedLiquidityWidget> = ({
             <Web3Input.Currency
               id="add-liquidity-token1"
               type="INPUT"
-              className="p-3 border dark:bg-white bg-secondary rounded-xl border-accent"
+              className="p-3 border bg-secondary rounded-xl border-accent"
               chainId={chainId}
               value={formattedAmounts[Field.CURRENCY_B]}
               onChange={_onFieldBInput}

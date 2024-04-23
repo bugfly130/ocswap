@@ -187,14 +187,14 @@ const CurrencyInput1: FC<CurrencyInput1Props> = ({
   return (
     <div
       className={classNames(
-        _error ? '!bg-red-500/20 !dark:bg-red-900/30' : '',
+        _error ? '!bg-red-500/20' : '',
         'relative space-y-2 overflow-hidden pb-2',
         className,
       )}
     >
       <div
         data-state={fetching ? 'active' : 'inactive'}
-        className="transition-all data-[state=inactive]:hidden data-[state=active]:block absolute inset-0 overflow-hidden p-4 before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_.5s_infinite] before:bg-gradient-to-r before:from-transparent dark:before:via-slate-50/10 before:via-gray-900/[0.07] before:to-transparent"
+        className="transition-all data-[state=inactive]:hidden data-[state=active]:block absolute inset-0 overflow-hidden p-4 before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-gray-900/[0.07] before:to-transparent"
       />
       <div className="flex flex-row items-center justify-between h-[30px] text-gray-400">
         {type === 'INPUT' ? 'You Send' : 'You Receive'}
@@ -247,9 +247,7 @@ const CurrencyInput1: FC<CurrencyInput1Props> = ({
                 {currency.symbol}
               </>
             ) : (
-              <span className="text-gray-400 dark:text-slate-500">
-                No token selected
-              </span>
+              <span className="text-gray-400 ">No token selected</span>
             )}
           </div>
         ) : null}

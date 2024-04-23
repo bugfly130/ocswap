@@ -49,7 +49,7 @@ export default function TabsLayout({
         </div>
       </Container>
       <section className="flex flex-col flex-1">
-        <div className="bg-gray-50 dark:bg-white/[0.02] border-t border-accent pt-4 pb-20 h-full">
+        <div className="bg-gray-50 border-t border-accent pt-4 pb-20 h-full">
           {children}
         </div>
       </section>

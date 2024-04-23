@@ -33,7 +33,7 @@ export const CarbonOffset: FC = () => {
           onCheckedChange={(checked) => setCarbonOffset(checked)}
         />
       </div>
-      <span className="mt-3 text-xs text-gray-500 dark:text-slate-400 items-center flex font-medium gap-0.5">
+      <span className="mt-3 text-xs text-gray-500  items-center flex font-medium gap-0.5">
         Only available on{' '}
         <NetworkIcon
           type="naked"

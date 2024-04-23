@@ -31,7 +31,7 @@ export const CrossChainSwapToken1Input = () => {
   } = useCrossChainSwapTrade()
 
   return (
-    <div className="border border-accent flex flex-col bg-white dark:bg-slate-800 rounded-xl overflow-hidden">
+    <div className="border border-accent flex flex-col bg-white rounded-xl overflow-hidden">
       <Collapsible open={true}>
         <div className="flex p-3 border-b border-accent gap-2 items-center">
           <Label className="text-xs tracking-tighter text-muted-foreground">
@@ -63,7 +63,7 @@ export const CrossChainSwapToken1Input = () => {
         id="swap-to"
         type="OUTPUT"
         disabled
-        className="p-3 bg-white dark:bg-slate-800"
+        className="p-3 bg-white"
         value={trade?.amountOut?.toSignificant() ?? ''}
         chainId={chainId1}
         onSelect={setToken1}

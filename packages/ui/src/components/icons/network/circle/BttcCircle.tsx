@@ -8,7 +8,7 @@ export const BttcCircle: IconComponent = (props) => (
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 128 128"
-    className={classNames(props.className, 'dark:text-white text-gray-700')}
+    className={classNames(props.className, '  text-gray-700')}
     {...props}
   >
     <path

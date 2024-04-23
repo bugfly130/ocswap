@@ -4,9 +4,9 @@ import { Header } from './header'
 import { Providers } from './providers'
 
 export const metadata = {
-  title: 'SushiSwap',
+  title: 'OCSwap',
   description:
-    'SushiSwap is a community-driven decentralized exchange (DEX) for traders and liquidity providers.',
+    'OCSwap is a community-driven decentralized exchange (DEX) for traders and liquidity providers.',
 }
 
 export default function SwapLayout({

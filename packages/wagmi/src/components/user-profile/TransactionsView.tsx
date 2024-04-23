@@ -40,7 +40,7 @@ export const TransactionsView: FC<TransactionsProps> = ({
       </div>
       <List>
         <List.Label>Transactions</List.Label>
-        <List.Control className="bg-gray-100 dark:bg-slate-700">
+        <List.Control className="bg-gray-100 ">
           <div className="flex flex-col gap-3 max-h-[300px] scroll">
             {notifications && Object.keys(notifications).length > 0 ? (
               Object.entries(notifications)

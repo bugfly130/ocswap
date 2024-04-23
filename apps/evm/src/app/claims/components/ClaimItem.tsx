@@ -72,7 +72,7 @@ export const ClaimItem: FC<ClaimItem> = ({ chainId, account, claim }) => {
       )}
     >
       <div className="flex flex-col gap-0.5">
-        <span className="text-sm font-medium text-gray-600 dark:text-white">
+        <span className="text-sm font-medium text-gray-600  ">
           {isLoading ? (
             <div className="flex gap-3 items-center">
               <SkeletonCircle radius={24} />
@@ -96,7 +96,7 @@ export const ClaimItem: FC<ClaimItem> = ({ chainId, account, claim }) => {
         </span>
       </div>
       <div className="flex justify-end">
-        <span className="w-full text-right flex justify-end text-sm font-semibold text-gray-900 dark:text-white">
+        <span className="w-full text-right flex justify-end text-sm font-semibold text-gray-900  ">
           {isLoading ? (
             <SkeletonText className="max-w-[75px]" align="right" />
           ) : token ? (

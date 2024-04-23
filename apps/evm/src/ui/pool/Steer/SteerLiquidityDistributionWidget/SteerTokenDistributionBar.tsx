@@ -43,9 +43,9 @@ export function SteerTokenDistributionBar({
 
   return (
     <div>
-      <div className="w-full bg-gray-200 rounded-full h-2.5 mb-3 dark:bg-gray-700">
+      <div className="w-full bg-gray-200 rounded-full h-2.5 mb-3 ">
         <div
-          className="bg-blue-600 h-2.5 rounded-full dark:bg-blue-500"
+          className="bg-blue-600 h-2.5 rounded-full"
           style={{ width: tokenRatios ? `${tokenRatios.token0 * 100}%` : '0%' }}
         />
       </div>

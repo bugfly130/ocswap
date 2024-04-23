@@ -89,7 +89,7 @@ export const PoolHeader: FC<PoolHeader> = ({
               className={typographyVariants({
                 variant: 'h1',
                 className:
-                  'sm:!text2-xl sm:!text-4xl !font-bold text-gray-900 dark:text-slate-50 truncate overflow-x-auto',
+                  'sm:!text2-xl sm:!text-4xl !font-bold text-gray-900  truncate overflow-x-auto',
               })}
             >
               <LinkExternal

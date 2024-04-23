@@ -64,9 +64,9 @@ export default async function PartnerPage() {
         <div className="pt-12">
           <Separator />
         </div>
-        <div className="flex gap-4 prose dark:prose-invert max-w-[unset]">
+        <div className="flex gap-4 prose  max-w-[unset]">
           <div className="w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 justify-between md:gap-10 items-end">
+            <div className="grid items-end justify-between grid-cols-1 md:grid-cols-2 md:gap-10">
               <div className="w-full">
                 <h2>Boost your liquidity pool ✨</h2>
                 <p>
@@ -94,7 +94,7 @@ export default async function PartnerPage() {
           </div>
         </div>
         <div className="mt-10 relative sm:ml-[calc(2rem+1px)] md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]">
-          <div className="hidden absolute top-3 bottom-0 right-full mr-7 md:mr-[3.25rem] w-px bg-slate-200 dark:bg-slate-900 sm:block" />
+          <div className="hidden absolute top-3 bottom-0 right-full mr-7 md:mr-[3.25rem] w-px bg-slate-200 sm:block" />
           <div className="space-y-16">
             {STEPS.map((step) => (
               <article key={step.label} className="relative group">
@@ -114,14 +114,14 @@ export default async function PartnerPage() {
                   />
                 </svg>
                 <div className="relative">
-                  <h3 className="text-base font-semibold tracking-tight text-slate-900 dark:text-slate-200 pt-8 lg:pt-0">
+                  <h3 className="pt-8 text-base font-semibold tracking-tight text-slate-900 lg:pt-0">
                     {step.title}
                   </h3>
-                  <div className="mt-2 mb-4 prose prose-slate prose-a:relative prose-a:z-10 dark:prose-invert">
+                  <div className="mt-2 mb-4 prose prose-slate prose-a:relative prose-a:z-10 ">
                     <p>{step.description}</p>
                   </div>
                   <span className="absolute left-0 top-0 lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)]">
-                    <span className="whitespace-nowrap text-sm leading-6 dark:text-slate-400">
+                    <span className="text-sm leading-6 whitespace-nowrap ">
                       {step.label}
                     </span>
                   </span>
@@ -131,7 +131,7 @@ export default async function PartnerPage() {
           </div>
         </div>
         <div className="flex justify-center pt-10">
-          <p className="text-sm text-center text-muted-foreground max-w-xl">
+          <p className="max-w-xl text-sm text-center text-muted-foreground">
             After the launch of the farm rewards, Sushi will continue to remain
             connected with your project and look to further collaborate on any
             opportunity that arises.
@@ -140,7 +140,7 @@ export default async function PartnerPage() {
         <div className="py-12">
           <Separator />
         </div>
-        <div className="prose dark:prose-invert">
+        <div className="prose ">
           <h2>Get on the token list.</h2>
           <p>
             Though it isn’t required for users to swap and supply liquidity in
@@ -160,9 +160,9 @@ export default async function PartnerPage() {
         <div className="py-12">
           <Separator />
         </div>
-        <div className="flex gap-4 prose dark:prose-invert max-w-[unset]">
+        <div className="flex gap-4 prose  max-w-[unset]">
           <div className="w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 justify-between md:gap-10 items-end">
+            <div className="grid items-end justify-between grid-cols-1 md:grid-cols-2 md:gap-10">
               <div className="w-full">
                 <h2>Sushi collaboration hub.</h2>
                 <p>

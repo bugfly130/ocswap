@@ -23,7 +23,7 @@ export const Partners: FC = () => {
   return (
     <section className="px-4 py-20 sm:py-40 bg-gradient-to-b from-secondary to-transparent">
       <Container maxWidth="5xl" className="px-4 mx-auto space-y-20">
-        <div className="flex flex-col items-center mx-auto prose text-center text-gray-400 dark:prose-invert">
+        <div className="flex flex-col items-center mx-auto prose text-center text-gray-400 ">
           <h1 className="text-slate-50">{diff} Days.</h1>
           <h5>
             Ever since the inception of Sushi, our journey has been enriched by

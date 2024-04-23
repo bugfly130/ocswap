@@ -28,7 +28,7 @@ export const RewardsV3NameCell: FC<Row<AngleRewardsPool>> = (props) => {
     <div className="flex items-center gap-4">
       <div className="min-w-[52px]">
         <Badge
-          className="border-2 border-gray-100 dark:border-slate-900 rounded-full z-[11] !bottom-0 right-[-15%]"
+          className="border-2 border-gray-100  rounded-full z-[11] !bottom-0 right-[-15%]"
           position="bottom-right"
           badgeContent={
             <NetworkIcon chainId={original.chainId} width={20} height={20} />
@@ -41,15 +41,11 @@ export const RewardsV3NameCell: FC<Row<AngleRewardsPool>> = (props) => {
         </Badge>
       </div>
       <div className="flex flex-col items-baseline gap-[1px]">
-        <span className="text-sm font-medium flex items-baseline gap-1 text-gray-900 dark:text-slate-50">
+        <span className="flex items-baseline gap-1 text-sm font-medium text-gray-900 ">
           {unwrapToken(original.token0).symbol}{' '}
-          <span className="font-normal text-gray-900 dark:text-slate-500">
-            /
-          </span>{' '}
+          <span className="font-normal text-gray-900 ">/</span>{' '}
           {unwrapToken(original.token1).symbol}
-          <span className="text-xs text-gray-500 dark:text-slate-500">
-            {original.poolFee}%
-          </span>
+          <span className="text-xs text-gray-500 ">{original.poolFee}%</span>
         </span>
         <HoverCard openDelay={0} closeDelay={0}>
           <HoverCardTrigger>

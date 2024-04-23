@@ -110,9 +110,7 @@ export const FuroTokenTable: FC = () => {
         <CardTitle>
           Tokens{' '}
           {furoTokens?.length ? (
-            <span className="text-gray-400 dark:text-slate-500">
-              ({furoTokens?.length})
-            </span>
+            <span className="text-gray-400 ">({furoTokens?.length})</span>
           ) : null}
         </CardTitle>
       </CardHeader>

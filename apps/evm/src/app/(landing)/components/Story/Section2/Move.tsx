@@ -11,7 +11,7 @@ export const Move: FC = () => {
       <Container maxWidth="5xl" className="px-4 mx-auto space-y-20">
         <div className="grid grid-cols-1 lg:grid-cols-[380px_auto] justify-center gap-x-[100px] gap-y-[20px]">
           <div className="flex flex-col justify-center order-2 gap-3 lg:order-1">
-            <div className="flex flex-col items-center prose text-gray-400 lg:items-start dark:prose-invert">
+            <div className="flex flex-col items-center prose text-gray-400 lg:items-start ">
               <h1 className="text-center lg:text-left text-slate-50">
                 Move assets across networks in seconds.
               </h1>

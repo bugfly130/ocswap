@@ -72,10 +72,7 @@ export const BondsPositionsTable: FC<PositionsTableProps> = ({
     <Card>
       <CardHeader>
         <CardTitle>
-          My Bonds{' '}
-          <span className="text-gray-400 dark:text-slate-500">
-            ({data.length})
-          </span>
+          My Bonds <span className="text-gray-400 ">({data.length})</span>
         </CardTitle>
       </CardHeader>
       <DataTable

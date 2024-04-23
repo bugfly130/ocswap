@@ -11,7 +11,7 @@ export const ListLabel: FC<ListLabelProps> = ({ children, className }) => {
     <span
       className={classNames(
         className,
-        'flex justify-start text-xs font-medium dark:text-gray-500 text-slate-400 px-2',
+        'flex justify-start text-xs font-medium text-slate-400 px-2',
       )}
     >
       {children}

@@ -58,11 +58,11 @@ export const PAYOUT_ASSET_COLUMN: ColumnDef<Bond, unknown> = {
           </Badge>
         </div>
         <div className="flex flex-col gap-0.5">
-          <span className="flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-50">
+          <span className="flex items-center gap-1 text-sm font-medium text-gray-900 ">
             {token.symbol}
             <div
               className={classNames(
-                'text-[10px] bg-gray-200 dark:bg-slate-700 rounded-lg px-1 ml-1',
+                'text-[10px] bg-gray-200  rounded-lg px-1 ml-1',
               )}
             />
           </span>
@@ -151,7 +151,7 @@ export const BOND_ASSET_COLUMN: ColumnDef<Bond, unknown> = {
             <Currency.Icon disableLink currency={token1} />
           </Currency.IconList>
           <div className="flex flex-col gap-0.5">
-            <span className="flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-50 whitespace-nowrap">
+            <span className="flex items-center gap-1 text-sm font-medium text-gray-900  whitespace-nowrap">
               {token0.symbol}/{token1.symbol}
             </span>
             <span className="text-xs text-gray-500 whitespace-nowrap">
@@ -170,7 +170,7 @@ export const BOND_ASSET_COLUMN: ColumnDef<Bond, unknown> = {
           <Currency.Icon disableLink currency={token} />
         </Currency.IconList>
         <div className="flex flex-col gap-0.5">
-          <span className="flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-50">
+          <span className="flex items-center gap-1 text-sm font-medium text-gray-900 ">
             {token.symbol}
           </span>
         </div>

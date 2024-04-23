@@ -60,10 +60,10 @@ export const TokenSelectorImportRow: FC<TokenSelectorImportRow> = ({
                 />
               </div>
               <div className="flex flex-col items-start">
-                <span className="font-semibold dark:text-gray-900 group-hover:text-gray-900 text-slate-50 group-hover:text-white">
+                <span className="font-semibold  group-hover:text-gray-900 text-slate-50 group-hover:text-white">
                   {currencies[0].symbol}
                 </span>
-                <span className="text-sm text-gray-400 dark:text-gray-500 group-hover:text-blue-100">
+                <span className="text-sm text-gray-400 group-hover:text-blue-100">
                   {currencies[0].name}
                 </span>
               </div>
@@ -118,7 +118,7 @@ export const TokenSelectorImportRow: FC<TokenSelectorImportRow> = ({
                       <div className="flex items-center gap-4 px-4 py-2">
                         <Icon currency={cur} width={40} height={40} />
                         <div className="flex flex-col gap-1">
-                          <span className="font-semibold truncate dark:text-gray-900 group-hover:text-gray-900 text-slate-50 group-hover:text-white">
+                          <span className="font-semibold truncate  group-hover:text-gray-900 text-slate-50 group-hover:text-white">
                             {cur.symbol}
                           </span>
                           <a
@@ -152,7 +152,7 @@ export const TokenSelectorImportRow: FC<TokenSelectorImportRow> = ({
                       <div className="flex items-center gap-4 px-4 py-2">
                         <Icon currency={currency} width={40} height={40} />
                         <div className="flex flex-col gap-1">
-                          <span className="font-semibold truncate dark:text-gray-900 group-hover:text-gray-900 text-slate-50 group-hover:text-white">
+                          <span className="font-semibold truncate  group-hover:text-gray-900 text-slate-50 group-hover:text-white">
                             {currency.symbol}
                           </span>
                           <a
@@ -185,7 +185,7 @@ export const TokenSelectorImportRow: FC<TokenSelectorImportRow> = ({
             </Button>
             {tokenSecurity?.isSupported ? (
               <div className="flex items-center gap-0.5 justify-center">
-                <span className="text-xs text-gray-700 dark:text-slate-400">
+                <span className="text-xs text-gray-700 ">
                   Honeypot detection powered by GoPlus
                 </span>
                 <GoPlusLabsIcon width={22} height={22} />

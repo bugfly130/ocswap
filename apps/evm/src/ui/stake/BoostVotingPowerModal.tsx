@@ -109,10 +109,8 @@ const CurrencyListItem = ({
               </div>
             </div>
             <div className="flex flex-col gap-0.5 items-start">
-              <span className="text-sm font-medium dark:text-slate-200">
-                {`${currency.name}`}
-              </span>
-              <span className="text-[10px] text-gray-700 dark:text-slate-400 text-left">
+              <span className="text-sm font-medium">{`${currency.name}`}</span>
+              <span className="text-[10px] text-gray-700  text-left">
                 {`1 ${currency.symbol} = ${weight?.toSignificant(
                   4,
                 )} SUSHIPOWAH`}

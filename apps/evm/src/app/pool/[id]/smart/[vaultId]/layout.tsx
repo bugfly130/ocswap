@@ -51,12 +51,12 @@ export default async function Layout({
         />
       </Container>
       <section className="flex flex-col flex-1 mt-4">
-        <div className="bg-gray-50 dark:bg-white/[0.02] border-t border-accent pt-10 pb-20 h-full">
+        <div className="h-full pt-10 pb-20 border-t bg-gray-50 border-accent">
           {' '}
           <div className="flex flex-col gap-4">
             <Container maxWidth="5xl" className="px-2 sm:px-4">
               {vault.isDeprecated && (
-                <div className="w-full text-center text-red dark:text-red-600">
+                <div className="w-full text-center text-red ">
                   <div className="font-medium ">This vault is deprecated.</div>
                   <div className="text-sm">
                     {"It will not accrue any fees and won't be readjusted."}

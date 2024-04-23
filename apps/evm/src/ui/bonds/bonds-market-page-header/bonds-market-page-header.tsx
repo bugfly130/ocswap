@@ -14,7 +14,7 @@ import { BondsMarketPageHeaderDiscount } from './bonds-market-page-header-discou
 
 const VestingTerm = ({ bond }: { bond: Bond }) => (
   <div className="flex items-center gap-1.5">
-    <span className="tracking-tighter font-semibold">Vesting Term</span>
+    <span className="font-semibold tracking-tighter">Vesting Term</span>
     {bond.vesting
       ? formatDistance(
           getCliffTimestamp({
@@ -58,8 +58,7 @@ const QuoteToken = ({ bond }: { bond: Bond }) => {
             variant="link"
             className={typographyVariants({
               variant: 'h1',
-              className:
-                'sm:!text2-xl sm:!text-4xl !font-bold text-gray-900 dark:text-slate-50',
+              className: 'sm:!text2-xl sm:!text-4xl !font-bold text-gray-900 ',
             })}
           >
             {token0.symbol}/{token1.symbol}:
@@ -86,7 +85,7 @@ const QuoteToken = ({ bond }: { bond: Bond }) => {
           className={typographyVariants({
             variant: 'h1',
             className:
-              'sm:!text2-xl sm:!text-4xl !font-bold text-gray-900 dark:text-slate-50 truncate overflow-x-auto',
+              'sm:!text2-xl sm:!text-4xl !font-bold text-gray-900  truncate overflow-x-auto',
           })}
         >
           {quoteToken.symbol}:
@@ -109,7 +108,7 @@ export const BondsMarketPageHeader = async ({ id }: { id: MarketId }) => {
       <div className="flex flex-col gap-4">
         <LinkInternal
           href="/bonds"
-          className="text-blue hover:underline text-sm"
+          className="text-sm text-blue hover:underline"
         >
           ← Bonds
         </LinkInternal>
@@ -128,7 +127,7 @@ export const BondsMarketPageHeader = async ({ id }: { id: MarketId }) => {
               className={typographyVariants({
                 variant: 'h1',
                 className:
-                  'sm:!text2-xl sm:!text-4xl !font-bold text-gray-900 dark:text-slate-50 truncate overflow-x-auto',
+                  'sm:!text2-xl sm:!text-4xl !font-bold text-gray-900  truncate overflow-x-auto',
               })}
             >
               {payoutToken.symbol}
@@ -152,7 +151,7 @@ export const BondsMarketPageHeader = async ({ id }: { id: MarketId }) => {
           <BondsMarketPageHeaderDiscount bond={bond} />
           <VestingTerm bond={bond} />
           <div className="flex items-center gap-1.5">
-            <span className="tracking-tighter font-semibold">
+            <span className="font-semibold tracking-tighter">
               {bond.end * 1000 < Date.now() ? 'Ended' : 'Ends'}
             </span>
             {formatDistance(bond.end * 1000, new Date(), { addSuffix: true })}
@@ -160,13 +159,13 @@ export const BondsMarketPageHeader = async ({ id }: { id: MarketId }) => {
         </div>
         <div className="flex gap-x-[32px] flex-wrap">
           <div className="flex items-center gap-1.5">
-            <span className="tracking-tighter font-semibold">Network</span>
+            <span className="font-semibold tracking-tighter">Network</span>
             <span className="whitespace-nowrap">
               {Chain.from(bond.chainId)?.name}
             </span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="tracking-tighter font-semibold">
+            <span className="font-semibold tracking-tighter">
               {payoutToken.symbol}
             </span>
             <LinkExternal
@@ -186,7 +185,7 @@ export const BondsMarketPageHeader = async ({ id }: { id: MarketId }) => {
             </LinkExternal>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="tracking-tighter font-semibold">
+            <span className="font-semibold tracking-tighter">
               {quoteToken.symbol}
             </span>
             <LinkExternal
@@ -207,7 +206,7 @@ export const BondsMarketPageHeader = async ({ id }: { id: MarketId }) => {
             </LinkExternal>
           </div>
           {/* <div className="flex items-center gap-1.5">
-            <span className="tracking-tighter font-semibold">Issuer</span>
+            <span className="font-semibold tracking-tighter">Issuer</span>
             {bond.issuer ? (
               <LinkExternal target="_blank" href={bond.issuer.link}>
                 <Button

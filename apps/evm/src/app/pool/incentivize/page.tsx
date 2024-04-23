@@ -290,7 +290,7 @@ const Incentivize = withCheckerRoot(() => {
           <Web3Input.Currency
             id="swap-from"
             type="INPUT"
-            className="p-3 bg-white dark:bg-slate-800 rounded-xl"
+            className="p-3 bg-white rounded-xl"
             chainId={chainId}
             onSelect={setRewardToken}
             value={value}

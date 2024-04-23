@@ -410,9 +410,7 @@ export const CrossChainSwapTradeReviewDialog: FC<{ children: ReactNode }> = ({
                           ?.replace('Mainnet', '')
                           ?.trim()}
                         <br />
-                        <span className="text-gray-400 dark:text-slate-500">
-                          to
-                        </span>{' '}
+                        <span className="text-gray-400 ">to</span>{' '}
                         {chainName?.[chainId1]
                           ?.replace('Mainnet Shard 0', '')
                           ?.replace('Mainnet', '')

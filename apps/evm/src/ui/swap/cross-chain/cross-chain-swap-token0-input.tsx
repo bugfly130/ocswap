@@ -22,7 +22,7 @@ export const CrossChainSwapToken0Input = () => {
   } = useDerivedStateCrossChainSwap()
 
   return (
-    <div className="border border-accent flex flex-col bg-white dark:bg-slate-800 rounded-xl overflow-hidden">
+    <div className="border border-accent flex flex-col bg-white rounded-xl overflow-hidden">
       <Collapsible open={true}>
         <div className="p-3 border-b border-accent flex gap-2 items-center">
           <Label className="text-xs tracking-tighter text-muted-foreground">
@@ -51,7 +51,7 @@ export const CrossChainSwapToken0Input = () => {
       <Web3Input.Currency
         id="swap-from"
         type="INPUT"
-        className="p-3 bg-white dark:bg-slate-800"
+        className="p-3 bg-white"
         chainId={chainId0}
         onSelect={setToken0}
         value={swapAmountString}

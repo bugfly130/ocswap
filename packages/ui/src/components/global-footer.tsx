@@ -129,7 +129,7 @@ const Component = ({ children, maxWidth = '5xl', ...props }: FooterProps) => {
     ) => {
       return (
         <div key={title} className="flex flex-col gap-[10px]">
-          <span className="font-semibold tracking-tighter text-sm sm:text-xs text-gray-900 dark:text-slate-100">
+          <span className="text-sm font-semibold tracking-tighter text-gray-900 sm:text-xs">
             {title}
           </span>
           {Object.entries(items).map(([item, { href, rel, target }]) => (
@@ -138,7 +138,7 @@ const Component = ({ children, maxWidth = '5xl', ...props }: FooterProps) => {
               href={href}
               target={target}
               rel={rel}
-              className="text-sm cursor-pointer sm:text-xs text-gray-600 dark:text-slate-400 hover:underline"
+              className="text-sm text-gray-600 cursor-pointer sm:text-xs hover:underline"
             >
               {item}
             </a>
@@ -161,12 +161,9 @@ const Component = ({ children, maxWidth = '5xl', ...props }: FooterProps) => {
         <div className="col-span-2">{children && children}</div>
         <div className="flex flex-col gap-5">
           <div className="flex items-center justify-start gap-3 pt-2">
-            <SushiWithTextIcon
-              height={20}
-              className="text-gray-700 dark:text-slate-50"
-            />
+            <SushiWithTextIcon height={20} className="text-gray-700 " />
           </div>
-          <p className="text-xs text-gray-600 dark:text-slate-400">
+          <p className="text-xs text-gray-600 ">
             Our community is building a comprehensive decentralized trading
             platform for the future of finance. Join us!
           </p>
@@ -174,25 +171,25 @@ const Component = ({ children, maxWidth = '5xl', ...props }: FooterProps) => {
             <LinkExternal href="https://github.com/sushiswap">
               <GithubIcon
                 width={16}
-                className="text-gray-700 hover:text-gray-900 dark:text-slate-300 dark:hover:text-slate-50"
+                className="text-gray-700 hover:text-gray-900"
               />
             </LinkExternal>
             <LinkExternal href="https://twitter.com/sushiswap">
               <TwitterIcon
                 width={16}
-                className="text-gray-700 hover:text-gray-900 dark:text-slate-300 dark:hover:text-slate-50"
+                className="text-gray-700 hover:text-gray-900"
               />
             </LinkExternal>
             <LinkExternal href="https://instagram.com/instasushiswap">
               <InstagramIcon
                 width={16}
-                className="text-gray-700 hover:text-gray-900 dark:text-slate-300 dark:hover:text-slate-50"
+                className="text-gray-700 hover:text-gray-900"
               />
             </LinkExternal>
             <LinkExternal href="https://sushi.com/discord">
               <DiscordIcon
                 width={16}
-                className="text-gray-700 hover:text-gray-900 dark:text-slate-300 dark:hover:text-slate-50"
+                className="text-gray-700 hover:text-gray-900"
               />
             </LinkExternal>
           </div>
@@ -217,13 +214,13 @@ const Component = ({ children, maxWidth = '5xl', ...props }: FooterProps) => {
       </Container>
       <Container maxWidth={maxWidth} className="mx-auto mt-20 mb-3">
         <div className="flex justify-between py-2 mx-4 border-t border-accent">
-          <span className="text-xs text-gray-600 dark:text-slate-400">
+          <span className="text-xs text-gray-600 ">
             Copyright © 2023 Sushi. All rights reserved.
           </span>
-          <div className="flex divide-x dark:divide-slate-200/20 gap-">
+          <div className="flex divide-x">
             <a
               href="https://www.sushi.com/terms-of-use"
-              className="text-xs font-medium px-3 text-gray-600 dark:text-slate-300"
+              className="px-3 text-xs font-medium text-gray-600 "
             >
               Terms of Use
             </a>

@@ -1,3 +1,5 @@
+'use client'
+
 import { type VariantProps, cva } from 'class-variance-authority'
 import Link from 'next/link'
 import * as React from 'react'
@@ -25,18 +27,18 @@ const EXPLORE_NAVIGATION_LINKS: {
     description: 'The easiest way to trade.',
   },
   {
-    title: 'Pools',
-    href: '/pools',
+    title: 'Liquidity',
+    href: '/pools/add/v2/1',
     description: 'Earn fees by providing liquidity.',
   },
 ]
 
 const navigationContainerVariants = cva(
-  'px-4 sticky flex items-center flex-grow gap-4 top-0 z-50 min-h-[96px] max-h-[96px] h-[96px] w-full mx-auto max-w-7xl',
+  'px-4 sticky flex items-center flex-grow gap-4 top-0 z-50 min-h-[96px] max-h-[96px] h-[96px] w-full',
   {
     variants: {
       variant: {
-        default: 'border-b border-gray-200 dark:border-slate-800',
+        default: 'border-b border-gray-200',
         transparent: '',
       },
     },
@@ -61,7 +63,7 @@ const NavigationContainer: React.FC<NavContainerProps> = ({
       style={{ backgroundColor: 'rgb(8 51 68)', opacity: '90%' }}
     >
       <SushiIcon width={38} height={38} />
-      <h3 className="text-3xl font-semibold tracking-tight text-white">
+      <h3 className="hidden text-3xl font-semibold tracking-tight text-white md:block">
         OCSWAP
       </h3>
       <div className="flex w-full">{children}</div>
@@ -122,14 +124,14 @@ const Navigation: React.FC<NavProps> = ({
                 asChild
                 className={navigationMenuTriggerStyle()}
               >
-                <a href="/pools">Pools</a>
+                <a href={`/pools/add/v2/1`}>Liquidity</a>
               </NavigationMenuLink>
             ) : (
               <NavigationMenuLink
-                href="/pools"
+                href={`/pools/add/v2/1`}
                 className={navigationMenuTriggerStyle()}
               >
-                Pools
+                Liquidity
               </NavigationMenuLink>
             )}
           </NavigationMenuItem>
@@ -167,7 +169,9 @@ const NavigationListItem = React.forwardRef<
               href={href}
               {...props}
             >
-              <div className="text-sm font-medium leading-none">{title}</div>
+              <div className="text-sm font-medium leading-none text-black">
+                {title}
+              </div>
               <p className="text-sm leading-snug line-clamp-2 text-muted-foreground">
                 {children}
               </p>
@@ -180,7 +184,9 @@ const NavigationListItem = React.forwardRef<
                 className,
               )}
             >
-              <div className="text-sm font-medium leading-none">{title}</div>
+              <div className="text-sm font-medium leading-none text-black">
+                {title}
+              </div>
               <p className="text-sm leading-snug line-clamp-2 text-muted-foreground">
                 {children}
               </p>

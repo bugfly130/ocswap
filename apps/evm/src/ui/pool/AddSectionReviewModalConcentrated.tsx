@@ -268,7 +268,7 @@ export const AddSectionReviewModalConcentrated: FC<
                         {isFullRange ? (
                           ''
                         ) : (
-                          <span className="text-xs text-gray-500 dark:text-slate-400 text-slate-600">
+                          <span className="text-xs text-gray-500  text-slate-600">
                             $
                             {(
                               fiatAmountsAsNumber[0] *
@@ -290,7 +290,7 @@ export const AddSectionReviewModalConcentrated: FC<
                     >
                       <div className="flex flex-col gap-1">
                         {midPrice?.toSignificant(6)} {token1?.symbol}
-                        <span className="text-xs text-gray-500 dark:text-slate-400 text-slate-600">
+                        <span className="text-xs text-gray-500  text-slate-600">
                           ${fiatAmountsAsNumber[0].toFixed(2)}
                         </span>
                       </div>
@@ -306,7 +306,7 @@ export const AddSectionReviewModalConcentrated: FC<
                         {isFullRange ? (
                           ''
                         ) : (
-                          <span className="text-xs text-gray-500 dark:text-slate-400 text-slate-600">
+                          <span className="text-xs text-gray-500  text-slate-600">
                             $
                             {(
                               fiatAmountsAsNumber[0] *

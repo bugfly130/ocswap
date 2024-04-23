@@ -54,11 +54,7 @@ export const BondsTable: FC = () => {
       <CardHeader>
         <CardTitle>
           Bonds{' '}
-          {data && (
-            <span className="text-gray-400 dark:text-slate-500">
-              ({data.length})
-            </span>
-          )}
+          {data && <span className="text-gray-400 ">({data.length})</span>}
         </CardTitle>
       </CardHeader>
       <DataTable

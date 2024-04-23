@@ -32,7 +32,7 @@ export const NetworkCheck: FC<{ chainId: ChainId }> = ({ chainId }) => {
   if (!open) return <></>
 
   return ReactDOM.createPortal(
-    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center bg-gray-200 border-gray-300 dark:bg-slate-800 text-gray-900 dark:text-slate-400 w-full py-3 font-medium border-b dark:border-slate-200/10">
+    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center bg-gray-200 border-gray-300 text-gray-900  w-full py-3 font-medium border-b ">
       <p className="px-4">
         App network ({chainName?.[chainId]}) {"doesn't"} match network selected
         in wallet ({chain?.id ? chainName[chain.id] : ''}).

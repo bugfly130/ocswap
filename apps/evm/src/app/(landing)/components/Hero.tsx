@@ -89,7 +89,7 @@ export const Hero: FC = () => {
               </motion.div>
               <CurrencyInput
                 type="INPUT"
-                className="p-3 bg-white dark:bg-slate-800 rounded-xl"
+                className="p-3 bg-white rounded-xl"
                 value={valueIndex >= 0 ? VALUES[valueIndex].value0 : ''}
                 currency={Native.onChain(ChainId.ETHEREUM)}
                 chainId={ChainId.ETHEREUM}
@@ -98,7 +98,7 @@ export const Hero: FC = () => {
               <div className="left-0 right-0 mt-[-9px] mb-[-9px] flex items-center justify-center">
                 <button
                   type="button"
-                  className="z-10 p-2 transition-all bg-gray-100 border-white rounded-full cursor-pointer group hover:bg-gray-200 hover:dark:bg-slate-700 dark:bg-slate-900"
+                  className="z-10 p-2 transition-all bg-gray-100 border-white rounded-full cursor-pointer group hover:bg-gray-200 "
                 >
                   <div className="transition-transform rotate-0 group-hover:rotate-180">
                     <ArrowDownIcon
@@ -110,7 +110,7 @@ export const Hero: FC = () => {
               </div>
               <CurrencyInput
                 type="OUTPUT"
-                className="p-3 bg-white dark:bg-slate-800 rounded-xl"
+                className="p-3 bg-white rounded-xl"
                 value={valueIndex >= 0 ? VALUES[valueIndex].value1 : ''}
                 currency={SUSHI[ChainId.ETHEREUM]}
                 chainId={ChainId.ETHEREUM}

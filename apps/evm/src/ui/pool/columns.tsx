@@ -81,7 +81,7 @@ export const REWARDS_V3_APR_COLUMN: ColumnDef<AngleRewardsPool, unknown> = {
     <TooltipProvider>
       <Tooltip delayDuration={0}>
         <TooltipTrigger asChild>
-          <span className="underline decoration-dotted underline-offset-2 flex items-center justify-end gap-1 text-sm text-gray-900 dark:text-slate-50">
+          <span className="underline decoration-dotted underline-offset-2 flex items-center justify-end gap-1 text-sm text-gray-900 ">
             {formatNumber(props.row.original.meanAPR)}%
           </span>
         </TooltipTrigger>
@@ -89,7 +89,7 @@ export const REWARDS_V3_APR_COLUMN: ColumnDef<AngleRewardsPool, unknown> = {
           <TooltipPrimitive.Content
             sideOffset={4}
             className={classNames(
-              'border border-accent max-h-[var(--radix-popper-available-height)] z-50 w-72 bg-white/50 dark:bg-slate-800/50 paper rounded-xl p-4 shadow-md outline-none animate-in data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+              'border border-accent max-h-[var(--radix-popper-available-height)] z-50 w-72 bg-white/50 paper rounded-xl p-4 shadow-md outline-none animate-in data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
             )}
             {...props}
           >
@@ -279,14 +279,14 @@ const WithDeprecationNotice: FC<{ children: ReactNode }> = ({ children }) => {
         <Tooltip>
           <TooltipTrigger asChild>
             <div>
-              <div className="bg-yellow/10 dark:text-yellow text-amber-900 whitespace-nowrap rounded-full flex gap-0.5 py-1 px-2 items-center text-xs">
+              <div className="bg-yellow/10 text-amber-900 whitespace-nowrap rounded-full flex gap-0.5 py-1 px-2 items-center text-xs">
                 <ExclamationCircleIcon width={12} height={12} /> Deprecated Soon
               </div>
             </div>
           </TooltipTrigger>
           <TooltipContent className="!bg-[#0f172a] !p-0 w-60 !border-0">
-            <div className="bg-gray-50 dark:bg-white/[0.02]">
-              <div className="flex flex-col gap-2.5 bg-yellow/10 dark:text-yellow text-amber-900 p-4 text-sm">
+            <div className="bg-gray-50 /[0.02]">
+              <div className="flex flex-col gap-2.5 bg-yellow/10 text-amber-900 p-4 text-sm">
                 <span className="font-semibold">
                   Pool soon to be deprecated
                 </span>

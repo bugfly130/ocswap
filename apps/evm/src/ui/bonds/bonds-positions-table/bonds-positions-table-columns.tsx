@@ -58,11 +58,11 @@ export const PAYOUT_ASSET_COLUMN: ColumnDef<BondPosition, unknown> = {
           </Badge>
         </div>
         <div className="flex flex-col gap-0.5">
-          <span className="flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-50">
+          <span className="flex items-center gap-1 text-sm font-medium text-gray-900 ">
             {token.symbol}
             <div
               className={classNames(
-                'text-[10px] bg-gray-200 dark:bg-slate-700 rounded-lg px-1 ml-1',
+                'text-[10px] bg-gray-200  rounded-lg px-1 ml-1',
               )}
             />
           </span>
@@ -89,10 +89,10 @@ export const PAYOUT_AMOUNT_COLUMN: ColumnDef<BondPosition, unknown> = {
 
     return (
       <div className="flex flex-col">
-        <span className="font-medium text-sm">
+        <span className="text-sm font-medium">
           {balance.toSignificant(6)} {token.symbol}
         </span>
-        <span className="text-gray-500 text-xs">
+        <span className="text-xs text-gray-500">
           {formatUSD(position.balanceUSD)}
         </span>
       </div>
@@ -117,7 +117,7 @@ export const MATURITY_COLUMN: ColumnDef<BondPosition, unknown> = {
     return (
       <div className="flex flex-col">
         <span>{format(position.maturity * 1000, 'MMM dd, yyyy HH:mm')}</span>
-        <span className="text-gray-500 text-xs">
+        <span className="text-xs text-gray-500">
           {isMounted
             ? formatDistance(position.maturity * 1000, new Date(), {
                 addSuffix: true,
@@ -216,7 +216,7 @@ const CLAIM_CELL = ({ position }: { position: BondPosition }) => {
     })
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="flex justify-center w-full">
       {isMounted ? (
         <Checker.Guard
           guardWhen={claimed}

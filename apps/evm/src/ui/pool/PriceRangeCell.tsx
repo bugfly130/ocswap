@@ -101,7 +101,7 @@ export const PriceRangeCell: FC<Row<ConcentratedLiquidityPositionWithV3Pool>> =
               'w-2 h-2 rounded-full',
             )}
           />
-          <span className="whitespace-nowrap text-sm flex items-center gap-1 text-gray-900 dark:text-slate-50">
+          <span className="whitespace-nowrap text-sm flex items-center gap-1 text-gray-900 ">
             {fullRange
               ? '0'
               : formatTickPrice({
@@ -114,12 +114,12 @@ export const PriceRangeCell: FC<Row<ConcentratedLiquidityPositionWithV3Pool>> =
               <ArrowSmLeftIcon
                 width={16}
                 height={16}
-                className="text-gray-500 dark:text-slate-500"
+                className="text-gray-500 "
               />
               <ArrowSmRightIcon
                 width={16}
                 height={16}
-                className="text-gray-500 dark:text-slate-500 ml-[-7px]"
+                className="text-gray-500  ml-[-7px]"
               />
             </div>
             {fullRange
@@ -132,7 +132,7 @@ export const PriceRangeCell: FC<Row<ConcentratedLiquidityPositionWithV3Pool>> =
             {currencyQuote?.symbol}
           </span>
         </div>
-        <span className="text-xs flex items-center gap-1 text-gray-900 dark:text-slate-500">
+        <span className="text-xs flex items-center gap-1 text-gray-900 ">
           Current:{' '}
           {(inverted
             ? original.pool?.token1Price

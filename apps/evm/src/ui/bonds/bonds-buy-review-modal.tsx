@@ -196,7 +196,7 @@ export const BondsBuyReviewModal: FC<BondsBuyReviewModal> = ({
                   </label>
                 </div>
               )}
-              <div className="w-full bg-[rgba(0,0,0,0.04)] text-gray-500 dark:text-gray-400 dark:bg-[#1A2031] text-sm rounded-xl px-4 py-2 flex flex-row items-center space-x-3">
+              <div className="w-full bg-[rgba(0,0,0,0.04)] text-gray-500 text-sm rounded-xl px-4 py-2 flex flex-row items-center space-x-3">
                 <RefreshIcon
                   height={16}
                   width={16}
@@ -253,7 +253,7 @@ export const BondsBuyReviewModal: FC<BondsBuyReviewModal> = ({
                         {quoteAmount.toSignificant(4)}{' '}
                         {quoteAmount.currency.symbol}
                       </span>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">
+                      <span className="text-xs text-gray-500 ">
                         {formatUSD('0')}
                       </span>
                     </div>
@@ -267,7 +267,7 @@ export const BondsBuyReviewModal: FC<BondsBuyReviewModal> = ({
                         {payoutAmount.toSignificant(4)}{' '}
                         {payoutAmount.currency.symbol}
                       </span>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">
+                      <span className="text-xs text-gray-500 ">
                         {formatUSD('0')}
                       </span>
                     </div>

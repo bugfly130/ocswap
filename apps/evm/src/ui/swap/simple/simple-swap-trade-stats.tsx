@@ -30,10 +30,13 @@ export const SimpleSwapTradeStats: FC = () => {
   const loading = Boolean(isLoading && !trade?.writeArgs)
 
   return (
-    <div className="flex flex-col w-full gap-1 p-2 text-gray-400 rounded-xl " style={{
-      background: 'rgba(0, 0, 0, 0.7)',
-      backdropFilter: 'blur(35px)',
-    }}>
+    <div
+      className="flex flex-col w-full gap-1 p-2 text-gray-400 rounded-xl "
+      style={{
+        background: 'rgba(0, 0, 0, 0.7)',
+        backdropFilter: 'blur(35px)',
+      }}
+    >
       <div className="flex items-center justify-between gap-2">
         <span className="text-sm">Price impact</span>
         <span
@@ -121,7 +124,7 @@ export const SimpleSwapTradeStats: FC = () => {
         </span>
       </div> */}
       {recipient && isAddress(recipient) && (
-        <div className="flex items-center justify-between pt-2 mt-2 border-t border-gray-200 dark:border-slate-200/5">
+        <div className="flex items-center justify-between pt-2 mt-2 border-t border-gray-200">
           <span className="text-sm font-medium">Recipient</span>
           <span className="font-semibold">
             <a

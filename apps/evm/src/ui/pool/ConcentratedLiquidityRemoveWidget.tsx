@@ -276,10 +276,10 @@ export const ConcentratedLiquidityRemoveWidget: FC<
             >
               <CardContent>
                 <CardGroup>
-                  <div className="p-3 pb-2 space-y-2 overflow-hidden bg-white rounded-xl dark:bg-secondary border border-accent">
+                  <div className="p-3 pb-2 space-y-2 overflow-hidden bg-white rounded-xl border border-accent">
                     <div className="flex justify-between gap-4">
                       <div>
-                        <h1 className="py-1 text-3xl text-gray-900 dark:text-slate-50">
+                        <h1 className="py-1 text-3xl text-gray-900 ">
                           {value}%
                         </h1>
                       </div>
@@ -343,7 +343,7 @@ export const ConcentratedLiquidityRemoveWidget: FC<
                         type="range"
                         min="1"
                         max="100"
-                        className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg dark:bg-gray-700"
+                        className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg "
                       />
                     </div>
                   </div>
@@ -442,7 +442,7 @@ export const ConcentratedLiquidityRemoveWidget: FC<
                               ?.toSignificant(6)}{' '}
                             {position?.amount0?.currency.symbol}
                           </div>
-                          <span className="text-xs text-gray-500 dark:text-slate-400">
+                          <span className="text-xs text-gray-500 ">
                             ${fiatAmountsAsNumber[0].toFixed(2)}
                           </span>
                         </div>
@@ -474,7 +474,7 @@ export const ConcentratedLiquidityRemoveWidget: FC<
                               ?.toSignificant(6)}{' '}
                             {position?.amount1?.currency.symbol}
                           </div>
-                          <span className="text-xs text-gray-500 dark:text-slate-400">
+                          <span className="text-xs text-gray-500 ">
                             ${fiatAmountsAsNumber[1].toFixed(2)}
                           </span>
                         </div>

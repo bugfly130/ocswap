@@ -68,7 +68,7 @@ export const ExpandableCard: FC<ExpandableCardProps> = ({
             >
               <motion.div
                 layoutId={`container-${id}`}
-                className="border border-secondary shadow-lg prose dark:prose-invert bg-white dark:bg-slate-800 p-4 md:p-[36px] max-h-[80vh] overflow-y-scroll scroll overflow-x-hidden rounded-xl flex flex-col items-start"
+                className="border border-secondary shadow-lg prose bg-white p-4 md:p-[36px] max-h-[80vh] overflow-y-scroll scroll overflow-x-hidden rounded-xl flex flex-col items-start"
               >
                 <span className="text-xs font-medium mb-1 uppercase text-muted-foreground">
                   {caption}

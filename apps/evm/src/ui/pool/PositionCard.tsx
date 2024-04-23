@@ -20,7 +20,7 @@ interface PositionCard {
 
 export const PositionCardSkeleton = () => {
   return (
-    <div className="relative bg-white dark:bg-slate-800 hover:shadow-md transition-all rounded-2xl p-7 overflow-hidden w-[320px]">
+    <div className="relative bg-white hover:shadow-md transition-all rounded-2xl p-7 overflow-hidden w-[320px]">
       <SkeletonText fontSize="xs" className="w-[40px]" />
       <SkeletonText fontSize="2xl" className="w-[160px]" />
       <div className="flex flex-col gap-2 items-center py-7">
@@ -47,13 +47,13 @@ export const PositionCard: FC<PositionCard> = ({ position }) => {
     (Number(position.balance) / Number(position.pool.totalSupply)) *
     Number(position.pool.liquidityUSD)
   return (
-    <div className="relative bg-white dark:bg-slate-800 shadow-md hover:shadow-lg transition-all rounded-2xl p-7 overflow-hidden w-[320px]">
-      <span className="uppercase text-xs font-semibold dark:text-slate-400 text-gray-600">
+    <div className="relative bg-white shadow-md hover:shadow-lg transition-all rounded-2xl p-7 overflow-hidden w-[320px]">
+      <span className="uppercase text-xs font-semibold  text-gray-600">
         {Chain.from(position.chainId)?.name}
       </span>
-      <h1 className="text-2xl font-semibold dark:text-white text-gray-900">
+      <h1 className="text-2xl font-semibold   text-gray-900">
         {token0.symbol}/{token1.symbol}{' '}
-        <span className="text-sm text-gray-600 dark:text-slate-400">
+        <span className="text-sm text-gray-600 ">
           {formatNumber(position.pool.swapFee * 100)}%
         </span>
       </h1>

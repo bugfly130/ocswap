@@ -146,7 +146,7 @@ function numberedBlock(block: NumberedListBlock, index: number) {
   return (
     <div key={block.title}>
       <h2 className="text-lg font-semibold">{block.title}</h2>
-      <div className="ml-8 mt-4 space-y-4">
+      <div className="mt-4 ml-8 space-y-4">
         {block.paragraphs.map((paragraph, i) => {
           return (
             <div className="flex flex-row gap-4 text-sm" key={`${index}.${i}`}>
@@ -171,12 +171,12 @@ function contentBlock(block: (typeof text)[number], index: number) {
 
 export default function Page() {
   return (
-    <Container maxWidth="4xl" className="px-6 mt-20 pb-40 space-y-12">
+    <Container maxWidth="4xl" className="px-6 pb-40 mt-20 space-y-12">
       <div className="flex flex-col gap-3">
         <h1 className="text-5xl font-semibold">
           Sushi Labs - Terms of Service
         </h1>
-        <p className="text-sm text-neutral-800 dark:text-neutral-400">
+        <p className="text-sm text-neutral-800 ">
           Last modified: March 26, 2024
         </p>
       </div>

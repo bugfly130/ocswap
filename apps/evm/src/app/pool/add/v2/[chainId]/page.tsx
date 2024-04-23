@@ -299,11 +299,11 @@ const _Add: FC<AddProps> = ({
               <div className="left-0 right-0 mt-[-24px] mb-[-24px] flex items-center justify-center">
                 <button
                   type="button"
-                  className="z-10 p-2 border border-blue-500 rounded-full dark:bg-gray-100 bg-slate-900"
+                  className="z-10 p-2 border border-blue-500 rounded-full bg-slate-900"
                 >
                   <PlusIcon
                     strokeWidth={3}
-                    className="w-4 h-4 text-slate-400 dark:text-slate-600"
+                    className="w-4 h-4 text-slate-400 "
                   />
                 </button>
               </div>

@@ -64,15 +64,13 @@ const _PositionQuickHoverTooltip: FC<PositionQuickHoverTooltipProps> = ({
   return (
     <div className="flex flex-col gap-3 p-2">
       <div className="flex flex-col gap-1">
-        <span className="text-[10px] text-gray-500 dark:text-slate-500">
-          <span className="font-semibold text-gray-900 dark:text-slate-50">
-            Total APR
-          </span>{' '}
-          • Rewards + Fees
+        <span className="text-[10px] text-gray-500 ">
+          <span className="font-semibold text-gray-900 ">Total APR</span> •
+          Rewards + Fees
         </span>
-        <span className="text-3xl font-medium text-gray-900 dark:text-slate-50">
+        <span className="text-3xl font-medium text-gray-900 ">
           {formatPercent(row.pool.totalApr1d)}{' '}
-          <span className="text-[10px] text-gray-500 dark:text-slate-500">
+          <span className="text-[10px] text-gray-500 ">
             {formatPercent(row.pool.incentiveApr)} +{' '}
             {formatPercent(row.pool.feeApr1d)}
           </span>
@@ -116,7 +114,7 @@ const _PositionQuickHoverTooltip: FC<PositionQuickHoverTooltipProps> = ({
                       <div className="flex items-baseline gap-2">
                         {reward?.toSignificant(6) || '0.00'}{' '}
                         {rewardTokens[index]?.symbol}
-                        <span className="text-[10px] text-gray-600 dark:text-slate-400 text-slate-600">
+                        <span className="text-[10px] text-gray-600  text-slate-600">
                           {' '}
                           {formatUSD(values[index])}
                         </span>
@@ -148,7 +146,7 @@ const _PositionQuickHoverTooltip: FC<PositionQuickHoverTooltipProps> = ({
               title={
                 <div className="flex items-baseline gap-2">
                   {underlying0?.toSignificant(6)} {underlying0?.currency.symbol}
-                  <span className="text-[10px] text-gray-600 dark:text-slate-400 text-slate-600">
+                  <span className="text-[10px] text-gray-600  text-slate-600">
                     {formatUSD(value0)}
                   </span>
                 </div>
@@ -165,7 +163,7 @@ const _PositionQuickHoverTooltip: FC<PositionQuickHoverTooltipProps> = ({
               title={
                 <div className="flex items-baseline gap-2">
                   {underlying1?.toSignificant(6)} {underlying1?.currency.symbol}
-                  <span className="text-[10px] text-gray-600 dark:text-slate-400 text-slate-600">
+                  <span className="text-[10px] text-gray-600  text-slate-600">
                     {formatUSD(value1)}
                   </span>
                 </div>
@@ -193,7 +191,7 @@ const _PositionQuickHoverTooltip: FC<PositionQuickHoverTooltipProps> = ({
                   <div className="flex items-baseline gap-2">
                     {stakedUnderlying0?.toSignificant(6)}{' '}
                     {stakedUnderlying0?.currency.symbol}
-                    <span className="text-[10px] text-gray-600 dark:text-slate-400 text-slate-600">
+                    <span className="text-[10px] text-gray-600  text-slate-600">
                       {formatUSD(stakedValue1)}
                     </span>
                   </div>
@@ -208,7 +206,7 @@ const _PositionQuickHoverTooltip: FC<PositionQuickHoverTooltipProps> = ({
                   <div className="flex items-baseline gap-2">
                     {stakedUnderlying1?.toSignificant(6) || '0.00'}{' '}
                     {stakedUnderlying1?.currency.symbol}
-                    <span className="text-[10px] text-gray-600 dark:text-slate-400 text-slate-600">
+                    <span className="text-[10px] text-gray-600  text-slate-600">
                       {formatUSD(stakedValue1)}
                     </span>
                   </div>

@@ -10,7 +10,7 @@ import { SkeletonText } from './skeleton'
 const cardVariants = cva('relative rounded-xl border border-accent', {
   variants: {
     variant: {
-      default: 'shadow-sm bg-transparent dark:bg-background',
+      default: 'shadow-sm bg-transparent',
       outline: '',
     },
   },
@@ -44,7 +44,7 @@ const CardOverlay = React.forwardRef<HTMLDivElement, CardOverlayProps>(
       data-state={show ? 'active' : 'inactive'}
       ref={ref}
       className={classNames(
-        'data-[state=active]:flex data-[state=inactive]:hidden rounded-xl z-10 bg-white/[0.8] dark:bg-slate-900/[0.8] pointer-events-none absolute inset-0 justify-center items-center',
+        'data-[state=active]:flex data-[state=inactive]:hidden rounded-xl z-10 bg-white/[0.8] /[0.8] pointer-events-none absolute inset-0 justify-center items-center',
         className,
       )}
       {...props}
@@ -113,10 +113,7 @@ const CardLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <span
     ref={ref}
-    className={classNames(
-      'font-normal text-xs text-gray-400 dark:text-slate-600',
-      className,
-    )}
+    className={classNames('font-normal text-xs text-gray-400', className)}
     {...props}
   />
 ))
@@ -167,15 +164,13 @@ const CardItem = React.forwardRef<HTMLDivElement, CardItemProps>(
         {...props}
       >
         <div className="flex flex-col gap-0.5">
-          <span className="text-sm font-medium text-gray-700 dark:text-slate-300">
-            {title}
-          </span>
+          <span className="text-sm font-medium text-gray-700 ">{title}</span>
           {subtitle && (
             <span className="text-xs text-muted-foreground">{subtitle}</span>
           )}
         </div>
         <div className="flex justify-end">
-          <span className="flex justify-end w-full text-sm font-medium text-right text-gray-900 truncate dark:text-slate-50">
+          <span className="flex justify-end w-full text-sm font-medium text-right text-gray-900 truncate ">
             {children}
           </span>
         </div>
@@ -218,9 +213,7 @@ const CardCurrencyAmountItem = React.forwardRef<
         <Currency.Icon currency={currency} width={24} height={24} />{' '}
         <span className="flex gap-1 p-1 font-semibold text-slate-50">
           {amount.toSignificant(6)}{' '}
-          <span className="font-normal text-gray-400 dark:text-slate-600">
-            {fiatValue}
-          </span>
+          <span className="font-normal text-gray-400">{fiatValue}</span>
         </span>
       </CardItem>
     )

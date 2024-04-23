@@ -22,8 +22,8 @@ const roboto_mono = Roboto_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Sushi 🍣',
-    template: '%s | Sushi 🍣',
+    default: 'OC 🍣',
+    template: '%s | OC 🍣',
   },
   description:
     'A Decentralised Finance (DeFi) app with features such as swap, cross chain swap, streaming, vesting, and permissionless market making for liquidity providers.',
@@ -70,7 +70,7 @@ export default function RootLayout({
               }}
             />
             <div
-              className="flex-1 transform scale-75 rotate-45 opacity-50 mix-blend-lighten"
+              className="flex-1 hidden transform scale-75 rotate-45 opacity-50 md:block mix-blend-lighten"
               style={{
                 background: 'linear-gradient(180deg, #1991f5 0%, #3ce6fc 100%)',
                 filter: 'blur(110px)',

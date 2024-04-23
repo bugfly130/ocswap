@@ -53,7 +53,7 @@ export const Custody: FC = () => {
               {({ setOpen, containerId, titleId }) => (
                 <motion.div
                   layoutId={containerId}
-                  className="flex flex-col items-center prose text-gray-400 dark:prose-invert lg:items-start"
+                  className="flex flex-col items-center prose text-gray-400  lg:items-start"
                 >
                   <motion.h1
                     layoutId={titleId}

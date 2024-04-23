@@ -38,7 +38,7 @@ export const SimpleSwapErrorMessage: FC<{
           <div className="relative rounded-xl overflow-hidden">
             <div
               data-state={isLoading ? 'active' : 'inactive'}
-              className="z-10 transition-all data-[state=inactive]:hidden data-[state=active]:block absolute inset-0 overflow-hidden p-4 before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_.5s_infinite] before:bg-gradient-to-r before:from-transparent dark:before:via-slate-50/10 before:via-gray-900/[0.07] before:to-transparent"
+              className="z-10 transition-all data-[state=inactive]:hidden data-[state=active]:block absolute inset-0 overflow-hidden p-4 before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-gray-900/[0.07] before:to-transparent"
             />
             <Card>
               <CardHeader>

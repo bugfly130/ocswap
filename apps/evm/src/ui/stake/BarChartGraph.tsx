@@ -101,13 +101,13 @@ export const BarChartGraph: FC<BarChartProps> = ({ chart, period }) => {
           onMouseOver({ name: params[0].name, value: params[0].value })
 
           const date = new Date(Number(params[0].name * 1000))
-          return `<div class="flex flex-col gap-0.5 paper bg-white/50 dark:bg-slate-800/50 px-3 py-2 rounded-xl overflow-hidden shadow-lg">
-            <span class="text-sm dark:text-slate-50 text-gray-900 font-medium">${
+          return `<div class="flex flex-col gap-0.5 paper bg-white/50 px-3 py-2 rounded-xl overflow-hidden shadow-lg">
+            <span class="text-sm  text-gray-900 font-medium">${
               chart === BarChartType.APR
                 ? formatPercent(params[0].value)
                 : formatNumber(params[0].value)
             }</span>
-            <span class="text-xs text-gray-500 dark:text-slate-400 font-medium">${
+            <span class="text-xs text-gray-500  font-medium">${
               date instanceof Date && !Number.isNaN(date?.getTime())
                 ? format(
                     date,
@@ -195,7 +195,7 @@ export const BarChartGraph: FC<BarChartProps> = ({ chart, period }) => {
         </CardTitle>
         <CardDescription>
           {xData.length ? (
-            <div className="text-sm text-gray-500 dark:text-slate-500 hoveredItemName">
+            <div className="text-sm text-gray-500 hoveredItemName">
               {format(
                 new Date(xData[xData.length - 1] * 1000),
                 'dd MMM yyyy HH:mm',
@@ -210,7 +210,7 @@ export const BarChartGraph: FC<BarChartProps> = ({ chart, period }) => {
         {isLoading ? (
           <SkeletonBox
             className={classNames(
-              'h-[200px] w-full dark:via-slate-800 dark:to-slate-900',
+              'h-[200px] w-full',
             )}
           />
         ) : (

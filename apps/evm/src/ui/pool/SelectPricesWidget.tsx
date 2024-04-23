@@ -579,7 +579,7 @@ export const SelectPricesWidget: FC<SelectPricesWidget> = ({
                               <ExclamationTriangleIcon
                                 width={24}
                                 height={24}
-                                className="dark:text-yellow text-amber-900 p-0.5"
+                                className="text-amber-900 p-0.5"
                               />
                             </TooltipTrigger>
                             <TooltipContent className="w-80">
@@ -882,8 +882,8 @@ export const PriceBlock: FC<PriceBlockProps> = ({
                 className={classNames(
                   decrementDisabled
                     ? 'opacity-40'
-                    : 'hover:bg-gray-300 dark:hover:bg-slate-600',
-                  'flex items-center justify-center w-5 h-5 bg-gray-200 dark:bg-slate-700 rounded-full',
+                    : 'hover:bg-gray-300',
+                  'flex items-center justify-center w-5 h-5 bg-gray-200  rounded-full',
                 )}
                 tabIndex={-1}
               >
@@ -897,8 +897,8 @@ export const PriceBlock: FC<PriceBlockProps> = ({
                 className={classNames(
                   incrementDisabled
                     ? 'opacity-40'
-                    : 'hover:bg-gray-300 dark:hover:bg-slate-600',
-                  'flex items-center justify-center w-5 h-5 bg-gray-200 dark:bg-slate-700 rounded-full',
+                    : 'hover:bg-gray-300',
+                  'flex items-center justify-center w-5 h-5 bg-gray-200  rounded-full',
                 )}
                 tabIndex={-1}
               >

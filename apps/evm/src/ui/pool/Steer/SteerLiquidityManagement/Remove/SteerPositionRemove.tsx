@@ -189,12 +189,10 @@ export const SteerPositionRemove: FC<SteerPositionRemoveProps> = ({
         'flex flex-col gap-4',
       )}
     >
-      <div className="p-3 pb-2 space-y-2 overflow-hidden bg-white border rounded-xl dark:bg-secondary border-accent">
+      <div className="p-3 pb-2 space-y-2 overflow-hidden bg-white border rounded-xl border-accent">
         <div className="flex justify-between gap-4">
           <div>
-            <h1 className="py-1 text-3xl text-gray-900 dark:text-slate-50">
-              {value}%
-            </h1>
+            <h1 className="py-1 text-3xl text-gray-900 ">{value}%</h1>
           </div>
           <div className="flex items-center gap-2">
             <Button
@@ -256,7 +254,7 @@ export const SteerPositionRemove: FC<SteerPositionRemoveProps> = ({
             type="range"
             min="1"
             max="100"
-            className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg dark:bg-gray-700"
+            className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg "
           />
         </div>
       </div>

@@ -61,13 +61,13 @@ export const SelectPoolTypeWidget: FC<SelectPoolTypeWidgetProps> = memo(
               className={({ checked }) =>
                 classNames(
                   checked ? 'ring ring-blue' : '',
-                  'relative px-5 py-3 flex items-center rounded-xl bg-white dark:bg-slate-800/40 cursor-pointer',
+                  'relative px-5 py-3 flex items-center rounded-xl bg-white cursor-pointer',
                 )
               }
             >
               {({ checked }) => (
                 <div className="flex flex-col gap-1">
-                  <span className="flex items-center gap-2 font-medium text-gray-900 dark:text-slate-50">
+                  <span className="flex items-center gap-2 font-medium text-gray-900 ">
                     {option.title}
                     {option.value === PoolFinderType.ConcentratedLiquidity && (
                       <StarIcon
@@ -77,7 +77,7 @@ export const SelectPoolTypeWidget: FC<SelectPoolTypeWidgetProps> = memo(
                       />
                     )}
                   </span>
-                  <span className="text-sm text-gray-500 dark:text-slate-400 text-slate-600">
+                  <span className="text-sm text-gray-500  text-slate-600">
                     {checked && (
                       <div className="absolute right-3 bg-blue text-white rounded-full p-0.5">
                         <CheckIcon width={12} height={12} />

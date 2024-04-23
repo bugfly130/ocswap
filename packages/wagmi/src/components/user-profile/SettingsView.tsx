@@ -3,7 +3,7 @@ import { List } from '@sushiswap/ui/components/list'
 import React, { Dispatch, FC, Fragment, SetStateAction } from 'react'
 
 import { RadioGroup } from '@headlessui/react'
-import { MoonIcon, SunIcon } from '@heroicons/react/24/outline'
+import { SunIcon } from '@heroicons/react/24/outline'
 import { useLocalStorage } from '@sushiswap/hooks'
 import { classNames } from '@sushiswap/ui'
 import { IconButton } from '@sushiswap/ui/components/iconbutton'
@@ -18,7 +18,6 @@ interface SettingsViewProps {
 const map = {
   system: <span className="text-xs font-semibold">Auto</span>,
   light: <SunIcon width={24} height={24} />,
-  dark: <MoonIcon width={20} height={20} />,
 }
 
 export const SettingsView: FC<SettingsViewProps> = ({ setView }) => {
@@ -41,10 +40,10 @@ export const SettingsView: FC<SettingsViewProps> = ({ setView }) => {
       </div>
       <List>
         <List.Label>Preferences</List.Label>
-        <List.Control className="bg-gray-100 dark:bg-slate-800">
+        <List.Control className="bg-gray-100">
           <List.KeyValue flex title="Theme">
             <RadioGroup value={theme} onChange={setTheme}>
-              <div className="items-center relative bg-black/[0.04] dark:bg-white/[0.02] ring-4 ring-black/[0.04] dark:ring-white/[0.02] rounded-lg overflow-hidden flex gap-1">
+              <div className="items-center relative bg-black/[0.04] /[0.02] ring-4 ring-black/[0.04] rounded-lg overflow-hidden flex gap-1">
                 {Object.entries(map).map(([k, v], i) => (
                   <RadioGroup.Option as={Fragment} key={i} value={k}>
                     {({ checked }) => (
@@ -52,8 +51,8 @@ export const SettingsView: FC<SettingsViewProps> = ({ setView }) => {
                         type="button"
                         className={classNames(
                           checked
-                            ? 'text-gray-900 dark:text-slate-50 bg-white dark:bg-white/[0.08]'
-                            : 'text-gray-500 dark:text-slate-500 hover:bg-gray-100 hover:dark:bg-white/[0.04]',
+                            ? 'text-gray-900  bg-white /[0.08]'
+                            : 'text-gray-500  hover:bg-gray-100 hover:/[0.04]',
                           'min-w-[60px] z-[1] relative rounded-lg text-sm h-8 font-medium flex flex-grow items-center justify-center',
                         )}
                       >

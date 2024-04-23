@@ -126,7 +126,7 @@ export const Ecosystem: FC = () => {
             <div className="rounded-full w-[10px] h-[10px] bg-yellow" />
             <div className="rounded-full w-[10px] h-[10px] bg-green" />
           </div>
-          <div className="prose dark:prose-invert justify-center flex flex-col gap-3 pt-10">
+          <div className="prose justify-center flex flex-col gap-3 pt-10">
             <span className="text-center text-muted-foreground">Ecosystem</span>
             <h2 className="px-4 text-center">
               Explore our <span className="text-blue">DeFi</span> Payment

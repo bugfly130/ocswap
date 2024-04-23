@@ -131,7 +131,7 @@ export const Carousel = <T,>({
               e.stopPropagation()
               prev()
             }}
-            className="shadow-md hover:border-accent border border-transparent p-3 rounded-full cursor-pointer bg-gray-200 dark:bg-slate-700"
+            className="shadow-md hover:border-accent border border-transparent p-3 rounded-full cursor-pointer bg-gray-200 "
           >
             <ChevronLeftIcon width={32} height={32} />
           </button>
@@ -145,7 +145,7 @@ export const Carousel = <T,>({
               e.stopPropagation()
               next()
             }}
-            className="shadow-md hover:border-accent border border-transparent p-3 rounded-full cursor-pointer bg-gray-200 dark:bg-slate-700"
+            className="shadow-md hover:border-accent border border-transparent p-3 rounded-full cursor-pointer bg-gray-200 "
           >
             <ChevronRightIcon width={32} height={32} />
           </button>

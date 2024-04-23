@@ -52,7 +52,7 @@ export const Breadcrumb = () => {
         className={classNames(
           '!font-normal hover:underline',
           pathname.split('/').length === 2
-            ? '!text-gray-900 dark:!text-slate-50'
+            ? '!text-gray-900'
             : '!text-accent-foreground',
         )}
       >
@@ -80,7 +80,7 @@ export const Breadcrumb = () => {
                     'hover:underline !inline font-normal capitalize whitespace-nowrap max-w-[120px] truncate',
                     i < items.length - 1
                       ? '!font-normal !text-muted-foreground'
-                      : '!font-medium !text-gray-900 dark:!text-slate-50',
+                      : '!font-medium !text-gray-900',
                   )}
                 >
                   <LinkInternal href={`/pool/${segments.join('/')}`}>

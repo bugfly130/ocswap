@@ -70,21 +70,18 @@ export const PoolNameCell: FC<Row<PositionWithPool>> = ({ original }) => {
         )}
       </div>
       <div className="flex flex-col gap-0.5">
-        <span className="flex items-center gap-1 text-sm font-medium text-slate-50 dark:text-gray-900">
-          {token0?.symbol}{' '}
-          <span className="font-normal text-slate-50 dark:text-gray-900 ">
-            /
-          </span>{' '}
+        <span className="flex items-center gap-1 text-sm font-medium text-slate-50 ">
+          {token0?.symbol} <span className="font-normal text-slate-50 ">/</span>{' '}
           {token1?.symbol}{' '}
           <div
             className={classNames(
-              'text-[10px] bg-slate-700 text-slate-50 dark:bg-gray-200 rounded-lg px-1 ml-1',
+              'text-[10px] bg-slate-700 text-slate-50 rounded-lg px-1 ml-1',
             )}
           />
         </span>
         <div className="flex gap-1 my-1">
           {ProtocolBadge[original.pool.protocol]}
-          <div className="dark:bg-gray-200 dark:text-gray-700 bg-slate-800 text-slate-300 text-[10px] px-2 rounded-full">
+          <div className="bg-slate-800 text-slate-300 text-[10px] px-2 rounded-full">
             {formatNumber(original.pool.swapFee * 100)}%
           </div>
           {original.pool.isIncentivized && (
@@ -107,7 +104,7 @@ export const PoolNameCell: FC<Row<PositionWithPool>> = ({ original }) => {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="bg-[#F2E9D6] dark:bg-yellow/60 text-[10px] px-2 rounded-full">
+                  <div className="bg-[#F2E9D6] text-[10px] px-2 rounded-full">
                     💡
                   </div>
                 </TooltipTrigger>
@@ -151,15 +148,13 @@ export const PoolNameCellPool: FC<{ pool: Pool }> = ({ pool }) => {
         )}
       </div>
       <div className="flex flex-col gap-0.5">
-        <span className="flex items-center gap-1 text-sm font-medium text-slate-50 dark:text-gray-900">
+        <span className="flex items-center gap-1 text-sm font-medium text-slate-50 ">
           {token0?.symbol}{' '}
-          <span className="font-normal text-slate-500 dark:text-gray-900">
-            /
-          </span>{' '}
+          <span className="font-normal text-slate-500 ">/</span>{' '}
           {token1?.symbol}{' '}
           <div
             className={classNames(
-              'text-[10px] bg-slate-700 dark:bg-gray-200 rounded-lg px-1 ml-1',
+              'text-[10px] bg-slate-700 rounded-lg px-1 ml-1',
             )}
           />
         </span>
@@ -177,7 +172,7 @@ export const PoolNameCellPool: FC<{ pool: Pool }> = ({ pool }) => {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <div className="bg-gray-200 text-gray-700 dark:bg-slate-800 dark:text-slate-300 text-[10px] px-2 rounded-full">
+                <div className="bg-gray-200 text-gray-700 text-[10px] px-2 rounded-full">
                   {formatNumber(pool.swapFee * 100)}%
                 </div>
               </TooltipTrigger>
@@ -206,7 +201,7 @@ export const PoolNameCellPool: FC<{ pool: Pool }> = ({ pool }) => {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="bg-[#F2E9D6] dark:bg-yellow/60 text-[10px] px-2 rounded-full">
+                  <div className="bg-[#F2E9D6] text-[10px] px-2 rounded-full">
                     💡
                   </div>
                 </TooltipTrigger>

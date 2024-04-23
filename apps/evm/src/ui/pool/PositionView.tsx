@@ -430,7 +430,7 @@ const Component: FC<{ id: string }> = ({ id }) => {
                       )}
                     />
                     {outOfRange ? (
-                      <span className="text-xs font-medium text-yellow-900 dark:text-yellow">
+                      <span className="text-xs font-medium text-yellow-900">
                         Out of Range
                       </span>
                     ) : (

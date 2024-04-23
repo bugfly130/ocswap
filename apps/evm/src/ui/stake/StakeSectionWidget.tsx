@@ -57,7 +57,7 @@ export const StakeSectionWidget = ({
           chainId={ChainId.ETHEREUM}
         />
         <div className="flex items-center justify-center mt-[-24px] mb-[-24px] z-10">
-          <div className="p-1 bg-white dark:bg-slate-900 border border-accent rounded-full">
+          <div className="p-1 bg-white border rounded-full border-accent">
             <ArrowDownIcon
               width={16}
               height={16}

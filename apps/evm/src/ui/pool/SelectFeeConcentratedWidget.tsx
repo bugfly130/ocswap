@@ -171,7 +171,7 @@ export const SelectFeeConcentratedWidget: FC<SelectFeeConcentratedWidget> =
                   asChild
                   key={i}
                   testdata-id={`fee-option-${option.value}`}
-                  className="!h-[unset] !w-[unset] rounded-md p-4 !text-left !justify-start cursor-pointer dark:data-[state=on]:bg-secondary"
+                  className="!h-[unset] !w-[unset] rounded-md p-4 !text-left !justify-start cursor-pointer"
                   // {option.value == SushiSwapV3FeeAmount.LOW
                   style={{
                     backdropFilter: 'blur(35px)',

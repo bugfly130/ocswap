@@ -114,7 +114,7 @@ export const LiquiditySourceSelector: FC<LiquiditySourceSelector> = ({
               </div>
             ))}
             {liquiditySourceMap?.length === 0 && (
-              <span className="flex items-center justify-center h-10 text-sm text-center text-gray-500 dark:text-slate-500">
+              <span className="flex items-center justify-center h-10 text-sm text-center text-gray-500 ">
                 No results found.
               </span>
             )}

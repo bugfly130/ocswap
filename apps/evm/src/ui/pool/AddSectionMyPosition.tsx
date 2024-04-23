@@ -11,31 +11,25 @@ import { AddSectionMyPositionUnstaked } from './AddSectionMyPositionUnstaked'
 
 export const AddSectionMyPosition: FC<{ pool: Pool }> = ({ pool }) => {
   return (
-    <div className="flex flex-col bg-white dark:bg-opacity-[0.04] rounded-2xl">
+    <div className="flex flex-col bg-white rounded-2xl">
       <div className="flex flex-col gap-4 p-5">
         <div className="grid items-center grid-cols-2 gap-2">
-          <p className="text-xs font-medium text-gray-700 dark:text-slate-300">
-            Total APR:
-          </p>
-          <p className="text-xs font-medium text-right text-gray-700 dark:text-slate-300">
+          <p className="text-xs font-medium text-gray-700 ">Total APR:</p>
+          <p className="text-xs font-medium text-right text-gray-700 ">
             {formatPercent(pool.feeApr1d + pool.incentiveApr)}
           </p>
           {pool.incentives && (
             <>
-              <p className="text-xs font-medium text-gray-700 dark:text-slate-300">
-                Fee APR:
-              </p>
-              <p className="text-xs font-medium text-right text-gray-700 dark:text-slate-300">
+              <p className="text-xs font-medium text-gray-700 ">Fee APR:</p>
+              <p className="text-xs font-medium text-right text-gray-700 ">
                 {formatPercent(pool.feeApr1d)}
               </p>
-              <p className="text-xs font-medium text-gray-700 dark:text-slate-300">
-                Reward APR:
-              </p>
-              <p className="text-xs font-medium text-right text-gray-700 dark:text-slate-300">
+              <p className="text-xs font-medium text-gray-700 ">Reward APR:</p>
+              <p className="text-xs font-medium text-right text-gray-700 ">
                 {/* Reward APR */}
                 {formatPercent(pool.incentiveApr)}
               </p>
-              <p className="text-xs font-medium text-gray-700 dark:text-slate-300">
+              <p className="text-xs font-medium text-gray-700 ">
                 Farming Rewards:
               </p>
               <div
@@ -61,7 +55,7 @@ export const AddSectionMyPosition: FC<{ pool: Pool }> = ({ pool }) => {
         </div>
       </div>
       <div className="px-5">
-        <hr className="h-px border-t dark:border-slate-200/5 border-gray-900/5" />
+        <hr className="h-px border-t border-gray-900/5" />
       </div>
       <div className="p-5 space-y-5">
         <AddSectionMyPositionUnstaked />

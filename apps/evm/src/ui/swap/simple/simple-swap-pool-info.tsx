@@ -56,8 +56,8 @@ export const SimpleSwapPoolInfo = () => {
   }, [pools, token0, token1, chainId])
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex flex-row w-full gap-4">
+    <div className="flex flex-col w-full gap-4">
+      <div className="flex flex-row gap-4">
         <div
           className="flex flex-col flex-1 gap-2 p-4 rounded-xl min-w-[180px]"
           style={{

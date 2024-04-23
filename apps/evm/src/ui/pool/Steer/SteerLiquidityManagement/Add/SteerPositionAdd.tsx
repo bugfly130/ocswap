@@ -59,7 +59,7 @@ export const SteerPositionAdd: FC<SteerPositionAddProps> = ({ vault }) => {
           <Web3Input.Currency
             id="add-liquidity-token0"
             type="INPUT"
-            className="p-3 bg-white dark:bg-secondary rounded-xl border border-accent"
+            className="p-3 bg-white rounded-xl border border-accent"
             chainId={vault.chainId as ChainId}
             value={formattedAmounts[Field.CURRENCY_A]}
             onChange={onFieldAInput}
@@ -68,7 +68,7 @@ export const SteerPositionAdd: FC<SteerPositionAddProps> = ({ vault }) => {
           />
         </div>
         <div className="flex items-center justify-center mt-[-24px] mb-[-24px] z-10">
-          <div className="p-1 bg-white dark:bg-slate-900 border border-accent rounded-full">
+          <div className="p-1 bg-white border border-accent rounded-full">
             <PlusIcon
               width={16}
               height={16}
@@ -80,7 +80,7 @@ export const SteerPositionAdd: FC<SteerPositionAddProps> = ({ vault }) => {
           <Web3Input.Currency
             id="add-liquidity-token1"
             type="INPUT"
-            className="p-3 bg-white dark:bg-secondary rounded-xl border border-accent"
+            className="p-3 bg-white rounded-xl border border-accent"
             chainId={vault.chainId as ChainId}
             value={formattedAmounts[Field.CURRENCY_B]}
             onChange={onFieldBInput}

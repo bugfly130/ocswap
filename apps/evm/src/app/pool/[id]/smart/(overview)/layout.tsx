@@ -40,7 +40,7 @@ export default async function Layout({
         <PoolHeader address={pool.address} pool={pool} />
       </Container>
       <section className="flex flex-col flex-1 mt-4">
-        <div className="bg-gray-50 dark:bg-white/[0.02] border-t border-accent pt-10 pb-20 h-full">
+        <div className="bg-gray-50 border-t border-accent pt-10 pb-20 h-full">
           <div className="flex flex-col gap-2">
             <Container maxWidth="5xl" className="px-2 sm:px-4">
               <LinkInternal

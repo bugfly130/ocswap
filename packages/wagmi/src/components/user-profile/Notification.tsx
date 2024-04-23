@@ -59,11 +59,11 @@ export const Notification: FC<{
     )
 
   return (
-    <div className="relative hover:bg-black/[0.02] active:bg-black/[0.03] hover:dark:bg-white/[0.02] active:dark:bg-white/[0.03]">
+    <div className="relative hover:bg-black/[0.02] active:bg-black/[0.03] hover:/[0.02] active:/[0.03]">
       {showExtra && (
         <Disclosure.Button className="absolute right-3 top-0 bottom-0 z-[100]">
           {({ open }) => (
-            <div className="p-1.5 hover:dark:bg-white/[0.04] hover:bg-gray-200 rounded-full">
+            <div className="p-1.5 hover:/[0.04] hover:bg-gray-200 rounded-full">
               <ChevronDownIcon
                 width={20}
                 height={20}
@@ -91,7 +91,7 @@ export const Notification: FC<{
             'relative cursor-pointer flex items-center gap-3 rounded-2xl px-4 py-3',
           )}
         >
-          <div className="p-2 bg-gray-200 dark:bg-slate-600 text-gray-400 dark:text-slate-200 rounded-full min-h-[36px] min-w-[36px] flex justify-center items-center">
+          <div className="p-2 bg-gray-200 text-gray-400 rounded-full min-h-[36px] min-w-[36px] flex justify-center items-center">
             {!hideStatus &&
               (status === 'loading' ? (
                 <Loader size={18} />
@@ -168,11 +168,11 @@ export const Notification: FC<{
           </div>
           <div className="flex flex-col gap-0.5">
             <div className="flex items-center gap-2">
-              <span className="text-sm font-medium items-center whitespace-normal text-gray-900 dark:text-slate-50">
+              <span className="text-sm font-medium items-center whitespace-normal text-gray-900 ">
                 {notification.summary}
               </span>
             </div>
-            <span className="flex gap-1 items-center text-xs text-gray-600 dark:text-slate-500">
+            <span className="flex gap-1 items-center text-xs text-gray-600 ">
               <NetworkIcon
                 type="naked"
                 chainId={notification.chainId}
