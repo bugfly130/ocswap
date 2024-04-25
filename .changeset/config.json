@@ -23,8 +23,6 @@
     "@sushiswap/tokens-api",
     "@sushiswap/ui",
     "@sushiswap/wagmi",
-    "academy",
-    "blog",
     "evm"
   ]
 }

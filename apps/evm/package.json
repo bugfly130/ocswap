@@ -9,7 +9,7 @@
     "dev": "next dev",
     "lint": "TIMING=1 next lint",
     "lint:fix": "TIMING=1 next lint --fix",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "test": "npx playwright test -c test/playwright.config.ts"
   },
   "dependencies": {
