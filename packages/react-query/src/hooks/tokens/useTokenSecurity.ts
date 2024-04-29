@@ -2,16 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { ChainId } from 'sushi/chain'
 import { Token } from 'sushi/currency'
 
-const SUPPORTED_CHAINS: ChainId[] = [
-  ChainId.AVALANCHE,
-  ChainId.FANTOM,
-  ChainId.GNOSIS,
-  ChainId.HARMONY,
-  ChainId.ETHEREUM,
-  ChainId.HECO,
-  ChainId.ARBITRUM,
-  ChainId.OPTIMISM,
-]
+const SUPPORTED_CHAINS: ChainId[] = [ChainId.ETHEREUM]
 
 interface TokenSecurity {
   buy_tax: string

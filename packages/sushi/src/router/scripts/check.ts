@@ -1,13 +1,10 @@
 import https from 'https'
 import { ChainId } from '../../chain/index.js'
-import { USDC, USDT } from '../../currency/index.js'
 import { Token, Type } from '../../currency/index.js'
 import { MultiRoute } from '../../tines/index.js'
 import { DataFetcher } from '../data-fetcher.js'
 import { LiquidityProviders } from '../liquidity-providers/index.js'
 import { Router } from '../router.js'
-
-const delay = async (ms: number) => new Promise((res) => setTimeout(res, ms))
 
 async function getAPIObject(
   url: string,
@@ -94,29 +91,6 @@ interface Environment {
   dataFetcher: DataFetcher
 }
 
-function getEnvironment(
-  chainId: ChainId,
-  lps: LiquidityProviders[],
-): Environment {
-  // let network
-  // switch (chainId) {
-  //   case ChainId.ETHEREUM:
-  //     network = 'mainnet'
-  //     break
-  //   case ChainId.POLYGON:
-  //     network = 'matic'
-  //     break
-  //   default:
-  // }
-  const dataFetcher = new DataFetcher(chainId)
-  dataFetcher.startDataFetching(lps)
-
-  return {
-    chainId,
-    dataFetcher,
-  }
-}
-
 async function route(
   env: Environment,
   from: Type,
@@ -142,19 +116,12 @@ function getProtocol(lp: LiquidityProviders, chainId: ChainId) {
     case ChainId.ETHEREUM:
       prefix = ''
       break
-    case ChainId.POLYGON:
-      prefix = 'POLYGON_'
-      break
     default:
       throw new Error(`Unsupported network: ${chainId}`)
   }
   switch (lp) {
     case LiquidityProviders.SushiSwapV2:
       return `${prefix}SUSHISWAP`
-    case LiquidityProviders.QuickSwap:
-      return `${prefix}QUICKSWAP`
-    case LiquidityProviders.Trident:
-      return `${prefix}TRIDENT`
     case LiquidityProviders.UniswapV2:
       return `${prefix}UNISWAP_V2`
     default:
@@ -199,30 +166,6 @@ export async function test(
   return [parseInt(res2), res3.amountOut]
 }
 
-async function testTrident() {
-  try {
-    const chainId = ChainId.POLYGON
-    const from = USDT[chainId]
-    //const divisor = Math.pow(10, from.decimals)
-    const to = USDC[chainId]
-    //const gasPrice = 100e9
-    const providers = [LiquidityProviders.Trident]
-    const env = getEnvironment(chainId, providers)
-    await delay(5000)
-    env.dataFetcher.fetchPoolsForToken(from, to)
-    await delay(5000)
-    // for (let i = 6; i < 15; ++i) {
-    //   const amount = getBigInt(Math.pow(10, i)).toString()
-    //   //const res = await test(env, from, to, amount, gasPrice, providers)
-    //   // console.log(
-    //   //   Math.pow(10, i) / divisor,
-    //   //   res.map((e) => e / divisor)
-    //   // )
-    // }
-    env.dataFetcher.stopDataFetching()
-  } catch (e) {
-    console.log('Error', e)
-  }
-}
+async function testTrident() {}
 
 testTrident()

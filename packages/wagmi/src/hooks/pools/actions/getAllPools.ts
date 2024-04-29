@@ -52,11 +52,6 @@ const queryFn = async ({
     )
   }
 
-  // let v3CurrencyCombinations: [Type | undefined, Type | undefined][] = [[currencyIn, currencyOut]]
-  // if (withCombinations && currencyIn && currencyOut && chainId) {
-  //   v3CurrencyCombinations = getV3CurrencyCombinations(chainId, currencyIn, currencyOut)
-  // }
-
   const _tokensUnique = tokensUnique(pairsUnique(currencyCombinations))
   const totalsMap = isBentoBoxChainId(chainId)
     ? await getBentoboxTotalsMap(chainId, _tokensUnique)
@@ -80,8 +75,6 @@ const queryFn = async ({
         ? getV3Pools(chainId, currencyCombinations)
         : Promise.resolve([]),
     ])
-  // const filteredCurrencyCombinations = currencyCombinations.filter(([a, b]) =>  a === currencyA || b === currencyA || a === currencyB || b === currencyB)
-  // const v3Pools = await getV3Pools(chainId, v3CurrencyCombinations)
 
   return {
     pairs,

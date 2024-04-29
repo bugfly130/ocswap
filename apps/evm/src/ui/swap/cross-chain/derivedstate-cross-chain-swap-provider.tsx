@@ -100,13 +100,7 @@ const DerivedstateCrossChainSwapProvider: FC<
           : ChainId.ETHEREUM
         ).toString(),
       )
-    if (!params.has('chainId1'))
-      params.set(
-        'chainId1',
-        params.get('chainId0') === ChainId.ARBITRUM.toString()
-          ? ChainId.ETHEREUM.toString()
-          : ChainId.ARBITRUM.toString(),
-      )
+    if (!params.has('chainId1')) params.set('chainId1', ChainId.BASE.toString())
     if (!params.has('token0')) params.set('token0', 'NATIVE')
     if (!params.has('token1'))
       params.set('token1', getQuoteCurrency(Number(params.get('chainId1'))))

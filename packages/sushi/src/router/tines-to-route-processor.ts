@@ -159,12 +159,7 @@ export class TinesToRouteProcessor {
     if (getTokenType(fromToken) === TokenType.BENTO)
       hex.uint8(24) // distributeBentoShares
     else if (route.fromToken.address === '') {
-      if (this.chainId === ChainId.CELO) {
-        // Celo is very special - native coin has it's own ERC20 token
-        // So, to prevent user from providing appove to RouteProcessor in case if he swaps from CELO,
-        // we support payment to RP in native coin and then distribute it as ERC20 tokens
-        hex.uint8(7) // distributeERC20AmountsFromRP
-      } else hex.uint8(5).address(route.legs[0]!.poolAddress) // wrapAndDistributeERC20Amounts
+      hex.uint8(5).address(route.legs[0]!.poolAddress) // wrapAndDistributeERC20Amounts
     } else hex.uint8(3) // distributeERC20Amounts
 
     hex.uint8(legsAddr.length)

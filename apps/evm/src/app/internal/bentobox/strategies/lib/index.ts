@@ -5,21 +5,7 @@ export async function getStrategies() {
   const sdk = getBuiltGraphSDK()
 
   const { crossChainStrategyKpis: data } = await sdk.CrossChainStrategyKpis({
-    chainIds: [
-      ChainId.ETHEREUM,
-      ChainId.POLYGON,
-      ChainId.AVALANCHE,
-      ChainId.BSC,
-      ChainId.FANTOM,
-      ChainId.GNOSIS,
-      ChainId.ARBITRUM,
-      ChainId.CELO,
-      ChainId.MOONRIVER,
-      ChainId.MOONBEAM,
-      ChainId.OPTIMISM,
-      ChainId.HARMONY,
-      // ChainId.KAVA,
-    ],
+    chainIds: [ChainId.ETHEREUM, ChainId.BSC],
   })
 
   return data

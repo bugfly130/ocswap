@@ -10,7 +10,7 @@ import {
   walletActions,
 } from 'viem'
 import { privateKeyToAccount, publicKeyToAddress } from 'viem/accounts'
-import { Chain, arbitrum, mainnet, polygon } from 'viem/chains'
+import { Chain, base, mainnet } from 'viem/chains'
 import { localHttpUrl } from './constants'
 
 export async function createERC20({
@@ -26,12 +26,8 @@ export async function createERC20({
 }): Promise<Token> {
   let chain: Chain
 
-  if (chainId === ChainId.POLYGON) {
-    chain = polygon
-  } else if (chainId === ChainId.ETHEREUM) {
+  if (chainId === ChainId.ETHEREUM) {
     chain = mainnet
-  } else if (chainId === ChainId.ARBITRUM) {
-    chain = arbitrum
   } else {
     throw new Error('Unsupported chain')
   }
@@ -87,8 +83,8 @@ export async function prepareERC20Balance({
   let wethAddress: `0x${string}`
   const usdcAmount = parseUnits('10', 6)
   const wethAmount = parseUnits('0.0001', 18)
-  if (chainId === ChainId.POLYGON) {
-    chain = polygon
+  if (chainId === ChainId.BASE) {
+    chain = base
     usdcAddress = '0x2791bca1f2de4661ed88a30c99a7a9449aa84174'
     wethAddress = '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619'
   } else {

@@ -1,6 +1,6 @@
 import { Address, Hex } from 'viem'
 import { ChainId } from '../chain/index.js'
-import { Native, WNATIVE, WNATIVE_ADDRESS } from '../currency/index.js'
+import { Native, WNATIVE } from '../currency/index.js'
 import { Token, Type } from '../currency/index.js'
 import {
   MultiRoute,
@@ -75,7 +75,6 @@ export class Router {
         LiquidityProviders.NativeWrap,
         LiquidityProviders.SushiSwapV2,
         LiquidityProviders.SushiSwapV3,
-        LiquidityProviders.Trident,
       ],
     )
   }
@@ -101,7 +100,6 @@ export class Router {
         LiquidityProviders.NativeWrap,
         LiquidityProviders.SushiSwapV2,
         LiquidityProviders.SushiSwapV3,
-        LiquidityProviders.Trident,
       ],
     )
     // If the route is successful and the price impact is less than maxPriceImpact, then return the route
@@ -196,11 +194,7 @@ export class Router {
     const tokenIn =
       fromToken instanceof Token
         ? (fromToken.address as Address)
-        : fromToken.chainId === ChainId.CELO
-          ? WNATIVE_ADDRESS[
-              ChainId.CELO
-            ] /*CELO native coin has ERC20 interface*/
-          : '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE'
+        : '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE'
     const tokenOut =
       toToken instanceof Token
         ? (toToken.address as Address)

@@ -5,15 +5,12 @@ import { BentoBoxKpi, Resolvers } from '../../.graphclient/index.js'
 
 export const crossChainBentoBoxKpis: Resolvers['Query']['crossChainBentoBoxKpis'] =
   async (root, args, context, info) => {
-    const supportedChainIds = args.chainIds
-      .filter(
-        (
-          chainId,
-        ): chainId is keyof typeof BENTOBOX_SUBGRAPH_NAME &
-          keyof typeof SUBGRAPH_HOST => chainId in BENTOBOX_SUBGRAPH_NAME,
-      )
-      // Kava subgraph doesn't have the bentoBoxKpis query
-      .filter((chainId) => chainId !== ChainId.KAVA)
+    const supportedChainIds = args.chainIds.filter(
+      (
+        chainId,
+      ): chainId is keyof typeof BENTOBOX_SUBGRAPH_NAME &
+        keyof typeof SUBGRAPH_HOST => chainId in BENTOBOX_SUBGRAPH_NAME,
+    )
 
     const kpis = await Promise.all(
       supportedChainIds.map((chainId) =>

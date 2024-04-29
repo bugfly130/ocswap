@@ -229,11 +229,6 @@ export class MultiCallAggregator {
   }
 
   getBlockNumberContractAddress(): Address {
-    if (this.client.chain?.id === ChainId.ARBITRUM) {
-      // multicall3.getBlockNumber returns address for L1 Ethereum, not local L2
-      // this is Arbitrum-adapted multicall2 contract
-      return '0x842eC2c7D803033Edf55E478F461FC547Bc54EB2'
-    }
     return this.client.chain?.contracts?.multicall3?.address as Address
   }
 }

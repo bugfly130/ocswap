@@ -13,6 +13,7 @@
     "disable-remote-caching": "turbo unlink && rm -rf ./node_modules/.cache/turbo",
     "enable-remote-caching": "turbo link",
     "evm": "pnpm exec turbo run dev --filter evm",
+    "start": "pnpm exec turbo run start --filter evm",
     "format": "pnpm sort && biome format . --write",
     "generate": "dotenv -- turbo run generate --no-cache --parallel --continue",
     "preinstall": "npx -y only-allow pnpm",

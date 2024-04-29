@@ -150,9 +150,8 @@ export const useTrade = (variables: UseTradeParams) => {
       if (data && amount && data.route && fromToken && toToken) {
         const amountIn = Amount.fromRawAmount(fromToken, data.route.amountInBI)
         const amountOut = Amount.fromRawAmount(toToken, data.route.amountOutBI)
-        const isOffset = chainId === ChainId.POLYGON && carbonOffset
 
-        let writeArgs: UseTradeReturnWriteArgs = data?.args
+        const writeArgs: UseTradeReturnWriteArgs = data?.args
           ? ([
               data.args.tokenIn as Address,
               BigInt(data.args.amountIn),
@@ -162,18 +161,9 @@ export const useTrade = (variables: UseTradeParams) => {
               data.args.routeCode as Hex,
             ] as const)
           : undefined
-        let value = fromToken.isNative ? writeArgs?.[1] ?? undefined : undefined
-
-        // console.debug(fromToken.isNative, writeArgs, value)
-
-        if (writeArgs && isOffset && chainId === ChainId.POLYGON) {
-          writeArgs = [
-            '0xbc4a6be1285893630d45c881c6c343a65fdbe278',
-            20000000000000000n,
-            ...writeArgs,
-          ]
-          value = (fromToken.isNative ? writeArgs[3] : 0n) + 20000000000000000n
-        }
+        const value = fromToken.isNative
+          ? writeArgs?.[1] ?? undefined
+          : undefined
 
         const gasSpent = gasPrice
           ? Amount.fromRawAmount(
@@ -207,9 +197,7 @@ export const useTrade = (variables: UseTradeParams) => {
               ? gasSpent.multiply(price.asFraction).toSignificant(4)
               : undefined,
           route: data.route,
-          functionName: isOffset
-            ? 'transferValueAndprocessRoute'
-            : 'processRoute',
+          functionName: 'processRoute',
           writeArgs,
           value,
         }

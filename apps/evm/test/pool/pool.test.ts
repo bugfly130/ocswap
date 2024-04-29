@@ -85,30 +85,6 @@ test.beforeAll(async () => {
       symbol: 'FT',
       decimals: 18,
     })
-    // MOCK_TOKEN_1_DP = await createERC20({
-    //   chainId: CHAIN_ID,
-    //   name: 'MOCK_TOKEN_1_DP',
-    //   symbol: '1_DP',
-    //   decimals: 1,
-    // })
-    // MOCK_TOKEN_6_DP = await createERC20({
-    //   chainId: CHAIN_ID,
-    //   name: 'MOCK_TOKEN_6_DP',
-    //   symbol: '6_DP',
-    //   decimals: 6,
-    // })
-    // MOCK_TOKEN_8_DP = await createERC20({
-    //   chainId: CHAIN_ID,
-    //   name: 'MOCK_TOKEN_8_DP',
-    //   symbol: '8_DP',
-    //   decimals: 8,
-    // })
-    // MOCK_TOKEN_18_DP = await createERC20({
-    //   chainId: CHAIN_ID,
-    //   name: 'MOCK_TOKEN_18_DP',
-    //   symbol: '18_DP',
-    //   decimals: 18,
-    // })
   } catch (error) {
     console.error(
       'error creating fake token',

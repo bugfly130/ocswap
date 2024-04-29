@@ -42,26 +42,6 @@ const ITEMS: { id: string; value: string; children: React.ReactNode }[] = [
     ),
   },
   {
-    id: 'trident-stable',
-    value: 'stable',
-    children: (
-      <div className="flex items-center gap-2">
-        <span>🍱</span>
-        <span>Trident Stable</span>
-      </div>
-    ),
-  },
-  {
-    id: 'trident-classic',
-    value: 'classic',
-    children: (
-      <div className="flex items-center gap-2">
-        <span>🍱</span>
-        <span>Trident Classic</span>
-      </div>
-    ),
-  },
-  {
     id: 'sushiswap-smart',
     value: 'smart',
     children: (

@@ -11,7 +11,7 @@ import {
   CommandInput,
   CommandItem,
 } from './command'
-import { AptosCircle, NetworkIcon } from './icons'
+import { BaseCircle, NetworkIcon } from './icons'
 import { Popover, PopoverContent, PopoverPrimitive } from './popover'
 
 export type NetworkSelectorOnSelectCallback<T extends number = ChainId> = (
@@ -21,24 +21,8 @@ export type NetworkSelectorOnSelectCallback<T extends number = ChainId> = (
 
 const PREFERRED_CHAINID_ORDER: ChainId[] = [
   ChainId.ETHEREUM,
-  ChainId.ARBITRUM,
   ChainId.BASE,
-  ChainId.POLYGON,
-  ChainId.POLYGON_ZKEVM,
-  ChainId.SCROLL,
-  ChainId.OPTIMISM,
-  ChainId.LINEA,
-  ChainId.BLAST,
-  ChainId.ZETACHAIN,
-  ChainId.CORE,
-  ChainId.FILECOIN,
   ChainId.BSC,
-  ChainId.THUNDERCORE,
-  ChainId.GNOSIS,
-  ChainId.AVALANCHE,
-  ChainId.FANTOM,
-  ChainId.ARBITRUM_NOVA,
-  ChainId.HARMONY,
 ]
 
 export interface NetworkSelectorProps<T extends number = ChainId> {
@@ -49,10 +33,7 @@ export interface NetworkSelectorProps<T extends number = ChainId> {
   children: ReactNode
 }
 
-const NEW_CHAINS: number[] = [
-  ChainId.BLAST,
-  ChainId.ZETACHAIN,
-] satisfies ChainId[]
+const NEW_CHAINS: number[] = [] satisfies ChainId[]
 
 const NetworkSelector = <T extends number>({
   showAptos = false,
@@ -82,13 +63,13 @@ const NetworkSelector = <T extends number>({
           <CommandGroup>
             {showAptos ? (
               <Link
-                href="https://aptos.sushi.com"
+                href="https://base.sushi.com"
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 <CommandItem className="cursor-pointer">
                   <div className="flex items-center gap-2">
-                    <AptosCircle width={22} height={22} />
+                    <BaseCircle width={22} height={22} />
                     Aptos
                     <div className="text-[10px] italic rounded-full px-[6px] bg-gradient-to-r from-blue to-pink text-white font-bold">
                       NEW

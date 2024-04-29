@@ -2,30 +2,13 @@ import { http, PublicClient, createPublicClient } from 'viem'
 import { ChainId, TestnetChainId } from '../chain/index.js'
 import { publicClientConfig } from '../config/index.js'
 import { Type } from '../currency/index.js'
-import { ApeSwapProvider } from './liquidity-providers/ApeSwap.js'
-import { BiswapProvider } from './liquidity-providers/Biswap.js'
-import { CurveProvider } from './liquidity-providers/CurveProvider.js'
-import { DfynProvider } from './liquidity-providers/Dfyn.js'
-import { DovishV3Provider } from './liquidity-providers/DovishV3.js'
-import { ElkProvider } from './liquidity-providers/Elk.js'
-import { HoneySwapProvider } from './liquidity-providers/HoneySwap.js'
-import { JetSwapProvider } from './liquidity-providers/JetSwap.js'
-import { LaserSwapV2Provider } from './liquidity-providers/LaserSwap.js'
 import {
   LiquidityProvider,
   LiquidityProviders,
 } from './liquidity-providers/LiquidityProvider.js'
 import { NativeWrapProvider } from './liquidity-providers/NativeWrapProvider.js'
-import { NetSwapProvider } from './liquidity-providers/NetSwap.js'
-import { PancakeSwapProvider } from './liquidity-providers/PancakeSwap.js'
-import { QuickSwapProvider } from './liquidity-providers/QuickSwap.js'
-import { SpookySwapProvider } from './liquidity-providers/SpookySwap.js'
 import { SushiSwapV2Provider } from './liquidity-providers/SushiSwapV2.js'
 import { SushiSwapV3Provider } from './liquidity-providers/SushiSwapV3.js'
-import { TraderJoeProvider } from './liquidity-providers/TraderJoe.js'
-import { TridentProvider } from './liquidity-providers/Trident.js'
-import { UbeSwapProvider } from './liquidity-providers/UbeSwap.js'
-import { UniswapV2Provider } from './liquidity-providers/UniswapV2.js'
 import { UniswapV3Provider } from './liquidity-providers/UniswapV3.js'
 import type { PoolCode } from './pool-codes/index.js'
 
@@ -58,19 +41,6 @@ export class DataFetcher {
     this.cache[chainId] = dataFetcher
     return dataFetcher
   }
-
-  // constructor({
-  //   chainId,
-  //   publicClient,
-  // }: {
-  //   chainId: ChainId
-  //   publicClient?: PublicClient
-  //   providers: LiquidityProviders[]
-  //   // providers?: (new (
-  //   //   chainId: ChainId,
-  //   //   publicClient: PublicClient,
-  //   // ) => LiquidityProvider)[]
-  // }) {
 
   constructor(chainId: ChainId, publicClient?: PublicClient) {
     this.chainId = chainId as Exclude<ChainId, TestnetChainId>
@@ -109,41 +79,22 @@ export class DataFetcher {
   _setProviders(providers?: LiquidityProviders[]) {
     // concrete providers
     this.providers = [new NativeWrapProvider(this.chainId, this.web3Client)]
-    ;[
-      ApeSwapProvider,
-      BiswapProvider,
-      CurveProvider,
-      DfynProvider,
-      DovishV3Provider,
-      ElkProvider,
-      HoneySwapProvider,
-      JetSwapProvider,
-      LaserSwapV2Provider,
-      NetSwapProvider,
-      PancakeSwapProvider,
-      SpookySwapProvider,
-      SushiSwapV2Provider,
-      SushiSwapV3Provider,
-      TraderJoeProvider,
-      QuickSwapProvider,
-      TridentProvider,
-      UbeSwapProvider,
-      UniswapV2Provider,
-      UniswapV3Provider,
-    ].forEach((p) => {
-      try {
-        const provider = new p(this.chainId, this.web3Client)
-        if (
-          // If none passed, include all
-          !providers ||
-          this._providerIsIncluded(provider.getType(), providers)
-        ) {
-          this.providers.push(provider)
+    ;[SushiSwapV2Provider, SushiSwapV3Provider, UniswapV3Provider].forEach(
+      (p) => {
+        try {
+          const provider = new p(this.chainId, this.web3Client)
+          if (
+            // If none passed, include all
+            !providers ||
+            this._providerIsIncluded(provider.getType(), providers)
+          ) {
+            this.providers.push(provider)
+          }
+        } catch (_e: unknown) {
+          // console.warn(e)
         }
-      } catch (_e: unknown) {
-        // console.warn(e)
-      }
-    })
+      },
+    )
   }
 
   // Starts pool data fetching

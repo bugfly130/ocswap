@@ -47,7 +47,6 @@ const NODE_URLS: Record<number, string> = {
       },
       {} as Record<number, string>,
     ),
-  [ChainId.KAVA]: 'pvt-metrics.graph.kava.io/graphql',
   // [ChainId.METIS]: '',
 }
 

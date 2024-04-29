@@ -39,31 +39,7 @@ const config: HardhatUserConfig = {
       },
       chainId: 137,
     },
-    // hardhat: {
-    //   forking: {
-    //     enabled: process.env.FORKING === 'true',
-    //     url: `https://lb.drpc.org/ogrpc?network=base&dkey=${process.env.DRPC_ID}`,
-    //     blockNumber: 3033333,
-    //   },
-    //   accounts: {
-    //     accountsBalance: '10000000000000000000000000', //(10_000_000 BASE).
-    //   },
-    //   chainId: 8453,
-    // },
-    // hardhat: {
-    //   forking: {
-    //     enabled: process.env.FORKING === 'true',
-    //     url: `https://arb-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_ID}`,
-    //     blockNumber: 89111000,
-    //   },
-    //   accounts: {
-    //     accountsBalance: '10000000000000000000000000', //(10_000_000 ETH).
-    //   },
-    //   chainId: 42161,
-    // },
     anvil_fork: {
-      // install: https://github.com/foundry-rs/foundry/tree/master/anvil
-      // start: anvil --fork-url https://polygon-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_ID} --fork-block-number 42053000 --timeout 1000000000
       url: 'http://127.0.0.1:8545',
       chainId: 137,
     },

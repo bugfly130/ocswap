@@ -36,20 +36,7 @@ export const getAllPoolsCodeMap = async ({
     ...sushiLiquidityProviders,
     LiquidityProviders.UniswapV2,
     LiquidityProviders.UniswapV3,
-    LiquidityProviders.QuickSwap,
-    LiquidityProviders.ApeSwap,
     LiquidityProviders.PancakeSwap,
-    LiquidityProviders.TraderJoe,
-    LiquidityProviders.Dfyn,
-    LiquidityProviders.Elk,
-    LiquidityProviders.JetSwap,
-    LiquidityProviders.SpookySwap,
-    LiquidityProviders.NetSwap,
-    LiquidityProviders.HoneySwap,
-    LiquidityProviders.UbeSwap,
-    LiquidityProviders.Biswap,
-    LiquidityProviders.DovishV3, // polygon zkevm
-    LiquidityProviders.LaserSwap, // thundercore
   ]
 
   const testLiquidityProviders = [...sushiLiquidityProviders].filter(

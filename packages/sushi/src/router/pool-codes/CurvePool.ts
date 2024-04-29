@@ -1,4 +1,3 @@
-import { ChainId } from '../../chain/index.js'
 import {
   CurveMultitokenPool,
   CurvePool,
@@ -6,11 +5,7 @@ import {
   RouteLeg,
 } from '../../tines/index.js'
 import { HEXer } from '../HEXer.js'
-import {
-  CURVE_NON_FACTORY_POOLS,
-  CurvePoolType,
-  LiquidityProviders,
-} from '../liquidity-providers/index.js'
+import { LiquidityProviders } from '../liquidity-providers/index.js'
 import { PoolCode } from './PoolCode.js'
 
 export class CurvePoolCode extends PoolCode {
@@ -41,19 +36,7 @@ export class CurvePoolCode extends PoolCode {
   ): string {
     // supports only 2-token pools currently
 
-    let poolType = 0
-    if (leg.tokenFrom.chainId !== undefined) {
-      const index = CURVE_NON_FACTORY_POOLS[
-        leg.tokenFrom.chainId as ChainId
-      ]!.findIndex(([addr]) => addr === this.pool.address)
-      if (
-        index >= 0 &&
-        CURVE_NON_FACTORY_POOLS[leg.tokenFrom.chainId as ChainId]![
-          index
-        ]![1] !== CurvePoolType.Legacy
-      )
-        poolType = 1
-    }
+    const poolType = 0
 
     const [index0, index1] =
       this.pool instanceof CurveMultitokenPool

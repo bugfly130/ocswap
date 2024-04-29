@@ -10,13 +10,7 @@ import { getGraphPools } from '../../graph'
 function transformGraphPool(
   graphPool: Awaited<ReturnType<typeof getGraphPools>>[0],
 ): Pool {
-  let protocol: Protocol = Protocol.SUSHISWAP_V2
-  // if (graphPool.source === 'LEGACY') protocol = Protocol.SUSHISWAP_V2
-  if (graphPool.source === 'TRIDENT') {
-    if (graphPool.type === 'CONSTANT_PRODUCT_POOL')
-      protocol = Protocol.BENTOBOX_CLASSIC
-    if (graphPool.type === 'STABLE_POOL') protocol = Protocol.BENTOBOX_STABLE
-  }
+  const protocol: Protocol = Protocol.SUSHISWAP_V2
 
   return {
     id: graphPool.id,

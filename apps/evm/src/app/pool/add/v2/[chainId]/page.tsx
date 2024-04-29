@@ -1,7 +1,6 @@
 'use client'
 
 import { PlusIcon } from '@heroicons/react-v1/solid'
-import { FormSection } from '@sushiswap/ui'
 import { Button } from '@sushiswap/ui/components/button'
 import { Loader } from '@sushiswap/ui/components/loader'
 import { PoolFinder, SushiSwapV2PoolState } from '@sushiswap/wagmi'
@@ -19,7 +18,6 @@ import React, {
   useMemo,
   useState,
 } from 'react'
-import { DISABLED_CHAIN_IDS } from 'src/config'
 import { APPROVE_TAG_ADD_LEGACY } from 'src/lib/constants'
 import { isSushiSwapV2Pool } from 'src/lib/functions'
 import { ChainId, TESTNET_CHAIN_IDS } from 'sushi/chain'
@@ -197,9 +195,6 @@ const _Add: FC<AddProps> = ({
         (chainId) =>
           !TESTNET_CHAIN_IDS.includes(
             chainId as (typeof TESTNET_CHAIN_IDS)[number],
-          ) &&
-          !DISABLED_CHAIN_IDS.includes(
-            chainId as (typeof DISABLED_CHAIN_IDS)[number],
           ),
       ),
     [],

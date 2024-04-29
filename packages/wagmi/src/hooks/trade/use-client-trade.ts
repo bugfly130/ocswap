@@ -200,10 +200,8 @@ ${logPools}
           toToken,
           route.amountOutBI.toString(),
         )
-        const isOffset = chainId === ChainId.POLYGON && carbonOffset
 
-        // let writeArgs: UseTradeReturnWriteArgs = args
-        let writeArgs: UseTradeReturnWriteArgs = args
+        const writeArgs: UseTradeReturnWriteArgs = args
           ? [
               args.tokenIn as Address,
               args.amountIn,
@@ -214,18 +212,8 @@ ${logPools}
             ]
           : undefined
 
-        // const overrides = fromToken.isNative && writeArgs?.[1] ? { value: BigNumber.from(writeArgs?.[1]) } : undefined
-        let value =
+        const value =
           fromToken.isNative && writeArgs?.[1] ? writeArgs[1] : undefined
-
-        if (writeArgs && isOffset && chainId === ChainId.POLYGON) {
-          writeArgs = [
-            '0xbc4a6be1285893630d45c881c6c343a65fdbe278',
-            20000000000000000n,
-            ...writeArgs,
-          ]
-          value = (fromToken.isNative ? writeArgs[3] : 0n) + 20000000000000000n
-        }
 
         console.log({ writeArgs })
 
@@ -274,9 +262,7 @@ ${logPools}
                 //         .toSignificant(4)
                 //     : undefined,
                 route,
-                functionName: isOffset
-                  ? 'transferValueAndprocessRoute'
-                  : 'processRoute',
+                functionName: 'processRoute',
                 writeArgs,
                 value,
               }),

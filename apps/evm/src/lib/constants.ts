@@ -4,30 +4,6 @@ import { SUPPORTED_CHAIN_IDS } from '../config'
 
 export const L2_DEADLINE_FROM_NOW = BigInt(60) * BigInt(5)
 
-// export const POOL_VERSION_MAP: Record<PoolVersion, string> = {
-//   LEGACY: 'Legacy',
-//   TRIDENT: 'Trident',
-//   V3: 'V3',
-// }
-
-// export const AVAILABLE_VERSION_MAP: Partial<typeof POOL_VERSION_MAP> = {
-//   LEGACY: 'Legacy',
-//   TRIDENT: 'Trident',
-//   V3: 'V3',
-// }
-
-// export const POOL_TYPE_MAP: Record<PoolType, string> = {
-//   CONSTANT_PRODUCT_POOL: 'Classic Pool',
-//   CONCENTRATED_LIQUIDITY_POOL: 'Concentrated Liquidity Pool',
-//   STABLE_POOL: 'Stable Pool',
-// }
-
-// export const AVAILABLE_POOL_TYPE_MAP: Partial<typeof POOL_TYPE_MAP> = {
-//   CONSTANT_PRODUCT_POOL: 'Classic Pool',
-//   STABLE_POOL: 'Stable Pool',
-//   CONCENTRATED_LIQUIDITY_POOL: 'Concentrated Pool',
-// }
-
 export const PROTOCOL_MAP: Record<Protocol, string> = {
   SUSHISWAP_V3: 'SushiSwap V3',
   SUSHISWAP_V2: 'SushiSwap V2',

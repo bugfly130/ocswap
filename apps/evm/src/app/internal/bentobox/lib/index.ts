@@ -32,21 +32,7 @@ export async function getBentoBoxKpis() {
   const sdk = getBuiltGraphSDK()
 
   const { crossChainBentoBoxKpis } = await sdk.CrossChainBentoBoxKpis({
-    chainIds: [
-      ChainId.ETHEREUM,
-      ChainId.POLYGON,
-      ChainId.AVALANCHE,
-      ChainId.BSC,
-      ChainId.FANTOM,
-      ChainId.GNOSIS,
-      ChainId.ARBITRUM,
-      ChainId.CELO,
-      ChainId.MOONRIVER,
-      ChainId.MOONBEAM,
-      ChainId.OPTIMISM,
-      ChainId.HARMONY,
-      // ChainId.KAVA,
-    ],
+    chainIds: [ChainId.ETHEREUM, ChainId.BSC],
   })
 
   const reducedKpis = reduceObjectArray(crossChainBentoBoxKpis)

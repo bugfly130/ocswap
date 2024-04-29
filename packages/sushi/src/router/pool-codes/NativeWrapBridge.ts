@@ -1,4 +1,3 @@
-import { ChainId } from '../../chain/index.js'
 import type {
   BridgeUnlimited,
   MultiRoute,
@@ -38,7 +37,7 @@ export class NativeWrapBridgePoolCode extends PoolCode {
     _route: MultiRoute,
     to: string,
   ): string {
-    const fake = leg.tokenFrom.chainId === ChainId.CELO ? 2 : 0 // no real wrap at celo - fake wrap code is generated
+    const fake = 0 // no real wrap at celo - fake wrap code is generated
     if (leg.tokenFrom.tokenId === this.pool.token0.tokenId) {
       // wrap - deposit
       const code = new HEXer()

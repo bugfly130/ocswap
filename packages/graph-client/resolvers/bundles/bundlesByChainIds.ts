@@ -18,7 +18,7 @@ export const bundlesByChainIds: QueryResolvers['bundlesByChainIds'] = async (
 ) => {
   return Promise.all<Query['bundlesByChainIds']>([
     ...args.chainIds
-      .filter((el): el is typeof TRIDENT_ENABLED_NETWORKS[number] =>
+      .filter((el): el is (typeof TRIDENT_ENABLED_NETWORKS)[number] =>
         TRIDENT_ENABLED_NETWORKS.includes(el),
       )
       .map((chainId) =>
@@ -42,7 +42,7 @@ export const bundlesByChainIds: QueryResolvers['bundlesByChainIds'] = async (
         ),
       ),
     ...args.chainIds
-      .filter((el): el is typeof SUSHISWAP_ENABLED_NETWORKS[number] =>
+      .filter((el): el is (typeof SUSHISWAP_ENABLED_NETWORKS)[number] =>
         SUSHISWAP_ENABLED_NETWORKS.includes(el),
       )
       .map((chainId) =>
