@@ -13,6 +13,7 @@ import {
   tryParseAmount,
 } from 'sushi/currency'
 import {
+  OcSwapV2Pool,
   Position,
   SushiSwapV2Pool,
   TickMath,
@@ -37,6 +38,12 @@ export const isTridentStablePool = (
   pool: SushiSwapV2Pool | TridentStablePool | null,
 ): pool is TridentStablePool => {
   return pool instanceof TridentStablePool
+}
+
+export const isOcSwapV2Pool = (
+  pool: OcSwapV2Pool | TridentConstantPool | TridentStablePool | null,
+): pool is OcSwapV2Pool => {
+  return pool instanceof OcSwapV2Pool
 }
 
 export const isSushiSwapV2Pool = (

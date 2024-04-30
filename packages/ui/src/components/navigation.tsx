@@ -28,7 +28,7 @@ const EXPLORE_NAVIGATION_LINKS: {
   },
   {
     title: 'Liquidity',
-    href: '/pools/add/v2/1',
+    href: '/pools/add/v2/56',
     description: 'Earn fees by providing liquidity.',
   },
 ]
@@ -124,11 +124,11 @@ const Navigation: React.FC<NavProps> = ({
                 asChild
                 className={navigationMenuTriggerStyle()}
               >
-                <a href={`/pools/add/v2/1`}>Liquidity</a>
+                <a href={`/pools/add/v2/56`}>Liquidity</a>
               </NavigationMenuLink>
             ) : (
               <NavigationMenuLink
-                href={`/pools/add/v2/1`}
+                href={`/pools/add/v2/56`}
                 className={navigationMenuTriggerStyle()}
               >
                 Liquidity

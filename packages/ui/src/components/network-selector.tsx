@@ -26,7 +26,6 @@ const PREFERRED_CHAINID_ORDER: ChainId[] = [
 ]
 
 export interface NetworkSelectorProps<T extends number = ChainId> {
-  showAptos?: boolean
   networks: readonly T[]
   selected: T
   onSelect: NetworkSelectorOnSelectCallback<T>
@@ -36,7 +35,6 @@ export interface NetworkSelectorProps<T extends number = ChainId> {
 const NEW_CHAINS: number[] = [] satisfies ChainId[]
 
 const NetworkSelector = <T extends number>({
-  showAptos = false,
   onSelect,
   networks = [],
   children,
@@ -61,23 +59,6 @@ const NetworkSelector = <T extends number>({
           />
           <CommandEmpty>No network found.</CommandEmpty>
           <CommandGroup>
-            {showAptos ? (
-              <Link
-                href="https://base.sushi.com"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <CommandItem className="cursor-pointer">
-                  <div className="flex items-center gap-2">
-                    <BaseCircle width={22} height={22} />
-                    Aptos
-                    <div className="text-[10px] italic rounded-full px-[6px] bg-gradient-to-r from-blue to-pink text-white font-bold">
-                      NEW
-                    </div>
-                  </div>
-                </CommandItem>
-              </Link>
-            ) : null}
             {_networks.map((el) => (
               <CommandItem
                 className="cursor-pointer"

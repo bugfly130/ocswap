@@ -9,13 +9,15 @@ import {
   useReducer,
 } from 'react'
 
-import { SushiSwapV2PoolState } from '../../hooks'
+import { OcSwapV2PoolState } from '../../hooks'
 import { ComponentsWrapper } from './ComponentsWrapper'
+import { OcSwapV2Pool } from './OcSwapV2Pool'
 import { SushiSwapV2Pool } from './SushiSwapV2Pool'
 import { TridentConstantPool } from './TridentConstantPool'
 import { TridentStablePool } from './TridentStablePool'
 import {
   ComponentsWrapperProps,
+  OcSwapV2PoolFinderProps,
   PoolExistenceStateAction,
   PoolStateUnion,
   SushiSwapV2PoolFinderProps,
@@ -24,7 +26,11 @@ import {
 
 interface Props {
   components: ReactElement<
-    ComponentsWrapperProps<SushiSwapV2PoolFinderProps | TridentPoolFinderProps>
+    ComponentsWrapperProps<
+      | OcSwapV2PoolFinderProps
+      | SushiSwapV2PoolFinderProps
+      | TridentPoolFinderProps
+    >
   >
   children({ pool }: { pool: PoolStateUnion }): ReactNode
 }
@@ -45,7 +51,7 @@ const reducer = (_state: PoolFinderState, action: PoolExistenceStateAction) => {
 
 const Controller: FC<Props> = ({ components, children }) => {
   const [state, dispatch] = useReducer(reducer, {
-    pool: [SushiSwapV2PoolState.LOADING, null],
+    pool: [OcSwapV2PoolState.LOADING, null],
   })
 
   const childrenComponents = useMemo(() => {
@@ -73,11 +79,13 @@ const Controller: FC<Props> = ({ components, children }) => {
 
 export const PoolFinder: typeof Controller & {
   Components: typeof ComponentsWrapper
+  OcSwapV2Pool: typeof OcSwapV2Pool
   SushiSwapV2Pool: typeof SushiSwapV2Pool
   TridentConstantPool: typeof TridentConstantPool
   TridentStablePool: typeof TridentStablePool
 } = Object.assign(Controller, {
   Components: ComponentsWrapper,
+  OcSwapV2Pool,
   SushiSwapV2Pool,
   TridentConstantPool,
   TridentStablePool,

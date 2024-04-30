@@ -14,12 +14,12 @@ import { Dots } from '@sushiswap/ui/components/dots'
 import { createErrorToast, createToast } from '@sushiswap/ui/components/toast'
 import {
   Address,
-  SushiSwapV2PoolState,
+  OcSwapV2PoolState,
   useAccount,
   useNetwork,
+  useOcSwapRouterContract,
   usePrepareSendTransaction,
   useSendTransaction,
-  useSushiSwapRouterContract,
   useWaitForTransaction,
 } from '@sushiswap/wagmi'
 import {
@@ -33,7 +33,7 @@ import { APPROVE_TAG_ADD_LEGACY } from 'src/lib/constants'
 import { useTransactionDeadline } from 'src/lib/hooks'
 import { useSlippageTolerance } from 'src/lib/hooks/useSlippageTolerance'
 import { gasMargin, slippageAmount } from 'sushi/calculate'
-import { SushiSwapV2ChainId } from 'sushi/config'
+import { OcSwapV2ChainId } from 'sushi/config'
 import { BentoBoxChainId } from 'sushi/config'
 import { Amount, Type } from 'sushi/currency'
 import { ZERO } from 'sushi/math'
@@ -42,9 +42,9 @@ import { UserRejectedRequestError, encodeFunctionData } from 'viem'
 import { AddSectionReviewModal } from './AddSectionReviewModal'
 
 interface AddSectionReviewModalLegacyProps {
-  poolState: SushiSwapV2PoolState
+  poolState: OcSwapV2PoolState
   poolAddress: string | undefined
-  chainId: SushiSwapV2ChainId
+  chainId: OcSwapV2ChainId
   token0: Type | undefined
   token1: Type | undefined
   input0: Amount<Type> | undefined
@@ -66,7 +66,7 @@ export const AddSectionReviewModalLegacy: FC<AddSectionReviewModalLegacyProps> =
     onSuccess,
   }) => {
     const deadline = useTransactionDeadline(chainId)
-    const contract = useSushiSwapRouterContract(chainId)
+    const contract = useOcSwapRouterContract(chainId)
     const { address } = useAccount()
     const { chain } = useNetwork()
     const { approved } = useApproved(APPROVE_TAG_ADD_LEGACY)
@@ -101,7 +101,7 @@ export const AddSectionReviewModalLegacy: FC<AddSectionReviewModalLegacyProps> =
     const [minAmount0, minAmount1] = useMemo(() => {
       return [
         input0
-          ? poolState === SushiSwapV2PoolState.NOT_EXISTS
+          ? poolState === OcSwapV2PoolState.NOT_EXISTS
             ? input0
             : Amount.fromRawAmount(
                 input0.currency,
@@ -109,7 +109,7 @@ export const AddSectionReviewModalLegacy: FC<AddSectionReviewModalLegacyProps> =
               )
           : undefined,
         input1
-          ? poolState === SushiSwapV2PoolState.NOT_EXISTS
+          ? poolState === OcSwapV2PoolState.NOT_EXISTS
             ? input1
             : Amount.fromRawAmount(
                 input1.currency,

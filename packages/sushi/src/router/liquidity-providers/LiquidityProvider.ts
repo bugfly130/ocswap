@@ -4,6 +4,7 @@ import type { Token } from '../../currency/index.js'
 import type { PoolCode } from '../pool-codes/index.js'
 
 export enum LiquidityProviders {
+  OcSwapV2 = 'OcSwapV2',
   SushiSwapV2 = 'SushiSwapV2',
   SushiSwapV3 = 'SushiSwapV3',
   UniswapV2 = 'UniswapV2',

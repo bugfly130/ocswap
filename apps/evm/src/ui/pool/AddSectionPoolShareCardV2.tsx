@@ -6,15 +6,15 @@ import {
   StatLabel,
   StatValue,
 } from '@sushiswap/ui'
-import { SushiSwapV2PoolState } from '@sushiswap/wagmi'
+import { OcSwapV2PoolState } from '@sushiswap/wagmi'
 import { FC, useMemo } from 'react'
-import { SushiSwapV2Pool } from 'sushi'
+import { OcSwapV2Pool } from 'sushi'
 import { Amount, Type } from 'sushi/currency'
 import { formatPercent } from 'sushi/format'
 
 interface AddSectionPoolShareCardV2 {
-  pool: SushiSwapV2Pool | null
-  poolState: SushiSwapV2PoolState
+  pool: OcSwapV2Pool | null
+  poolState: OcSwapV2PoolState
   input0: Amount<Type> | undefined
   input1: Amount<Type> | undefined
 }
@@ -26,7 +26,7 @@ export const AddSectionPoolShareCardV2: FC<AddSectionPoolShareCardV2> = ({
   input1,
 }) => {
   const [token0Input, token1Input] = useMemo(() => {
-    if (!pool && poolState === SushiSwapV2PoolState.NOT_EXISTS)
+    if (!pool && poolState === OcSwapV2PoolState.NOT_EXISTS)
       return [input0, input1]
 
     if (!pool || !input0 || !input1) return [undefined, undefined]
@@ -64,7 +64,7 @@ export const AddSectionPoolShareCardV2: FC<AddSectionPoolShareCardV2> = ({
   }, [token0Input, token1Input])
 
   const poolShare = useMemo(() => {
-    if (poolState === SushiSwapV2PoolState.NOT_EXISTS) return 1
+    if (poolState === OcSwapV2PoolState.NOT_EXISTS) return 1
 
     if (!pool || !token0Input || token0Input.equalTo(0)) return 0
 

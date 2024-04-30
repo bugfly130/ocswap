@@ -2,6 +2,9 @@ import { ExtractorConfig } from '@sushiswap/extractor'
 import { ChainId } from 'sushi/chain'
 import {
   ExtractorSupportedChainId,
+  OCSWAP_V2_FACTORY_ADDRESS,
+  OCSWAP_V2_INIT_CODE_HASH,
+  type OcSwapV2ChainId,
   PANCAKESWAP_V3_DEPLOYER_ADDRESS,
   PANCAKESWAP_V3_FACTORY_ADDRESS,
   PANCAKESWAP_V3_FEE_SPACING_MAP,
@@ -26,6 +29,15 @@ import { LiquidityProviders } from 'sushi/router'
 import { type Address, createPublicClient } from 'viem'
 
 const RPC_MAX_CALLS_IN_ONE_BATCH = 1000
+
+function ocswapV2Factory(chainId: OcSwapV2ChainId) {
+  return {
+    address: OCSWAP_V2_FACTORY_ADDRESS[chainId],
+    provider: LiquidityProviders.OcSwapV2,
+    fee: 0.003,
+    initCodeHash: OCSWAP_V2_INIT_CODE_HASH[chainId],
+  } as const
+}
 
 function sushiswapV2Factory(chainId: SushiSwapV2ChainId) {
   return {
@@ -69,6 +81,7 @@ export const EXTRACTOR_CONFIG: Record<
   [ChainId.BASE]: {
     client: createPublicClient(publicClientConfig[ChainId.BASE]),
     factoriesV2: [
+      ocswapV2Factory(ChainId.BASE),
       sushiswapV2Factory(ChainId.BASE),
       {
         address: '0xFDa619b6d20975be80A10332cD39b9a4b0FAa8BB' as Address,

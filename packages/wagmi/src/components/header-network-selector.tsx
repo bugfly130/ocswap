@@ -50,7 +50,6 @@ export const HeaderNetworkSelector: FC<{
 
   return (
     <NetworkSelector
-      showAptos
       selected={selected}
       onSelect={onSwitchNetwork}
       networks={networks}

@@ -2,13 +2,13 @@
 
 import { useMemo } from 'react'
 import { uniswapV2RouterAbi } from 'sushi/abi'
-import { OcSWAP_V2_ROUTER_ADDRESS, OcSwapV2ChainId } from 'sushi/config'
+import { OCSWAP_V2_ROUTER_ADDRESS, OcSwapV2ChainId } from 'sushi/config'
 import { WalletClient } from 'viem'
 import { usePublicClient, useWalletClient } from 'wagmi'
 import { getContract } from 'wagmi/actions'
 
 export const getOcSwapRouterContractConfig = (chainId: OcSwapV2ChainId) => ({
-  address: OcSWAP_V2_ROUTER_ADDRESS[chainId],
+  address: OCSWAP_V2_ROUTER_ADDRESS[chainId],
   abi: uniswapV2RouterAbi,
 })
 

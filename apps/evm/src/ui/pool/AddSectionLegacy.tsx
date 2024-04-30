@@ -5,16 +5,16 @@ import { useIsMounted } from '@sushiswap/hooks'
 import { Button } from '@sushiswap/ui'
 import {
   Address,
-  SushiSwapV2PoolState,
-  getSushiSwapRouterContractConfig,
-  useSushiSwapV2Pool,
+  OcSwapV2PoolState,
+  getOcSwapRouterContractConfig,
+  useOcSwapV2Pool,
 } from '@sushiswap/wagmi'
 import { Checker } from '@sushiswap/wagmi/systems'
 import { CheckerProvider } from '@sushiswap/wagmi/systems/Checker/Provider'
 import { FC, useCallback, useMemo, useState } from 'react'
 import { APPROVE_TAG_ADD_LEGACY } from 'src/lib/constants'
 import { ChainId } from 'sushi/chain'
-import { SushiSwapV2ChainId } from 'sushi/config'
+import { OcSwapV2ChainId } from 'sushi/config'
 import { tryParseAmount } from 'sushi/currency'
 import { useTokensFromPool } from '../../lib/hooks'
 
@@ -22,7 +22,7 @@ import { AddSectionReviewModalLegacy } from './AddSectionReviewModalLegacy'
 import { AddSectionWidget } from './AddSectionWidget'
 
 export const AddSectionLegacy: FC<{ pool: Pool }> = ({ pool: _pool }) => {
-  const chainId = _pool.chainId as SushiSwapV2ChainId
+  const chainId = _pool.chainId as OcSwapV2ChainId
   const isMounted = useIsMounted()
   const { token0, token1 } = useTokensFromPool(_pool)
   const [{ input0, input1 }, setTypedAmounts] = useState<{
@@ -31,7 +31,7 @@ export const AddSectionLegacy: FC<{ pool: Pool }> = ({ pool: _pool }) => {
   }>({ input0: '', input1: '' })
   const {
     data: [poolState, pool],
-  } = useSushiSwapV2Pool(_pool.chainId as SushiSwapV2ChainId, token0, token1)
+  } = useOcSwapV2Pool(_pool.chainId as OcSwapV2ChainId, token0, token1)
 
   const [parsedInput0, parsedInput1] = useMemo(() => {
     return [tryParseAmount(input0, token0), tryParseAmount(input1, token1)]
@@ -39,7 +39,7 @@ export const AddSectionLegacy: FC<{ pool: Pool }> = ({ pool: _pool }) => {
 
   const onChangeToken0TypedAmount = useCallback(
     (value: string) => {
-      if (poolState === SushiSwapV2PoolState.NOT_EXISTS) {
+      if (poolState === OcSwapV2PoolState.NOT_EXISTS) {
         setTypedAmounts((prev) => ({
           ...prev,
           input0: value,
@@ -59,7 +59,7 @@ export const AddSectionLegacy: FC<{ pool: Pool }> = ({ pool: _pool }) => {
 
   const onChangeToken1TypedAmount = useCallback(
     (value: string) => {
-      if (poolState === SushiSwapV2PoolState.NOT_EXISTS) {
+      if (poolState === OcSwapV2PoolState.NOT_EXISTS) {
         setTypedAmounts((prev) => ({
           ...prev,
           input1: value,
@@ -101,8 +101,8 @@ export const AddSectionLegacy: FC<{ pool: Pool }> = ({ pool: _pool }) => {
             guardWhen={
               isMounted &&
               [
-                SushiSwapV2PoolState.NOT_EXISTS,
-                SushiSwapV2PoolState.INVALID,
+                OcSwapV2PoolState.NOT_EXISTS,
+                OcSwapV2PoolState.INVALID,
               ].includes(poolState)
             }
             guardText="Pool not found"
@@ -128,7 +128,7 @@ export const AddSectionLegacy: FC<{ pool: Pool }> = ({ pool: _pool }) => {
                   fullWidth
                   amount={parsedInput0}
                   contract={
-                    getSushiSwapRouterContractConfig(chainId).address as Address
+                    getOcSwapRouterContractConfig(chainId).address as Address
                   }
                 >
                   <Checker.ApproveERC20
@@ -139,15 +139,14 @@ export const AddSectionLegacy: FC<{ pool: Pool }> = ({ pool: _pool }) => {
                     fullWidth
                     amount={parsedInput1}
                     contract={
-                      getSushiSwapRouterContractConfig(chainId)
-                        .address as Address
+                      getOcSwapRouterContractConfig(chainId).address as Address
                     }
                   >
                     <Checker.Success tag={APPROVE_TAG_ADD_LEGACY}>
                       <AddSectionReviewModalLegacy
                         poolAddress={pool?.liquidityToken.address}
                         poolState={poolState}
-                        chainId={_pool.chainId as SushiSwapV2ChainId}
+                        chainId={_pool.chainId as OcSwapV2ChainId}
                         token0={token0}
                         token1={token1}
                         input0={parsedInput0}

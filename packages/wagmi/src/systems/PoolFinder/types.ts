@@ -1,14 +1,20 @@
 import { ReactElement } from 'react'
-import { BentoBoxChainId, SushiSwapV2ChainId } from 'sushi/config'
+import {
+  BentoBoxChainId,
+  OcSwapV2ChainId,
+  SushiSwapV2ChainId,
+} from 'sushi/config'
 import { Type } from 'sushi/currency'
 import { Fee } from 'sushi/dex'
 import {
+  OcSwapV2Pool,
   SushiSwapV2Pool,
   TridentConstantPool,
   TridentStablePool,
 } from 'sushi/pool'
 
 import {
+  OcSwapV2PoolState,
   SushiSwapV2PoolState,
   TridentConstantPoolState,
   TridentStablePoolState,
@@ -39,6 +45,15 @@ export interface SushiSwapV2PoolFinderProps extends PoolFinderProps {
   enabled: boolean
 }
 
+export interface OcSwapV2PoolFinderProps extends PoolFinderProps {
+  chainId: OcSwapV2ChainId
+  token0: Type | undefined
+  token1: Type | undefined
+  index?: number
+  dispatch?(payload: PoolExistenceStateAction): void
+  enabled: boolean
+}
+
 export interface TridentPoolFinderProps extends PoolFinderProps {
   chainId: BentoBoxChainId
   fee?: Fee
@@ -46,8 +61,19 @@ export interface TridentPoolFinderProps extends PoolFinderProps {
 }
 
 export type PoolStateUnion = [
-  SushiSwapV2PoolState | TridentConstantPoolState | TridentStablePoolState,
-  SushiSwapV2Pool | TridentConstantPool | TridentStablePool | null,
+  (
+    | OcSwapV2PoolState
+    | SushiSwapV2PoolState
+    | TridentConstantPoolState
+    | TridentStablePoolState
+  ),
+  (
+    | OcSwapV2Pool
+    | SushiSwapV2Pool
+    | TridentConstantPool
+    | TridentStablePool
+    | null
+  ),
 ]
 
 export enum PoolFinderType {
