@@ -1,6 +1,7 @@
 export * from './useBentoBoxContract'
 export * from './useMulticall3Contract'
 export * from './useMulticallContract'
+export * from './useOcSwapRouter'
 export * from './useSushiSwapRouter'
 export * from './useSushiXSwapContract'
 export * from './useSushiXSwap2Contract'

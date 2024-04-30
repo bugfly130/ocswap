@@ -1,10 +1,5 @@
 import { ChainId, TESTNET_CHAIN_IDS } from 'sushi/chain'
-import {
-  EXTRACTOR_SUPPORTED_CHAIN_IDS,
-  SushiSwapV2ChainIds,
-  SushiSwapV3ChainIds,
-  TridentChainIds,
-} from 'sushi/config'
+import { EXTRACTOR_SUPPORTED_CHAIN_IDS, OcSwapV2ChainIds } from 'sushi/config'
 import { Currency } from 'sushi/currency'
 
 export const SWAP_API_ENABLED_NETWORKS = EXTRACTOR_SUPPORTED_CHAIN_IDS
@@ -15,13 +10,11 @@ export const isSwapApiEnabledChainId = (
 ): chainId is SwapApiEnabledChainId =>
   SWAP_API_ENABLED_NETWORKS.includes(chainId as SwapApiEnabledChainId)
 
-const PREFERRED_CHAINID_ORDER = [ChainId.ETHEREUM, ChainId.BASE] as const
+const PREFERRED_CHAINID_ORDER = [ChainId.BASE] as const
 
-const SUSHI_CHAIN_IDS = Array.from(
-  new Set([...TridentChainIds, ...SushiSwapV2ChainIds, ...SushiSwapV3ChainIds]),
-)
+const OC_CHAIN_IDS = Array.from(new Set([...OcSwapV2ChainIds]))
 
-export const CHAIN_IDS = [...SUSHI_CHAIN_IDS] as const
+export const CHAIN_IDS = [...OC_CHAIN_IDS] as const
 
 export const SUPPORTED_CHAIN_IDS = Array.from(
   new Set([
@@ -61,8 +54,4 @@ export type Config = {
     stables: Currency[]
     lsds: Currency[]
   }
-}
-
-export const config = {
-  [ChainId.ETHEREUM]: {},
 }
