@@ -69,7 +69,7 @@ const NetworkSelector = <T extends number>({
                   onSelect(+value.split('__')[1] as T, () => setOpen(false))
                 }
               >
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 text-[#111827]">
                   <NetworkIcon chainId={el} width={22} height={22} />
                   {NEW_CHAINS.includes(el) ? (
                     <>

@@ -85,7 +85,7 @@ const getTokenFromUrl = (
   } else if (!currencyId) {
     return undefined
   } else {
-    return Native.onChain(chainId ? chainId : ChainId.ETHEREUM)
+    return Native.onChain(chainId ? chainId : ChainId.BASE)
   }
 }
 
@@ -93,7 +93,7 @@ const getChainIdFromUrl = (
   urlChainId: ChainId | undefined,
   connectedChainId: ChainId | undefined,
 ): SushiSwapV3ChainId => {
-  let chainId: SushiSwapV3ChainId = ChainId.ETHEREUM
+  let chainId: SushiSwapV3ChainId = ChainId.BASE
   if (urlChainId && isSushiSwapV3ChainId(urlChainId)) {
     chainId = urlChainId
   } else if (connectedChainId && isSushiSwapV3ChainId(connectedChainId)) {
@@ -126,7 +126,7 @@ export const ConcentratedLiquidityURLStateProvider: FC<
   const [chainId] = useState(chain?.id)
 
   const tmp = getChainIdFromUrl(chainIdFromUrl, chainId as ChainId)
-  const _chainId = supportedNetworks?.includes(tmp) ? tmp : ChainId.ETHEREUM
+  const _chainId = supportedNetworks?.includes(tmp) ? tmp : ChainId.BASE
 
   const { data: tokenFrom, isInitialLoading: isTokenFromLoading } =
     useTokenWithCache({

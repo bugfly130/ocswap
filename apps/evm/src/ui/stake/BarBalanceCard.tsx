@@ -25,7 +25,7 @@ export const BarBalanceCard = () => {
   )
 
   const [sushiFiatValue, xSushiFiatValue] = useTokenAmountDollarValues({
-    chainId: ChainId.ETHEREUM,
+    chainId: ChainId.BASE,
     amounts: amounts,
   })
 

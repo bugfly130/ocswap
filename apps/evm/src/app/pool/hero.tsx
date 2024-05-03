@@ -28,7 +28,7 @@ import {
 
 export const Hero: FC = () => {
   const { chain } = useNetwork()
-  const chainId = chain?.id || ChainId.ETHEREUM
+  const chainId = chain?.id || ChainId.BASE
   return (
     <section className="flex flex-col justify-between gap-12 mb-12 lg:flex-row lg:items-start">
       <div

@@ -52,7 +52,7 @@ export async function middleware(req: NextRequest) {
 
     if (pathname === '/pool/add/v2' && search === '') {
       const url = req.nextUrl.clone()
-      url.pathname = '/add/v2/56'
+      url.pathname = '/add/v2/8453'
       return NextResponse.redirect(url)
     }
 

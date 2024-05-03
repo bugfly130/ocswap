@@ -18,7 +18,7 @@ import { Token, getTokens } from './lib'
 
 const TokensPage: FC = () => {
   const [filter, setFilter] = useState<string>('')
-  const [chainId, setChainId] = useState<ChainId>(ChainId.ETHEREUM)
+  const [chainId, setChainId] = useState<ChainId>(ChainId.BASE)
   const debouncedFilter = useDebounce(filter, 400)
 
   const { data: tokens } = useSWR<Token[]>(

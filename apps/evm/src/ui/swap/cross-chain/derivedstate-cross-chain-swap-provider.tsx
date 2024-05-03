@@ -97,7 +97,7 @@ const DerivedstateCrossChainSwapProvider: FC<
         'chainId0',
         (chain?.id && isSushiXSwap2ChainId(chain.id as ChainId)
           ? chain.id
-          : ChainId.ETHEREUM
+          : ChainId.BASE
         ).toString(),
       )
     if (!params.has('chainId1')) params.set('chainId1', ChainId.BASE.toString())
