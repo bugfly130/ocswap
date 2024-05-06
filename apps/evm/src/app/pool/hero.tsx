@@ -1,30 +1,16 @@
 'use client'
 
-import { GiftIcon } from '@heroicons/react-v1/outline'
 import { LinkExternal, LinkInternal } from '@sushiswap/ui'
 import { Button } from '@sushiswap/ui/components/button'
-import { Chip } from '@sushiswap/ui/components/chip'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@sushiswap/ui/components/dropdown-menu'
 import {
   DiscordIcon,
   ImproveIcon,
   SushiIcon,
 } from '@sushiswap/ui/components/icons'
-import { SelectIcon } from '@sushiswap/ui/components/select'
 import { useNetwork } from '@sushiswap/wagmi'
 import { FC } from 'react'
 import { ChainId } from 'sushi/chain'
-import {
-  SushiSwapV3ChainId,
-  isSushiSwapV2ChainId,
-  isSushiSwapV3ChainId,
-} from 'sushi/config'
+import { SushiSwapV3ChainId, isSushiSwapV2ChainId } from 'sushi/config'
 
 export const Hero: FC = () => {
   const { chain } = useNetwork()
@@ -58,73 +44,17 @@ export const Hero: FC = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="flex-1 sm:flex-0 sm:w-[unset] rounded-r-none"
+                  className="flex-1 sm:flex-0 sm:w-[unset]"
+                  href={
+                    isSushiSwapV2ChainId(chainId as SushiSwapV3ChainId)
+                      ? `/pool/add/v2/${chainId}`
+                      : ''
+                  }
                 >
-                  <LinkInternal
-                    href={
-                      isSushiSwapV3ChainId(chainId as SushiSwapV3ChainId)
-                        ? `/pool/add?chainId=${chainId}`
-                        : isSushiSwapV2ChainId(chainId as SushiSwapV3ChainId)
-                          ? `/pool/add/v2/${chainId}`
-                          : ''
-                    }
-                  >
-                    Create Position
-                  </LinkInternal>
+                  Create Position
                 </Button>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button asChild size="lg" className="rounded-l-none">
-                      <SelectIcon />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-80">
-                    <DropdownMenuGroup>
-                      <DropdownMenuItem
-                        disabled={
-                          !isSushiSwapV3ChainId(chainId as SushiSwapV3ChainId)
-                        }
-                        asChild
-                      >
-                        <LinkInternal
-                          href={`/pool/add?chainId=${chainId}`}
-                          className="flex flex-col !items-start gap-1 cursor-pointer"
-                        >
-                          <div className="flex items-center gap-1 font-medium leading-none">
-                            V3 Position
-                            <Chip variant="secondary">
-                              {isSushiSwapV3ChainId(
-                                chainId as SushiSwapV3ChainId,
-                              )
-                                ? 'New 🔥'
-                                : 'Unavailable'}
-                            </Chip>
-                          </div>
-                          <p className="text-sm leading-snug text-muted-foreground">
-                            Provide liquidity to a V3 liquidity pool.
-                          </p>
-                        </LinkInternal>
-                      </DropdownMenuItem>
-                      {isSushiSwapV2ChainId(chainId as ChainId) ? (
-                        <DropdownMenuItem asChild>
-                          <LinkInternal
-                            href={`/pools/add/v2/${chainId}`}
-                            className="flex flex-col !items-start gap-1 cursor-pointer"
-                          >
-                            <div className="flex items-center gap-1 font-medium leading-none">
-                              V2 Position
-                            </div>
-                            <p className="text-sm leading-snug text-muted-foreground">
-                              Provide liquidity to a V2 liquidity pool.
-                            </p>
-                          </LinkInternal>
-                        </DropdownMenuItem>
-                      ) : null}
-                    </DropdownMenuGroup>
-                  </DropdownMenuContent>
-                </DropdownMenu>
               </div>
-              <Button
+              {/* <Button
                 fullWidth
                 asChild
                 icon={GiftIcon}
@@ -135,7 +65,7 @@ export const Hero: FC = () => {
                 <LinkInternal href="/pools/incentivize">
                   Pool Incentive
                 </LinkInternal>
-              </Button>
+              </Button> */}
             </div>
           </div>
           <div className="pl-4">

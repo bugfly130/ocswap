@@ -295,8 +295,7 @@ interface PositionsTableProps {
 }
 
 export const PoolsTable: FC<PositionsTableProps> = ({ onRowClick }) => {
-  const { chainIds, tokenSymbols, protocols, farmsOnly, smartPoolsOnly } =
-    usePoolFilters()
+  const { chainIds, tokenSymbols, farmsOnly, smartPoolsOnly } = usePoolFilters()
   const [sorting, setSorting] = useState<SortingState>([
     { id: 'liquidityUSD', desc: true },
   ])
@@ -310,9 +309,9 @@ export const PoolsTable: FC<PositionsTableProps> = ({ onRowClick }) => {
       isWhitelisted: true, // can be added to filters later, need to put it here so fallback works
       orderBy: sorting[0]?.id,
       orderDir: sorting[0] ? (sorting[0].desc ? 'desc' : 'asc') : 'desc',
-      protocols,
+      protocols: [Protocol.SUSHISWAP_V2] || undefined,
     }
-  }, [chainIds, tokenSymbols, farmsOnly, smartPoolsOnly, sorting, protocols])
+  }, [chainIds, tokenSymbols, farmsOnly, smartPoolsOnly, sorting])
 
   const {
     data: pools,

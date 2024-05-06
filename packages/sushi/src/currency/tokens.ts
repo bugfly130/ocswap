@@ -36,6 +36,7 @@ import {
   MKR_ADDRESS,
   NFTX_ADDRESS,
   OCEAN_ADDRESS,
+  OCS_ADDRESS,
   OHM_ADDRESS,
   OP_ADDRESS,
   PRIMATE_ADDRESS,
@@ -319,6 +320,15 @@ export const NFTX = addressMapToTokenMap(
   },
   NFTX_ADDRESS,
 ) as Record<keyof typeof NFTX_ADDRESS, Token>
+
+export const OCS = addressMapToTokenMap(
+  {
+    decimals: 18,
+    symbol: 'OCS',
+    name: 'OCSwap',
+  },
+  OCS_ADDRESS,
+) as Record<keyof typeof OCS_ADDRESS, Token>
 
 export const OHM = addressMapToTokenMap(
   {

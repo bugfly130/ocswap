@@ -7,7 +7,6 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  Message,
   Separator,
   Tabs,
   TabsContent,
@@ -18,12 +17,10 @@ import Link from 'next/link'
 import { FC } from 'react'
 
 import { AddSectionLegacy } from './AddSectionLegacy'
-import { AddSectionStake } from './AddSectionStake'
 import { PoolPositionProvider } from './PoolPositionProvider'
 import { PoolPositionRewardsProvider } from './PoolPositionRewardsProvider'
 import { PoolPositionStakedProvider } from './PoolPositionStakedProvider'
 import { RemoveSectionLegacy } from './RemoveSectionLegacy'
-import { RemoveSectionUnstake } from './RemoveSectionUnstake'
 
 interface ManageV2LiquidityCardProps {
   pool: Pool
@@ -34,10 +31,8 @@ export const ManageV2LiquidityCard: FC<ManageV2LiquidityCardProps> = ({
   pool,
   tab = 'add',
 }) => {
-  const isFarm = pool.wasIncentivized || pool.isIncentivized
-
   return (
-    <Card>
+    <Card className="w-[360px]">
       <CardHeader>
         <CardTitle>Manage</CardTitle>
         <CardDescription>Manage your position</CardDescription>
@@ -68,7 +63,7 @@ export const ManageV2LiquidityCard: FC<ManageV2LiquidityCardProps> = ({
                 Remove
               </TabsTrigger>
             </Link>
-            {isFarm ? (
+            {/* {isFarm ? (
               <Link href={`/pool/${pool.id}/stake`} className="flex flex-1">
                 <TabsTrigger
                   testdata-id="stake-tab"
@@ -107,7 +102,7 @@ export const ManageV2LiquidityCard: FC<ManageV2LiquidityCardProps> = ({
               >
                 Unstake
               </TabsTrigger>
-            )}
+            )} */}
           </TabsList>
         </CardContent>
         <div className="pb-4">
@@ -126,7 +121,7 @@ export const ManageV2LiquidityCard: FC<ManageV2LiquidityCardProps> = ({
                   <RemoveSectionLegacy pool={pool} />
                 </CardContent>
               </TabsContent>
-              <TabsContent value="stake">
+              {/* <TabsContent value="stake">
                 <CardContent>
                   {isFarm ? (
                     <AddSectionStake poolId={pool.id} />
@@ -155,7 +150,7 @@ export const ManageV2LiquidityCard: FC<ManageV2LiquidityCardProps> = ({
                     </Message>
                   )}
                 </CardContent>
-              </TabsContent>
+              </TabsContent> */}
             </PoolPositionRewardsProvider>
           </PoolPositionStakedProvider>
         </PoolPositionProvider>

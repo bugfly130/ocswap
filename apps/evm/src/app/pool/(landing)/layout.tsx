@@ -24,7 +24,7 @@ export default function TabsLayout({
           backdropFilter: 'blur(35px)',
         }}
       >
-        {/* <section className="flex flex-col flex-1">
+        <section className="flex flex-col flex-1">
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <LinkInternal
               shallow={true}
@@ -40,7 +40,7 @@ export default function TabsLayout({
                 All Pools
               </PathnameButton>
             </LinkInternal>
-            <LinkInternal
+            {/* <LinkInternal
               shallow={true}
               scroll={false}
               href={`/pool/smart-pool?${searchParams.toString()}`}
@@ -53,7 +53,7 @@ export default function TabsLayout({
               >
                 Smart Pools
               </PathnameButton>
-            </LinkInternal>
+            </LinkInternal> */}
             <LinkInternal
               shallow={true}
               scroll={false}
@@ -68,7 +68,7 @@ export default function TabsLayout({
                 My Positions
               </PathnameButton>
             </LinkInternal>
-            <LinkInternal
+            {/* <LinkInternal
               shallow={true}
               scroll={false}
               href={`/pool/my-rewards?${searchParams.toString()}`}
@@ -81,8 +81,8 @@ export default function TabsLayout({
               >
                 My Rewards
               </PathnameButton>
-            </LinkInternal>
-            <LinkInternal
+            </LinkInternal> */}
+            {/* <LinkInternal
               shallow={true}
               scroll={false}
               href={`/pool/migrate?${searchParams.toString()}`}
@@ -95,9 +95,9 @@ export default function TabsLayout({
               >
                 Migrate
               </PathnameButton>
-            </LinkInternal>
+            </LinkInternal> */}
           </div>
-        </section> */}
+        </section>
 
         <div className="pb-20 border-t border-accent">
           <PoolsFiltersProvider>{children}</PoolsFiltersProvider>

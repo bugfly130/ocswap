@@ -6,6 +6,7 @@ import {
   FRAX,
   LINK,
   MIM,
+  OCS,
   OHM,
   SUSHI,
   USDC,
@@ -72,5 +73,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: {
     }),
     axlUSDC[ChainId.BASE],
     DAI[ChainId.BASE],
+    OCS[ChainId.BASE],
   ],
 }

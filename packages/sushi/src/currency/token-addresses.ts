@@ -106,6 +106,10 @@ export const NFTX_ADDRESS = {
   [ChainId.ETHEREUM]: '0x87d73E916D7057945c9BcD8cdd94e42A6F47f776',
 } as const
 
+export const OCS_ADDRESS = {
+  [ChainId.BASE]: '0x065a793c36fccb05d142a7e603af4c2cb7dc8198',
+} as const
+
 export const OHM_ADDRESS = {
   [ChainId.ETHEREUM]: '0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5',
 } as const
