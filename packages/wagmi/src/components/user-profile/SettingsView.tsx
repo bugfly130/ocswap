@@ -33,37 +33,16 @@ export const SettingsView: FC<SettingsViewProps> = ({ setView }) => {
             onClick={() => setView(ProfileView.Default)}
             icon={ArrowLeftIcon}
             name="Back"
+            variant="secondary"
+            className="!text-black"
           />
         </div>
         <span className="font-medium text-center">Settings</span>
         <div />
       </div>
       <List>
-        <List.Label>Preferences</List.Label>
+        <List.Label className="!text-black">Preferences</List.Label>
         <List.Control className="bg-gray-100">
-          <List.KeyValue flex title="Theme">
-            <RadioGroup value={theme} onChange={setTheme}>
-              <div className="items-center relative bg-black/[0.04] /[0.02] ring-4 ring-black/[0.04] rounded-lg overflow-hidden flex gap-1">
-                {Object.entries(map).map(([k, v], i) => (
-                  <RadioGroup.Option as={Fragment} key={i} value={k}>
-                    {({ checked }) => (
-                      <button
-                        type="button"
-                        className={classNames(
-                          checked
-                            ? 'text-gray-900  bg-white /[0.08]'
-                            : 'text-gray-500  hover:bg-gray-100 hover:/[0.04]',
-                          'min-w-[60px] z-[1] relative rounded-lg text-sm h-8 font-medium flex flex-grow items-center justify-center',
-                        )}
-                      >
-                        {v}
-                      </button>
-                    )}
-                  </RadioGroup.Option>
-                ))}
-              </div>
-            </RadioGroup>
-          </List.KeyValue>
           <List.KeyValue flex title="Show testnets">
             <Switch checked={showTestnets} onCheckedChange={setShowTestnets} />
           </List.KeyValue>

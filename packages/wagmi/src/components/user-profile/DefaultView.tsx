@@ -66,6 +66,8 @@ export const DefaultView: FC<DefaultProps> = ({
               onClick={() => setView(ProfileView.Settings)}
               description="Settings"
               name="Settings"
+              variant="secondary"
+              className="!text-black"
             />
             <ClipboardController hideTooltip>
               {({ setCopied, isCopied }) => (
@@ -75,6 +77,8 @@ export const DefaultView: FC<DefaultProps> = ({
                   onClick={() => setCopied(address)}
                   description={isCopied ? 'Copied!' : 'Copy Address'}
                   name="Copy"
+                  variant="secondary"
+                  className="!text-black"
                 />
               )}
             </ClipboardController>
@@ -84,6 +88,8 @@ export const DefaultView: FC<DefaultProps> = ({
                 icon={LinkIcon}
                 description="View on Explorer"
                 name="View on Explorer"
+                variant="secondary"
+                className="!text-black"
               />
             </LinkExternal>
 
@@ -93,16 +99,16 @@ export const DefaultView: FC<DefaultProps> = ({
               onClick={() => disconnect()}
               description="Disconnect"
               name="Disconnect"
+              variant="secondary"
+              className="!text-black"
             />
           </div>
         </div>
-        <div className="flex flex-col gap-2 justify-center items-center">
+        <div className="flex flex-col items-center justify-center gap-2">
           <p className="text-3xl font-medium whitespace-nowrap">
             {balance.toSignificant(3)} {Native.onChain(chainId).symbol}
           </p>
-          <p className="font-medium text-slate-400">
-            ${balanceAsUsd?.toFixed(2)}
-          </p>
+          <p className="font-medium">${balanceAsUsd?.toFixed(2)}</p>
         </div>
       </div>
       <List>

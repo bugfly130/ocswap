@@ -1,7 +1,16 @@
 import { getAddress as _getAddress, isAddress } from '@ethersproject/address'
 import { useCallback, useMemo } from 'react'
 import { ChainId } from 'sushi/chain'
-import { DAI, SUSHI, USDC, USDT, WBTC, WETH9, WNATIVE } from 'sushi/currency'
+import {
+  DAI,
+  OCS,
+  SUSHI,
+  USDC,
+  USDT,
+  WBTC,
+  WETH9,
+  WNATIVE,
+} from 'sushi/currency'
 import { type Currency, Native, Token } from 'sushi/currency'
 import { useLocalStorage } from './useLocalStorage'
 
@@ -35,6 +44,7 @@ export const DEFAULT_BASES = {
       address: '0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA',
     }),
     USDC[ChainId.BASE],
+    OCS[ChainId.BASE],
   ],
 } as const
 
